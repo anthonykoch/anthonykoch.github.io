@@ -1,0 +1,7 @@
+/node_modules
+/_site
+extras.txt
+*.sublime-workspace
+*.sublime-project
+/_drafts
+/extras
