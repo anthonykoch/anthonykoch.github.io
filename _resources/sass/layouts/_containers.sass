@@ -1,0 +1,81 @@
+/**
+ * file: _container.sass
+ * Contains styles for the row, columns, and band classes.
+ */
+
+/**
+ * May also be known as a panel or sheet. It is a
+ * class that gives top and bottom padding.
+ *
+ * It may also be used to give a background color
+ */
+.Band
+	+padding($base-spacing * 4 null)
+
+.Band--small
+	+padding(double($base-spacing) null)
+
+.Band--large
+	+padding(($base-spacing * 6) null)
+
+.Band-section
+	padding-bottom: double($base-spacing)
+
+.Band--first
+	padding-bottom: 0
+
+
+
+/**
+ * The "row" class restricts the width and adds padding to the
+ * left and to the right.
+ */
+.row
+	+margin(null auto)
+	+row
+
+	@each $name, $size in $breakpoints
+		&--#{$name}
+			max-width: $size
+
+.row--full
+	max-width: 100%
+
+/**
+ * Restricts to a width that is best for reading
+ */
+.row--readable
+	max-width: rem(700px)
+
+/**
+ * Unset the margin centering
+ */
+.row--left
+	+margin(null initial)
+
+
+
+/**
+ * The base column class is a flex item.
+ */
+.#{$column-class}
+	flex: 1
+
+/**
+ * The responsive column classes e.g. column-6@large where large is
+ * the name of a breakpoint in $breakpoint-classes.
+ */
+
+@for $column-index from 1 through 12
+	$class: '.' + $column-class + '-' + $column-index + 'of' + 12
+	+breakpointify($class)
+		$width: grid-column($column-index)
+		flex: 0 0 $width
+		max-width: $width
+
+
+
+@media screen and (max-width: breakpoint('small'))
+
+	.row
+		+padding(null $row-gutter-at-small)

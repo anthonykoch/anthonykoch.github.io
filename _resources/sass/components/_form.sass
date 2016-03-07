@@ -1,0 +1,66 @@
+/**
+ * Styles for the form
+ */
+
+$input-background: white
+
+$input-foreground: #222
+$input-placeholder-foreground: #555
+
+$input-padding-v: 1rem
+$input-padding-h: 1.5rem
+
+$input-font-size: rem(15.4px)
+$input-font-family: $base-font-family
+$input-placeholder-font-size: rem(15px)
+
+$input-border-width: rem(2px)
+$input-border-style: solid
+$input-border-color: #ddd
+$input-border-color--focus: color('primary')
+
+$form-width: rem(500px)
+
+/**
+ * Base input styles
+ */
+#{$all-text-inputs},
+textarea
+	background: $input-background
+	border-radius: rem(2px)
+	border: 0
+	border: $input-border-width solid $input-border-color
+	color: $input-foreground
+	display: block
+	font-family: $input-font-family
+	font-size: $input-font-size
+	font-weight: 400
+	line-height: 1.6
+	margin: $base-spacing 0
+	padding: $input-padding-v $input-padding-h
+	outline: none
+	transition: background-color
+	transition-duration: $link-transition-duration
+	width: 100%
+
+	&:focus
+		border-color: color('primary')
+
+	&::placeholder
+		color: $input-placeholder-foreground
+		font-family: $base-font-family
+		font-size: $input-placeholder-font-size
+		font-weight: 400
+		letter-spacing: rem(1px)
+		line-height: 1.7
+		text-transform: capitalize
+
+textarea
+	min-height: rem(200px)
+
+.Form__description
+	font-size: rem(17px)
+	padding-top: $base-spacing
+
+.Form
+	max-width: $form-width

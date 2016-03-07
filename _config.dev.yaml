@@ -1,0 +1,33 @@
+exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
+
+
+host: "localhost"
+url: "http://localhost:3000"
+baseurl: ""
+
+
+javascripts: "//localhost:3000/assets/javascripts"
+stylesheets: "//localhost:3000/assets/stylesheets"
+images: "//localhost:3000/assets/images"
+
+
+placeholder:
+  image: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+      description: The personal website and blog of front-end developer Anthony Koch
+      title: Anthony Koch
+      excerpt_separator: <!-- endexcerpt -->
+
+
+kramdown:
+  input: GFM
+
+
+permalink: /blog/:title/

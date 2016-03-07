@@ -1,0 +1,88 @@
+/**
+ * Colors
+ */
+
+/**
+ * Returns the different lightness and saturations of a color
+ * @param  {Color} $color
+ * @return {Map}
+ */
+@function getvariants($color) {
+	@return (
+		'base':   $color,
+		'light':    adjust-color($color, $lightness: 10,  $saturation: 10),
+		'lighter':  adjust-color($color, $lightness: 21,  $saturation: 22),
+		'lightest': adjust-color($color, $lightness: 36,  $saturation: 32),
+		'dark':     adjust-color($color, $lightness: -10, $saturation: 10),
+		'darker':   change-color($color, $lightness: 20,   $saturation: 25),
+		'darkest':  change-color($color, $lightness: 15,   $saturation: 16),
+	);
+}
+
+$blue: hsl(210, 82%, 59%);
+$green: hsl(160, 100%, 37%);
+$bronze: hsl(15, 84%, 55%);
+
+$selection-background: rgba(mix(black, hsl(45, 78%, 56%), 50), 0.3);
+
+// Primary colors
+$color-primary: hsl(48, 100%, 58%);
+$color-primary: hsl(45, 80%, 54%);
+$color-primary--light: #9c957e;
+$color-primary-darker: #383632;
+
+// Secondary colors
+$color-secondary: #4D5366; // hsla(226,14%,35%,1); // dark blue
+$color-secondary: $green;
+
+// Accent colors
+$base-border-color: #c5c5c2;  // a bit lighter
+
+// Foreground colors
+$color-foreground: #444;
+$color-foreground-alternate: #bdbdbd;
+$color-foreground--meta: #989B9E;
+
+// Background colors
+$color-background: #eee;
+$color-background--dark: #202020;
+
+
+$color-grayscale: (
+	'light': #f0f0f0,
+	'base':  #eee,
+	'dark':  #ddd,
+);
+
+$colors: (
+	'primary': getvariants($color-primary),
+	'secondary': getvariants($color-secondary),
+	'foreground': (
+		'lightest':  #E6ECEF,
+		'lighter':   #868A8C,
+		'light':     #737F86,
+		'base':      $color-foreground,
+		'dark':      #202020,
+		'alternate': $color-foreground-alternate,
+	),
+	'background': (
+		'light': hsl(hue($color-primary), 7%, 96%),
+		'base': $color-background,
+		'dark': $color-background--dark,
+		'darkest': #202020,
+	),
+	'success': getvariants($green),
+	// 'warning': getvariants($orange),
+	// 'danger': getvariants($red),
+	'link': (
+		'base': #6196CC,
+		'hover': hsl(225, 34%, 40%),
+		// 'hover': #8FB5D8,
+	),
+	'brand': (
+		'node': #80BD01,           // green
+		'javascripttext': #323330, // brown,
+		'javascript': #F0DB4F,     // yellow
+		'sass': #c69               // pink
+	)
+);

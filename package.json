@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "scripts": {
+    "watch:jekyll": "bundle exec jekyll build --watch --drafts --config _config.dev.yaml",
+    "watch:js": "webpack -d --watch",
+    "watch:gulp": "gulp",
+    "clean": "rm assets/** -rf",
+    "build:js": "webpack --optimize-minimize",
+    "build:images": "gulp images:optimize",
+    "build:fonts": "gulp fonts",
+    "build:sass": "gulp sass",
+    "build": "npm run clean && npm run build:js & npm run build:images & npm run build:fonts & npm run build:sass"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-runtime": "^6.3.19",
+    "browser-sync": "^2.10.1",
+    "compression": "^1.6.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-cache": "^0.4.2",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "object-assign": "^4.0.1",
+    "require-dir": "^0.3.0",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "core-js": "^2.0.0",
+    "store": "^1.3.20"
+  }
+}

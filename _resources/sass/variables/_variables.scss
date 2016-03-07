@@ -1,0 +1,105 @@
+
+$z-indexes: (
+	'below': -1,
+	'default': 1,
+	'above': 2,
+	'header': 10,
+	'overlay': 5000,
+	'modal': 5001,
+);
+
+/**
+ * Declare them from largest to smallest so that when looping over
+ * them to create the responsive classes, the smaller classes
+ * override the larger classes
+ */
+$breakpoints: (
+	'xxlarge': rem(1400px),
+	'xlarge': rem(1200px),
+	'large': rem(900px),
+	'medium': rem(600px),
+	'small': rem(350px),
+	'readable': rem(760px)
+);
+
+$abbreviations: (
+	'xxlarge': 'xxlg',
+	'xlarge':  'xlg',
+	'large':   'lg',
+	'medium':  'md',
+	'small':   'sm'
+);
+
+$ionicons-font-path: "../fonts/ionicons-2.0.1" !default;
+
+/**
+ * The base bottom spacing
+ * @type {number}
+ */
+$base-spacing: 1.875rem;
+
+/**
+ * The base gutter width
+ * @type {number}
+ */
+$base-gutter: 2rem;
+
+/**
+ * The large base gutter width
+ * @type {number}
+ */
+$base-gutter--large: rem(50px);
+
+/**
+ * The gutter for the row classes
+ * @type {number}
+ */
+$row-gutter: 1.25rem;
+
+/**
+ * The gutter used for the horizontal padding of rows when at mobile sizes.
+ * @type {number}
+ */
+$row-gutter-at-small: 1.25rem;
+
+/**
+ * The left padding for the blockquote
+ */
+$block-quote-padding-h: ($base-gutter * 3);
+
+/**
+ * The basename of the column class
+ * @type {String}
+ */
+$column-class: 'col';
+
+/**
+ * These classes will be used for the responsive @ classes.
+ * @type {list}
+ */
+$breakpoint-classes: ('xlarge', 'large', 'medium', 'small');
+
+/**
+ * The base border radius
+ * @type {number}
+ */
+$base-border-radius: 3px;
+
+/**
+ * The duration of time a link's foreground color is transitioned
+ * from it's link to hover/active color
+ */
+$link-transition-duration: 0.3s;
+
+/**
+ * The header color for the background of post headers
+ */
+$post-header-background: $color-secondary;
+
+/**
+ * Variables for lists
+ * @type {[type]}
+ */
+$list-item-margin-h: ($base-gutter * 1.25);
+$list-item-padding-h: quarter($base-gutter);
+$list-padding-v: $base-spacing;

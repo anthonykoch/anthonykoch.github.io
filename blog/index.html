@@ -1,0 +1,20 @@
+---
+layout: default
+title: Blog
+description: These are my various writings, mostly about topics on front-end development.
+hero:
+  caption: My writings
+  description: These are my various writings, mostly on topics surrounding front-end development.
+---
+
+<section class="Band">
+	<div class="row row--medium">
+		<ul class="PostList">
+			{% for post in site.posts %}
+				<li class="PostList__item">
+					{% include post_preview.html %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

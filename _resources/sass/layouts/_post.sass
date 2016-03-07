@@ -1,0 +1,126 @@
+/**
+ * file: _post.sass
+ */
+
+$post-font-size: rem(16px)
+$post-max-width: rem(800px)
+$post-header-background: #eee
+
+.Post
+	font-size: $post-font-size
+	line-height: 1.8
+
+/**
+ * Positioned relative for the social icons
+ */
+.Post__header
+	padding: ($base-spacing * 4) $row-gutter
+	position: relative /* [1] */
+
+.Post__title
+	font-family: $heading-font-family
+	font-size: rem(52px)
+	font-weight: bold
+	font-weight: 300
+	letter-spacing: rem(1px)
+	padding-bottom: ($base-spacing * 1)
+	text-align: center
+	text-transform: capitalize
+
+
+.Post__meta-list
+	text-align: center
+	line-height: $base-spacing
+
+/**
+ * FIXME: Change star selector to specific elements
+ */
+.Post__body
+	$gutter: double($row-gutter)
+	padding-bottom: $base-spacing
+
+	> #{$headings}
+		padding-top: 1rem
+
+	> ol
+		+list(number)
+
+	> ul
+		+list(bullet)
+
+	& >  #{$headings},
+	& > blockquote,
+	& > figure,
+	& > img,
+	& > ul,
+	& > ol,
+	& > li,
+	& > p,
+	& > dl,
+	& > div,
+		max-width: $post-max-width
+		+padding(null $gutter)
+		+margin(null auto)
+
+	> .full-width
+		max-width: initial
+
+
+
+/**
+ * z-indexed over the header wrapper
+ */
+.PostList
+	margin: 0 auto
+	position: relative
+	z-index: 1 /* [1] */
+
+.PostList__item
+	padding: 1.25rem 0
+
+
+
+.PostPreview
+	padding: $base-spacing 0
+
+.PostPreview__title
+	+title('small')
+	font-size: 1.5rem;
+
+.PostPreview__link
+	&:link, &:visited
+		color: #888
+
+	&:hover, &:active
+		color: #ddd
+
+.PostPreview__meta
+	font-size: rem(14px)
+	letter-spacing: rem(1px)
+	padding-bottom: 1.25rem
+	color: #666
+
+.PostPreview__body
+	font-size: $post-font-size
+	padding: 0 0 half($base-spacing)
+
+.PostPreview__more
+	display: inline-block
+	text-transform: capitalize
+	text-align: right
+	+clearfix
+
+	&:link, &:visited
+		color: #999
+
+	&:hover, &:active
+		color: #ddd
+
+
+
+@media (max-width: breakpoint('medium'))
+	.Post__body > *
+		+padding(null $row-gutter-at-small)
+
+	.PostPreview
+		padding: $base-spacing 0

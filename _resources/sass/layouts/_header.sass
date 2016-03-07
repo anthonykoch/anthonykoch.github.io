@@ -1,0 +1,112 @@
+/*
+ * file: _header.sass
+ * Styles for the site header, site header navigation, and logo.
+ */
+
+$site-header-background: #333
+$site-nav-link-foreground: lighten($site-header-background, 40)
+$site-nav-link-foreground--active: color('primary')
+$site-header-height: rem(500px)
+
+.site-header-wrapper
+	background: $site-header-background url('../images/desk.svg') no-repeat 100% 100% / cover
+	min-height: 100vh
+	min-height: rem(500px)
+	position: relative
+	width: 100%
+
+/**
+ * Necessary for the absolute positioned landing arrow to be on the bottom of the screen
+ */
+.site-header-wrapper[data-page="home"] > .SiteHeader
+	min-height: 100vh /* [1] */
+
+.site-header-wrapper[data-page="blog"],
+.site-header-wrapper[data-page="contact"]
+	min-height: rem(400px)
+
+
+
+/**
+ * Inherit the height from the site-header-wrapper, which is set differently
+ * for most pages.
+ */
+.SiteHeader
+	padding: 3rem 0
+	position: relative
+	width: 100%
+	z-index: zindex('header')
+
+.SiteHeader__container
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin: 0 auto
+	max-width: breakpoint('xxlarge')
+	padding: 0 $row-gutter
+	width: 100%
+
+.SiteHeader__social
+	position: absolute
+	bottom: 1rem
+
+
+
+.Logo__link
+	&:link, &:visited
+		color: $site-nav-link-foreground
+
+	&:hover, &:active
+		color: color('primary')
+
+.Logo
+	font-size: rem(14px)
+	font-weight: 600
+	letter-spacing: rem(4px)
+	text-transform: uppercase
+
+
+
+.SiteNav
+	padding-left: $base-gutter
+	text-align: right
+
+.SiteNav__list
+	display: flex
+
+.SiteNav__list__item
+	margin: 0 1.5rem
+
+.SiteNav__list__item__link
+	display: block
+	font-size: rem(14px)
+	font-weight: 600
+	letter-spacing: rem(2px)
+	text-transform: uppercase
+
+	&:link, &:visited
+		color: $site-nav-link-foreground
+
+	&:hover, &:active
+		color: $site-nav-link-foreground--active
+
+
+
+
+@media (max-width: breakpoint('medium'))
+	.SiteHeader__container
+		display: block
+
+	.Logo
+		margin-bottom: $base-spacing
+
+	.Logo,
+	.SiteNav
+		text-align: center
+		padding-left: 0
+
+	.SiteNav__list
+		justify-content: space-between
+
+	.SiteNav__list__item
+		margin: 0

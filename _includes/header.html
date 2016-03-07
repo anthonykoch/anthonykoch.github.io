@@ -1,0 +1,55 @@
+<div class="site-header-wrapper" data-page="{{ site.data.pathnames[page.url] }}">
+	<header class="SiteHeader" role="banner">
+		<div class="SiteHeader__container">
+			<div class="Logo">
+				<a href="/" class="Logo__link">
+					<span>Anthony</span>
+					<span>Koch</span>
+				</a>
+			</div>
+
+			<nav class="SiteNav" role="navigation">
+				<ul class="SiteNav__list">
+					{% for item in site.data.navigation %}
+						<li class="SiteNav__list__item">
+							<a href="{{ item.href }}" class="SiteNav__list__item__link">{{ item.text }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		</div>
+
+		{% if page.hero %}
+			<div class="Hero">
+				{% if page.hero.title %}
+					<div class="Hero__title">
+						{{ page.hero.title }}
+					</div>
+				{% endif %}
+
+				{% if page.hero.caption %}
+					<div class="Hero__caption">
+						{{ page.hero.caption }}
+					</div>
+				{% endif %}
+
+				{% if page.hero.description %}
+					<div class="Hero__description">
+						{{ page.hero.description }}
+					</div>
+				{% endif %}
+
+
+				{% if page.hero.display_social %}
+					<div class="SiteHeader__social">
+						{% include components/social.html %}
+					</div>
+				{% endif %}
+
+				{% if page.hero.more %}
+					<div class="landing-arrow ion-chevron-down"></div>
+				{% endif %}
+			</div>
+		{% endif %}
+	</header>
+</div>

@@ -1,0 +1,109 @@
+
+{% if page.use_excerpt_as_description %}
+	{% assign description = page.excerpt | strip_html %}
+{% else %}
+	{% assign description = page.description %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="{{ description }}">
+	<meta name="robots" content="index,follow">
+
+	<!-- Prefetch -->
+	{% for url in site.data.prefetch.dns %}
+		<link rel="dns-prefetch" href="{{ url }}">
+	{% endfor %}
+
+	{% for url in site.data.prefetch.prefetch %}
+		<link rel="prefetch" href="{{ site.images | append:url }}">
+	{% endfor %}
+
+	<!-- Main stylesheet -->
+	<link rel="stylesheet" href="{{ site.stylesheets | append: '/main.min.css'}}">
+
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700, 800,900|Source+Sans+Pro:200,400,300,400italic,600,700|Source+Code+Pro:400,600,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Neuton:300,200,400|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- Twitter cards -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="{{ site.social.twitter.handle }}" />
+	<meta name="twitter:title" content="{{ page.title }}" />
+	<meta name="twitter:description" content="{{ page.description }}" />
+	<meta name="twitter:url" content="{{ page.url }}">
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-69481885-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+	<title>{{ page.title }}</title>
+</head>
+<body>
+
+	<!--
+		Hi, since you're already here, I'd like to inform you on the if/elseif statements of various programming  languages.
+
+		Ruby: elsif
+		PHP: elseif
+		Sass: elseif or else if
+		JavaScript: else if
+		Python: elif
+		VB: ElseIf
+
+		Like, wtf.
+	 -->
+
+	<!-- For debugging where the vertical and horizontal centers of the page are -->
+	<div class="wtf-middle-line horizontal vertical"></div>
+
+	{% include icons.html %}
+
+	<div class="page-wrapper">
+		{% include header.html %}
+
+		<main class="page-content">
+			{{ content }}
+		</main>
+
+		{% include footer.html %}
+	</div>
+
+	<!-- Vendor Script (goes first because it contains polyfills) -->
+	<script defer src="{{ site.javascripts }}/vendor.js"></script>
+
+	<!-- Bliss -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/blissfuljs/1.0.1/bliss.min.js"></script>
+
+	<!-- Syntax Highlighting -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js" ></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/languages/javascript.min.js"></script>
+
+	<!-- Main Script -->
+	<script defer src="{{ site.javascripts }}/app.js"></script>
+
+	<!-- Script for codepen embedding -->
+	<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+	<script>
+		(function () {
+			console.log("JavaScript is amazing... don't let anyone tell you otherwise!");
+
+			setTimeout(function () {
+				console.log("JavaScript, now that's some good stuff right there. 👌👌👌");
+			}, 3000)
+		}());
+	</script>
+</body>
+</html>

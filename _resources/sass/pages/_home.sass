@@ -1,0 +1,63 @@
+/**
+ * file: _home.sass
+ * Styles for the home page
+ */
+
+$project-width: rem(540px)
+
+
+
+.home-about
+	background: color('primary') url('../images/office.svg') no-repeat center / cover
+
+
+
+.landing-arrow
+	animation: floatUpDown 1s infinite alternate ease-in-out
+	color: color('primary')
+	transform: translate(-50%, -50%)
+	+position(absolute, null null 4rem 50%)
+
+	@media (max-width: breakpoint('medium'))
+		display: none /* Remove so it doesn't clash with social icons on home page */
+
+
+
+// FIXME: move this to appropriate file
+.Projects
+	max-width: $project-width
+	margin: 0 auto
+
+.ProjectList
+	pass
+
+.ProjectList__item
+	padding-bottom: 0
+
+.Project__details
+	padding: 1rem
+
+.Project__title
+	+title('small')
+	font-weight: 400
+	padding-bottom: half($base-spacing)
+
+.Project__title__link
+	$foreground: #333
+	$foreground--active: #ababab
+
+	&:link, &:visited
+		color: $foreground
+
+	&:hover, &:active
+		color: $foreground--active
+
+.Project__image
+	border-radius: $base-border-radius
+	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
+	max-width: $project-width
+	margin: 0 auto
+	width: 100%
+
+.Project__caption
+	padding-bottom: rem(10px)

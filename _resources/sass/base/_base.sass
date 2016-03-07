@@ -1,0 +1,194 @@
+/**
+ * file: _base.sass
+ * Contains base styles for tags
+ */
+
+/**
+ * Makes all elements inherit box-sizing from html element
+ */
+*, *:before, *:after
+	box-sizing: inherit
+	margin: 0
+	padding: 0
+
+html
+	box-sizing: border-box
+	font: $base-font-weight #{$base-font-size } / $base-line-height $base-font-family
+	overflow-x: hidden
+	width: 100%
+
+body
+	background-color: white
+	color: color('foreground')
+	min-height: 100vh
+	margin: 0
+	padding: 0
+	width: 100% /* [1] */
+	// text-rendering: geometricPrecision // FIXME: Remove this later
+	-webkit-text-size-adjust: 100%
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+
+
+#{$headings}
+	font-weight: 400
+	font-family: $heading-font-family
+	margin:  0
+	padding: 0 0 1rem 0
+
+/**
+ * Defines the base padding for heading elements
+ */
+h1
+	font-size: rem(52px)
+	line-height: 1.1
+
+h2
+	font-size: rem(42px)
+	line-height: 1.2
+
+h3
+	font-size: rem(32px)
+	line-height: 1.4
+
+h4
+	font-size: rem(26px)
+	line-height: 1.4
+
+h5
+	font-size: rem(21px)
+	line-height: 1.6
+
+h6
+	font-size: rem(16px)
+	line-height: 1.6
+
+
+
+a
+	text-decoration: none
+	transition: color $link-transition-duration
+
+	&:link, &:visited
+		color: color('link')
+
+	&:hover, &:active
+		color: color('link', 'hover')
+
+
+
+p
+	font-size: $paragraph-font-size
+	padding-bottom: $paragraph-spacing
+
+
+
+$code-background: #e6e6e6
+$pre-background: #eee
+$pre-font-size: em(13px)
+$code-font-size: em(12px)
+
+code
+	background-color: $code-background
+	border-radius: $base-border-radius
+	display: inline-block
+	font-family: Source Code Pro
+	font-size: $code-font-size
+	line-height: 1.6
+	padding: rem(1px) rem(6px)
+	margin: 0 rem(4px)
+	word-wrap: break-word
+
+pre
+	$margin: ($base-spacing * 2)
+	$padding-v: ($base-spacing * 1)
+	background-color: $pre-background
+	border-radius: $base-border-radius
+	font-size: $pre-font-size
+	overflow: auto
+	font-family: Source Code Pro
+	position: relative
+	margin-bottom: $paragraph-spacing
+	padding: $paragraph-spacing $row-gutter
+	tab-size: 2
+	word-wrap: normal
+	+scrollbar
+
+	> code
+		background-color: inherit
+		color: inherit
+		font-size: inherit
+		font-family: inherit
+		line-height: rem(21px)
+		margin: 0
+		padding: 0
+
+
+	@media screen and (max-width: breakpoint('small'))
+		padding: $padding-v $row-gutter
+
+
+
+img
+	display: block
+	max-width: 100%
+	max-height: 100%
+
+
+
+ul, ol
+	margin: 0
+	padding: 0
+	list-style-type: none
+
+
+
+dl
+	margin: 0 0 half($paragraph-spacing) 0
+
+dt
+	font-weight: 700
+
+dd
+	color: lighten(color('foreground'), 8)
+	margin-left: 1.5em
+	padding-bottom: half($base-spacing)
+
+dd:last-child
+	padding-bottom: ($base-spacing)
+
+@media screen and (max-width: breakpoint('medium'))
+	dd
+		margin-left: 1.25rem
+
+
+
+blockquote
+	$left: ($base-gutter * 2)
+	border-left: rem(4px) solid $base-border-color
+	margin-bottom: double($paragraph-spacing)
+	margin-top: $paragraph-spacing
+	padding: half($paragraph-spacing) $block-quote-padding-h
+
+	> p
+		font-style: italic
+		padding-bottom: 0
+
+	> span:last-of-type
+		display: inline-block
+		font-size: rem(15px)
+		font-weight: bold
+		padding-top: half($base-spacing)
+
+
+
+figure
+	margin: 0
+	padding: ($base-spacing * 2.5) 0 ($base-spacing * 5)
+
+figcaption
+	color: color('foreground', 'lighter')
+	font-size: fontsize('medium')
+	margin-bottom: $base-spacing
+	text-align: center

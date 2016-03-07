@@ -1,0 +1,118 @@
+/**
+ * Mixins for types of elements, such as a button, column, etc.
+ */
+
+=heading-border
+	border-bottom: rem(1px) solid $base-border-color
+	margin-bottom: quarter($base-spacing)
+	+padding($base-spacing null)
+
+
+
+=title($type: ('default'))
+	@if (contains($type, 'small'))
+		color: color('foreground')
+		font-family: Lato, arial
+		font-size: 1.3rem
+		font-weight: 700
+		letter-spacing: rem(3px)
+		padding-bottom: $base-spacing
+		text-transform: uppercase
+
+	@if (contains($type, 'default'))
+		font-size: 2rem
+		padding-bottom: $base-spacing
+		// font-weight: 300
+
+	@if (contains($type, 'bordered'))
+		+heading-border
+
+
+
+/**
+ * Creates a row
+ */
+=row($args: ())
+	$max-width: breakpoint('xlarge')
+
+	@each $item in $args
+		@if breakpoint($item)
+			$max-width: breakpoint($item)
+
+	@if (contains($args, 'nogutter')) == false
+		+padding(null $row-gutter)
+
+	display: block
+	max-width: $max-width
+	+margin(null auto)
+
+	@media (max-width: breakpoint('small'))
+		+padding(null $row-gutter-at-small)
+
+
+
+/**
+ * Creates a grid column
+ * @param {number} column The number of columns to span
+ * @param {number} columns The total number of columns in the grid
+ */
+=grid-column($column, $grid-columns: 12)
+	$width: grid-column($column, $grid-columns: 12)
+	flex: 1 0 $width
+	max-width: $width
+
+
+
+=list($type)
+	@if $type == 'number'
+		list-style-type: decimal
+		padding-bottom: $list-padding-v
+
+		& > li
+			margin-left: $list-item-margin-h
+			padding-left: $list-item-padding-h
+
+	@else if $type == 'bullet'
+		counter-reset: list-counter
+		list-style-type: disc
+		padding-bottom: $list-padding-v
+
+		> li
+			margin-left: $list-item-margin-h
+			padding-left: $list-item-padding-h
+
+	@else
+		@error 'Invalid list type: "' + $type + '"'
+
+
+
+// FIXME: this is unfinished
+=button($type: (null))
+	@if (contains($type, 'reset'))
+		background-color: transparent
+		font-size: $button-font-size
+		cursor: pointer
+		border: 0
+		outline: 0
+
+
+
+=link($type: (null))
+	@if (contains($type, 'dark'))
+		&:link, &:visited
+			color: color('foreground')
+
+		&:hover, &:active
+			color: color('foreground', 'alternate')
+
+	@else if (contains($type, 'light'))
+		&:link, &:visited
+			color: color('foreground', 'alternate')
+
+		&:hover, &:active
+			color: color('foreground')
+
+
+	@else if (contains($type, 'underline'))
+		border-bottom: rem(1px) solid currentColor
+		padding-bottom: rem(4px)

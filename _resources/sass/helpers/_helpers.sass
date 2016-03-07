@@ -1,0 +1,252 @@
+/**
+ * Contains various utility classes
+ * file: _helpers.sass
+ */
+
+.u-border-0
+	border: 0
+
+.u-margin-0
+	margin: 0
+
+
+
+/**
+ * Erases line height
+ */
+.u-line-height-0
+	line-height: 0
+
+
+
+/**
+ * Rounds the edges of an element by the base border radius
+ */
+.u-rounded
+	border-radius: $base-border-radius
+
+/**
+ * Rounds the top left and top right corners by a few pixels
+ */
+.u-rounded-top
+	border-top-left-radius: 3px
+	border-top-right-radius: 3px
+
+/**
+ * Rounds the bottom left and bottom right corners by a few pixels
+ */
+.u-rounded-bottom
+	border-bottom-right-radius: 3px
+	border-bottom-left-radius: 3px
+
+
+
+.u-island
+	padding: 20px
+
+.u-continent
+	padding: $base-spacing rem(50px)
+
+
+
+.u-gutters
+	+padding(null $base-gutter)
+
+.u-gutters--large
+	+padding(null ($base-gutter * 2))
+
+
+
+/**
+ * Collapse classes are used to collapse padding.
+ * The base collapse class only collapses the left and right paddings.
+ * Example:
+ *		<div class="u-collapse@large"></div>
+ */
++breakpointify('.u-collapse')
+	padding-left: 0 !important
+	padding-right: 0 !important
+
+.u-collapse-l
+	padding-left: 0
+
+.u-collapse-r
+	padding-right: 0
+
+.u-collapse-all
+	padding: 0
+
+.u-collapse-v
+	padding-top: 0
+	padding-bottom: 0
+
+.u-collapse-t
+	padding-top: 0
+
+.u-collapse-b
+	padding-bottom: 0
+
+
+
+/**
+ * Collapses the left and right paddings at certain breakpoints
+ */
+.u-margin-center
+	+margin(null auto)
+
+
+
+/**
+ * When applied to an element that has the same height and width,
+ * it will make the element display into the shape of a circle
+ */
+.u-circlify
+	border-radius: 100%
+
+
+
+.u-float-right
+	float: right !important
+
+.u-float-left
+	float: left !important
+
+
+
+.u-fixed
+	position: fixed !important
+
+.u-absolute
+	position: absolute !important
+
+.u-relative
+	position: relative !important
+
+
+
+.u-inline
+	display: inline !important
+
+.u-inline-block
+	display: inline-block !important
+
+.u-block
+	display: block !important
+
+
+
+.u-clear
+	clear: both
+
+.u-clearfix
+	+clearfix
+
+
+
+.u-hidden
+	display: none !important
+
+.u-invisible
+	visibility: hidden !important
+
+
+
+.u-va-middle
+	vertical-align: middle
+
+.u-va-baseline
+	vertical-align: baseline
+
+.u-va-top
+	vertical-align: top
+
+.u-va-bottom
+	vertical-align: bottom
+
+
+
+@each $index in (1, 2)
+	+breakpointify('.u-order-#{$index}')
+		order: $index
+
+
+
+.u-flex
+	display: flex
+	flex-wrap: wrap
+
+.u-flex-column
+		flex-direction: column
+
+.u-flex-row
+		flex-direction: row
+
+.u-flex-nowrap
+	flex-wrap: nowrap
+
+.u-flex-wrap
+	flex-wrap: wrap
+
+.u-flex-inline
+	display: inline-flex
+
+
+
+/**
+ * Helper classes for flex justify
+ */
+.u-justify-center
+	justify-content: center
+
+.u-justify-start
+	justify-content: flex-start
+
+.u-justify-end
+	justify-content: flex-end
+
+.u-justify-around
+	justify-content: space-around
+
+.u-justify-between
+	justify-content: space-between
+
+
+
+/**
+ * Helper classes for flex align items
+ */
+.u-items-start
+	align-items: flex-start
+
+.u-items-center
+	align-items: center
+
+.u-items-end
+	align-items: flex-end
+
+.u-items-around
+	align-items: space-around
+
+.u-items-between
+	align-items: space-between
+
+.u-items-baseline
+	align-items: baseline
+
+
+
+.u-abs-center
+	+center
+
+
+
+@each $index in (1,2,3,4)
+	.u-flex-#{$index}
+		flex: $index
+
+
+
+// Helper classes for font weights
+@each $weight in (300, 400, 500, 600, 700)
+	.u-weight-#{$weight}
+		font-weight: $weight

@@ -1,0 +1,92 @@
+/**
+ * Various helper classes for font sizes and colors.
+ */
+
+.u-font-meta
+	font-size: fontsize('small')
+	font-weight: 600
+	letter-spacing: 1px
+	line-height: $base-spacing
+	text-transform: capitalize
+
+.u-font-caption
+	color: color('foreground', 'lighter')
+
+.u-font-success
+	color: color('success')
+
+.u-font-error
+	color: color('danger')
+
+.u-font-warning
+	color: color('warning')
+
+.u-font-white
+	color: white
+
+/**
+ * A font to be used on a dark background
+ */
+.u-font-light
+	color: #ddd
+
+@each $name, $size in $font-sizes
+	.u-font-size-#{$name}
+		font-size: $size
+
+/**
+ * Styles for an introductory paragraph
+ */
+.u-para-intro
+	color: rgba(black, 0.6)
+	line-height: 30px
+	padding-bottom: ($base-spacing * 4)
+
+.u-font-left
+	text-align: left
+
+.u-font-center
+	text-align: center
+
+.u-font-right
+	text-align: right
+
+.u-font-justify
+	text-align: justify
+
+.u-font-upper
+	text-transform: uppercase
+
+.u-font-cap
+	text-transform: capitalize
+
+.u-font-bold
+	font-weight: bold
+
+.u-font-italic
+	font-style: italic
+
+.u-heading-border
+	margin-bottom: $paragraph-spacing
+	border-bottom: 1px solid $base-border-color
+
+/**
+ * Truncates text
+ */
+.u-truncate
+	white-space: nowrap !important
+	overflow: hidden !important
+	text-overflow: ellipsis !important
+
+/**
+ * Hides text, except for screen readers
+ */
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  border: 0

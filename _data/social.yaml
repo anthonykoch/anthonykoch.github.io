@@ -1,0 +1,24 @@
+
+# - dribbble:
+#   link: 'https://dribbble.com/anthkoch'
+#   name: anthonykoch
+#   title: anthonykoch
+#   icon: icon-dribbble
+
+twitter:
+  link: 'https://twitter.com/anthkoch'
+  handle: '@anthkoch'
+  title: '@anthkoch'
+  icon: icon-twitter
+
+codepen:
+  link: 'http://codepen.io/anthonykoch/'
+  name: anthonykoch
+  title: anthonykoch
+  icon: icon-codepen
+
+github:
+  link: 'https://github.com/anthonykoch'
+  name: anthonykoch
+  title: anthonykoch
+  icon: icon-octocat
