@@ -98,8 +98,13 @@ $post-header-background: $color-secondary;
 
 /**
  * Variables for lists
- * @type {[type]}
  */
 $list-item-margin-h: ($base-gutter * 1.25);
 $list-item-padding-h: quarter($base-gutter);
 $list-padding-v: $base-spacing;
+
+/**
+ * The height of the header when
+ */
+$site-header-height--post: rem(400px);
+

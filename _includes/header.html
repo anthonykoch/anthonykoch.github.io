@@ -1,4 +1,10 @@
-<div class="site-header-wrapper" data-page="{{ site.data.pathnames[page.url] }}">
+{% if page.url contains '/blog/' and page != '/blog/' %}
+	{% assign data_page = 'post' %}
+{% else %}
+	{% assign data_page = site.data.pathnames[page.url] %}
+{% endif %}
+
+<div class="site-header-wrapper" data-page="{{ data_page }}">
 	<header class="SiteHeader" role="banner">
 		<div class="SiteHeader__container">
 			<div class="Logo">
@@ -47,7 +53,9 @@
 				{% endif %}
 
 				{% if page.hero.more %}
-					<div class="landing-arrow ion-chevron-down"></div>
+					<svg class="landing-arrow">
+						<use xlink:href="#icon-chevron-down"></use>
+					</svg>
 				{% endif %}
 			</div>
 		{% endif %}

@@ -25,7 +25,14 @@ $site-header-height: rem(500px)
 .site-header-wrapper[data-page="contact"]
 	min-height: rem(400px)
 
-
+/**
+ * Meant to move away the background image of the header from the post title text,
+ * so as to not decrease readability.
+ * @type {String}
+ */
+.site-header-wrapper[data-page="post"]
+	@media (max-width: breakpoint('large'))
+		min-height: rem(900px)
 
 /**
  * Inherit the height from the site-header-wrapper, which is set differently

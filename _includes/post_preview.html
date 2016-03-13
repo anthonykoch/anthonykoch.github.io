@@ -7,7 +7,7 @@
 			{{ post.title }}
 		</a>
 	</h4>
-	<p class="PostPreview__body">
+	<p class="PostPreview__body  row row--medium row--left">
 		{{ post.excerpt | strip_html | truncatewords: 30 }}
 	</p>
 	<a href="{{ post.url }}" class="PostPreview__more">read more &rarr;</a>

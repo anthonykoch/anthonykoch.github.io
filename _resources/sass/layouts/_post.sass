@@ -11,33 +11,44 @@ $post-header-background: #eee
 	line-height: 1.8
 
 /**
- * Positioned relative for the social icons
+ * 1. Causes the text to be title to be directly in the middle
+ *    of the site header's background image.
  */
 .Post__header
-	padding: ($base-spacing * 4) $row-gutter
-	position: relative /* [1] */
+	padding: 0 $row-gutter
+	position: absolute
+	top: half($site-header-height--post) /* [1] */
+	transform: translateY(30%)
+	width: 100%
 
 .Post__title
 	font-family: $heading-font-family
-	font-size: rem(52px)
-	font-weight: bold
-	font-weight: 300
-	letter-spacing: rem(1px)
+	font-size: 2rem
+	font-weight: 900
+	letter-spacing: rem(4px)
+	line-height: 1.4
 	padding-bottom: ($base-spacing * 1)
-	text-align: center
-	text-transform: capitalize
+	text-transform: uppercase
+	+row(readable)
 
+.Post__title a
+	&:link, &:visited
+		color: color('primary')
+
+	&:hover, &:active
+		color: color('foreground', 'lightest')
 
 .Post__meta-list
-	text-align: center
+	+row(readable)
 	line-height: $base-spacing
+	color: color('foreground', 'light')
 
 /**
  * FIXME: Change star selector to specific elements
  */
 .Post__body
 	$gutter: double($row-gutter)
-	padding-bottom: $base-spacing
+	padding: double($base-spacing) 0 $base-spacing
 
 	> #{$headings}
 		padding-top: 1rem

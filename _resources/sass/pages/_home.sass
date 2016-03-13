@@ -15,8 +15,10 @@ $project-width: rem(540px)
 .landing-arrow
 	animation: floatUpDown 1s infinite alternate ease-in-out
 	color: color('primary')
+	fill: color('primary')
 	transform: translate(-50%, -50%)
 	+position(absolute, null null 4rem 50%)
+	+size(1rem)
 
 	@media (max-width: breakpoint('medium'))
 		display: none /* Remove so it doesn't clash with social icons on home page */

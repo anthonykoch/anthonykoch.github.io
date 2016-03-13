@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * The order of what's imported is very imported, and is ordered
  * in terms of least to most specific.
@@ -168,7 +167,9 @@
  */
 /**
  * Variables for lists
- * @type {[type]}
+ */
+/**
+ * The height of the header when
  */
 /**
  * file: _typography.scss
@@ -1175,6 +1176,15 @@ textarea {
   min-height: 25rem; }
 
 /**
+ * Meant to move away the background image of the header from the post title text,
+ * so as to not decrease readability.
+ * @type {String}
+ */
+@media (max-width: 56.25rem) {
+  .site-header-wrapper[data-page="post"] {
+    min-height: 56.25rem; } }
+
+/**
  * Inherit the height from the site-header-wrapper, which is set differently
  * for most pages.
  */
@@ -1809,31 +1819,62 @@ textarea {
   line-height: 1.8; }
 
 /**
- * Positioned relative for the social icons
+ * 1. Causes the text to be title to be directly in the middle
+ *    of the site header's background image.
  */
 .Post__header {
-  padding: 7.5rem 1.25rem;
-  position: relative; }
+  padding: 0 1.25rem;
+  position: absolute;
+  top: 12.5rem;
+  -webkit-transform: translateY(30%);
+      -ms-transform: translateY(30%);
+          transform: translateY(30%);
+  width: 100%; }
 
 .Post__title {
   font-family: Lato, Arial;
-  font-size: 3.25rem;
-  font-weight: bold;
-  font-weight: 300;
-  letter-spacing: 0.0625rem;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.25rem;
+  line-height: 1.4;
   padding-bottom: 1.875rem;
-  text-align: center;
-  text-transform: capitalize; }
+  text-transform: uppercase;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  display: block;
+  max-width: 47.5rem;
+  margin-right: auto;
+  margin-left: auto; }
+  @media (max-width: 21.875rem) {
+    .Post__title {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
+
+.Post__title a:link, .Post__title a:visited {
+  color: #e8b92c; }
+
+.Post__title a:hover, .Post__title a:active {
+  color: #E6ECEF; }
 
 .Post__meta-list {
-  text-align: center;
-  line-height: 1.875rem; }
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  display: block;
+  max-width: 47.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1.875rem;
+  color: #737F86; }
+  @media (max-width: 21.875rem) {
+    .Post__meta-list {
+      padding-right: 1.25rem;
+      padding-left: 1.25rem; } }
 
 /**
  * FIXME: Change star selector to specific elements
  */
 .Post__body {
-  padding-bottom: 1.875rem; }
+  padding: 3.75rem 0 1.875rem; }
   .Post__body > h1, .Post__body h2, .Post__body h3, .Post__body h4, .Post__body h5, .Post__body h6 {
     padding-top: 1rem; }
   .Post__body > ol {
@@ -2026,12 +2067,15 @@ textarea {
   -webkit-animation: floatUpDown 1s infinite alternate ease-in-out;
           animation: floatUpDown 1s infinite alternate ease-in-out;
   color: #e8b92c;
+  fill: #e8b92c;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
   bottom: 4rem;
-  left: 50%; }
+  left: 50%;
+  height: 1rem;
+  width: 1rem; }
   @media (max-width: 37.5rem) {
     .landing-arrow {
       display: none; } }
@@ -2550,106 +2594,6 @@ textarea {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
-
-/*!
-  Ionicons, v2.0.0
-  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
-  https://twitter.com/benjsperry  https://twitter.com/ionicframework
-  MIT License: https://github.com/driftyco/ionicons
-
-  Android-style icons originally built by Google’s
-  Material Design Icons: https://github.com/google/material-design-icons
-  used under CC BY http://creativecommons.org/licenses/by/4.0/
-  Modified icons to fit ionicon’s grid from original.
-*/
-@font-face {
-  font-family: "Ionicons";
-  src: url("../fonts/ionicons-2.0.1/ionicons.eot?v=2.0.0");
-  src: url("../fonts/ionicons-2.0.1/ionicons.eot?v=2.0.0#iefix") format("embedded-opentype"), url("../fonts/ionicons-2.0.1/ionicons.ttf?v=2.0.0") format("truetype"), url("../fonts/ionicons-2.0.1/ionicons.woff?v=2.0.0") format("woff"), url("../fonts/ionicons-2.0.1/ionicons.svg?v=2.0.0#Ionicons") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-.ion, .ionicons,
-.ion-android-close:before,
-.ion-arrow-left-a:before,
-.ion-arrow-left-b:before,
-.ion-arrow-left-c:before,
-.ion-arrow-right-a:before,
-.ion-arrow-right-b:before,
-.ion-arrow-right-c:before,
-.ion-chevron-down:before,
-.ion-chevron-left:before,
-.ion-chevron-right:before,
-.ion-chevron-up:before,
-.ion-flash:before,
-.ion-gear-a:before,
-.ion-home:before,
-.ion-iphone:before,
-.ion-navicon:before,
-.ion-star:before,
-.ion-noop {
-  display: inline-block;
-  font-family: "Ionicons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  text-rendering: auto;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.ion-android-close:before {
-  content: ""; }
-
-.ion-arrow-left-a:before {
-  content: ""; }
-
-.ion-arrow-left-b:before {
-  content: ""; }
-
-.ion-arrow-left-c:before {
-  content: ""; }
-
-.ion-arrow-right-a:before {
-  content: ""; }
-
-.ion-arrow-right-b:before {
-  content: ""; }
-
-.ion-arrow-right-c:before {
-  content: ""; }
-
-.ion-chevron-down:before {
-  content: ""; }
-
-.ion-chevron-left:before {
-  content: ""; }
-
-.ion-chevron-right:before {
-  content: ""; }
-
-.ion-chevron-up:before {
-  content: ""; }
-
-.ion-flash:before {
-  content: ""; }
-
-.ion-gear-a:before {
-  content: ""; }
-
-.ion-home:before {
-  content: ""; }
-
-.ion-iphone:before {
-  content: ""; }
-
-.ion-navicon:before {
-  content: ""; }
-
-.ion-star:before {
-  content: ""; }
 
 .swatch.base {
   background-color: #1fa85f; }
