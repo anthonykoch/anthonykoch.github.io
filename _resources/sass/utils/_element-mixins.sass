@@ -97,7 +97,14 @@
 
 
 
-=link($type: (null))
+=link($type: ('base'))
+	@if (contains($type, 'base'))
+		&:link, &:visited
+			color: color('link')
+
+		&:hover, &:active
+			color: color('link', 'hover')
+
 	@if (contains($type, 'dark'))
 		&:link, &:visited
 			color: color('foreground')

@@ -796,7 +796,7 @@ dd:last-child {
     margin-left: 1.25rem; } }
 
 blockquote {
-  border-left: 0.25rem solid #c5c5c2;
+  border-left: 0.25rem solid #44413A;
   margin-bottom: 4.6875rem;
   margin-top: 2.34375rem;
   padding: 1.17188rem 6rem; }
@@ -1189,41 +1189,48 @@ textarea {
  * for most pages.
  */
 .SiteHeader {
-  padding: 3rem 0;
+  padding: 0 0 3rem 0;
   position: relative;
   width: 100%;
   z-index: 10; }
 
+.SiteHeader__border {
+  border-bottom: 1px solid #44413A; }
+
 .SiteHeader__container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 auto;
-  max-width: 87.5rem;
-  padding: 0 1.25rem;
   width: 100%; }
 
 .SiteHeader__social {
   position: absolute;
   bottom: 1rem; }
 
-.Logo__link:link, .Logo__link:visited {
-  color: #999999; }
-
-.Logo__link:hover, .Logo__link:active {
-  color: #e8b92c; }
-
 .Logo {
   font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.25rem;
-  text-transform: uppercase; }
+  letter-spacing: 0.25rem; }
+
+.Logo__link {
+  display: block;
+  font-family: Lato;
+  font-size: 0.6875rem;
+  font-weight: 900;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  transition: all 0.3s; }
+  .Logo__link:link, .Logo__link:visited {
+    color: #999999; }
+  .Logo__link:hover, .Logo__link:active, .Logo__link.is-active {
+    background: #e8b92c;
+    color: rgba(0, 0, 0, 0.7); }
 
 .SiteNav {
   padding-left: 2rem;
@@ -1234,35 +1241,44 @@ textarea {
   display: -ms-flexbox;
   display: flex; }
 
-.SiteNav__list__item {
-  margin: 0 1.5rem; }
-
 .SiteNav__list__item__link {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
   letter-spacing: 0.125rem;
-  text-transform: uppercase; }
+  display: block;
+  font-family: Lato;
+  font-size: 0.6875rem;
+  font-weight: 900;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  transition: all 0.3s; }
   .SiteNav__list__item__link:link, .SiteNav__list__item__link:visited {
     color: #999999; }
-  .SiteNav__list__item__link:hover, .SiteNav__list__item__link:active {
-    color: #e8b92c; }
+  .SiteNav__list__item__link:hover, .SiteNav__list__item__link:active, .SiteNav__list__item__link.is-active {
+    background: #e8b92c;
+    color: rgba(0, 0, 0, 0.7); }
 
-@media (max-width: 37.5rem) {
+/**
+ * Breaks the site navigation and "logo" onto two separate lines.
+ * The breakpoint is targeted for the point at which the site nav
+ * and logo layouts start breaking.
+ */
+@media (max-width: 730px) {
   .SiteHeader__container {
     display: block; }
-  .Logo {
-    margin-bottom: 1.875rem; }
+  .Logo__link:link, .Logo__link:visited {
+    background: #e8b92c;
+    color: rgba(0, 0, 0, 0.7); }
   .Logo,
   .SiteNav {
     text-align: center;
     padding-left: 0; }
-  .SiteNav__list {
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
   .SiteNav__list__item {
-    margin: 0; } }
+    -webkit-flex: 33.33333%;
+        -ms-flex: 33.33333%;
+            flex: 33.33333%;
+    margin: 0; }
+  .SiteNav__list__item__link {
+    padding-right: 0;
+    padding-left: 0; } }
 
 /**
  * file: _container.sass
@@ -1933,10 +1949,10 @@ textarea {
   font-size: 1.5rem; }
 
 .PostPreview__link:link, .PostPreview__link:visited {
-  color: #888; }
+  color: #6196CC; }
 
 .PostPreview__link:hover, .PostPreview__link:active {
-  color: #ddd; }
+  color: #435589; }
 
 .PostPreview__meta {
   font-size: 0.875rem;
@@ -1957,9 +1973,9 @@ textarea {
     display: table;
     clear: both; }
   .PostPreview__more:link, .PostPreview__more:visited {
-    color: #999; }
+    color: #6196CC; }
   .PostPreview__more:hover, .PostPreview__more:active {
-    color: #ddd; }
+    color: #435589; }
 
 @media (max-width: 37.5rem) {
   .Post__body > * {
@@ -2572,7 +2588,7 @@ textarea {
 
 .u-heading-border {
   margin-bottom: 2.34375rem;
-  border-bottom: 1px solid #c5c5c2; }
+  border-bottom: 1px solid #44413A; }
 
 /**
  * Truncates text

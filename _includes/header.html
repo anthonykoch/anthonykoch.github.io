@@ -7,8 +7,9 @@
 <div class="site-header-wrapper" data-page="{{ data_page }}">
 	<header class="SiteHeader" role="banner">
 		<div class="SiteHeader__container">
+
 			<div class="Logo">
-				<a href="/" class="Logo__link">
+				<a href="/" class="Logo__link {% if page.url == '/' %}is-active{% endif %}">
 					<span>Anthony</span>
 					<span>Koch</span>
 				</a>
@@ -18,12 +19,21 @@
 				<ul class="SiteNav__list">
 					{% for item in site.data.navigation %}
 						<li class="SiteNav__list__item">
-							<a href="{{ item.href }}" class="SiteNav__list__item__link">{{ item.text }}</a>
+							{% if page.url contains '/blog/' and item.active == '/blog/' %}
+								{% assign active = 'is-active' %}
+							{% elsif page.url == item.active %}
+								{% assign active = 'is-active' %}
+							{% else %}
+								{% assign active = '' %}
+							{% endif %}
+							<a href="{{ item.href }}" class="SiteNav__list__item__link  {{ active }}">{{ item.text }}</a>
 						</li>
 					{% endfor %}
 				</ul>
 			</nav>
+
 		</div>
+		<div class="SiteHeader__border"></div>
 
 		{% if page.hero %}
 			<div class="Hero">
