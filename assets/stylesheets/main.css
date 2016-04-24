@@ -1227,7 +1227,7 @@ textarea {
   text-transform: uppercase;
   transition: all 0.3s; }
   .Logo__link:link, .Logo__link:visited {
-    color: #999999; }
+    color: #ddd; }
   .Logo__link:hover, .Logo__link:active, .Logo__link.is-active {
     background: #e8b92c;
     color: rgba(0, 0, 0, 0.7); }
@@ -1251,7 +1251,7 @@ textarea {
   text-transform: uppercase;
   transition: all 0.3s; }
   .SiteNav__list__item__link:link, .SiteNav__list__item__link:visited {
-    color: #999999; }
+    color: #ddd; }
   .SiteNav__list__item__link:hover, .SiteNav__list__item__link:active, .SiteNav__list__item__link.is-active {
     background: #e8b92c;
     color: rgba(0, 0, 0, 0.7); }
