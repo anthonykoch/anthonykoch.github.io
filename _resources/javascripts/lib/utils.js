@@ -63,6 +63,14 @@ function getWindowScrollTop() {
 }
 
 /**
+ * Gets the scroll top of the window
+ * @return {Number}
+ */
+function getWindowScrollLeft() {
+	return Math.max(window.pageXOffset, document.body.scrollLeft)
+}
+
+/**
  * Gets the parent with the specified class name.
  * Only one class name can be passed, and the class
  * name must not contain a dot.
@@ -83,18 +91,55 @@ function closest(node, className) {
 }
 
 /**
+ * Returns true if the object passed is a window instance
+ * From jQuery
+ * @param  {*}       obj
+ * @return {Boolean}
+ */
+function isWindow(obj) {
+	return typeof obj === 'object' && obj.window;
+}
+
+/**
+ * Gets a window from an element
+ * From jQuery
+ */
+function getWindow( elem ) {
+	return isWindow( elem ) ? elem : elem.nodeType === 9 && elem.defaultView;
+}
+
+/**
  * Returns the elements offset left and top relative to the document
+ * From jQuery
  * @param  {Element} element
  * @return {Object}
  */
-function offset(element) {
-	var rect = getBoundingClientRect();
-	var docElem = document.documentElement;
+function getOffset(element) {
+	let rect;
 
-	return {
-		top: rect.top + window.pageYOffset - docElem.clientTop,
-		left: rect.left + window.pageXOffset - docElem.clientLeft
-	};
+	// Support: IE <=11 only
+	// Running getBoundingClientRect on a
+	// disconnected node in IE throws an error
+	if ( ! element.getClientRects().length) {
+		return { top: 0, left: 0 };
+	}
+
+	rect = element.getBoundingClientRect();
+
+	// Make sure element is not hidden (display: none)
+	if (rect.width || rect.height) {
+		let doc = element.ownerDocument;
+		let win = getWindow( doc );
+		let docElem = doc.documentElement;
+
+		return {
+			top: rect.top + win.pageYOffset - docElem.clientTop,
+			left: rect.left + win.pageXOffset - docElem.clientLeft
+		};
+	}
+
+	// Return zeros for disconnected and hidden elements (gh-2310)
+	return rect;
 }
 
 /**
@@ -211,9 +256,10 @@ export default {
 	loadBackgroundImage,
 	loadImage,
 	dom: {
+		getWindowScrollLeft,
 		getWindowScrollTop,
 		closest,
-		offset,
+		getOffset,
 		isVisible,
 	},
 };

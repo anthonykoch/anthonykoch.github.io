@@ -1,0 +1,18 @@
+{% assign url = site.images | append:'/projects/' | append:item.image.url %}
+
+<div class="CodepenPreview js-codepen-preview"
+	data-background-url="{{ url }}"
+	data-hash="{{ item.hash }}">
+	<div class="CodepenPreview__container  js-ripple">
+		<div class="CodepenPreview__icon">
+			<svg class="svg-icon">
+				<use xlink:href="#{{ item.icon }}"></use>
+			</svg>
+		</div>
+		<div class="CodepenPreview__background" style="background-image: url('{{ url }}');"></div>
+		<a href="{{ item.href }}" class="CodepenPreview__link  js-codepen-link">
+			<div class="Ripple__inner js-ripple-inner"></div>
+			<div class="CodepenPreview__title">{{ item.title }}</div>
+		</a>
+	</div>
+</div>

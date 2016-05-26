@@ -4,22 +4,25 @@
  */
 
 $site-header-height: rem(500px)
-$site-header-background: #333
+$site-header-background: color('background', 'dark')
 $site-nav-link-foreground: #ddd
-$site-nav-link-foreground--active: color('primary')
 $site-nav-link-foreground--active: rgba(black, 0.7)
 $site-nav-link-background--active: color('primary')
 $site-nav-link-padding-v: 1rem
 $site-nav-link-padding-h: 3rem
+$site-nav-link-border-width: rem(0px)
 
 
 
 =site-nav-link
+	$padding-v: $site-nav-link-padding-v
+	border-top: $site-nav-link-border-width solid transparent
 	display: block
-	font-family: Lato
+	filter: drop-shadow(3px 4px 7px rgba(black, 0.2))
+	font-family: $heading-font-family
 	font-size: rem(11px)
 	font-weight: 900
-	padding: $site-nav-link-padding-v $site-nav-link-padding-h
+	padding: calc(#{$padding-v} - #{$site-nav-link-border-width}) $site-nav-link-padding-h $padding-v
 	text-transform: uppercase
 	transition: all $link-transition-duration
 
@@ -28,27 +31,31 @@ $site-nav-link-padding-h: 3rem
 
 	&:hover, &:active,
 	&.is-active
-		background: $site-nav-link-background--active
+		$background: $site-nav-link-background--active
+		border-color: white
+		background: $background
 		color: $site-nav-link-foreground--active
 
 
 
+/**
+ * 1. Just ennough to make the header a uniform height throughout all pages.
+ * 2. Allows the background image to go farther down so it doesn't display
+ * underneath the hero text, making it unreadable.
+ */
 .site-header-wrapper
-	background: $site-header-background url('../images/desk.svg') no-repeat 100% 100% / cover
-	min-height: 100vh
-	min-height: rem(500px)
+	background: $site-header-background url(image('desk.svg')) no-repeat 100% 100% / cover
+	min-height: rem(500px) /* [1] */
 	position: relative
 	width: 100%
 
-/**
- * Necessary for the absolute positioned landing arrow to be on the bottom of the screen
- */
-.site-header-wrapper[data-page="home"] > .SiteHeader
-	min-height: 100vh /* [1] */
+.site-header-wrapper
+	@media (max-width: 890px)
+		min-height: rem(650px) /* [2] */
 
-.site-header-wrapper[data-page="blog"],
-.site-header-wrapper[data-page="contact"]
-	min-height: rem(400px)
+	&[data-page="about"]
+		@media (max-width: 890px)
+			min-height: rem(720px)
 
 /**
  * Meant to move away the background image of the header from the post title text,
@@ -79,9 +86,7 @@ $site-nav-link-padding-h: 3rem
 	margin: 0 auto
 	width: 100%
 
-.SiteHeader__social
-	position: absolute
-	bottom: 1rem
+
 
 .Logo
 	font-size: rem(14px)

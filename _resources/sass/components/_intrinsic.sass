@@ -1,0 +1,11 @@
+/**
+ * file: _intrinsic.sass
+ */
+
+.Intrinsic
+	border-radius: inherit
+	position: relative
+
+@each $name, $ratio in $intrinsic-ratios
+	.Intrinsic--#{$name}
+		padding-bottom: ((nth($ratio, 2) / nth($ratio, 1)) * 100) + unquote('%')

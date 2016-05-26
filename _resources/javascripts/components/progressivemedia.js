@@ -7,8 +7,8 @@
  * into view.
  */
 
-import Visibility from '../lib/visibility';
 import utils from '../lib/utils';
+import Stackblur from '../lib/stackblur';
 
 const { loadImage, loadBackgroundImage, dom: { isVisible, closest } } = utils;
 
@@ -16,6 +16,8 @@ const classes = {
 	component:  '.js-ProgressiveMedia',
 	image:      '.js-ProgressiveMedia__image',
 	background: '.js-ProgressiveMedia__background',
+	thumbnail: '.js-ProgressiveMedia__thumb',
+	canvas: '.js-ProgressiveMedia__canvas',
 
 	isBackgroundLoaded: '.is-background-loaded',
 	isImageLoaded: '.is-image-loaded'
@@ -27,14 +29,11 @@ const attributes = {
 	 * to retrieve the url for the image.
 	 * @type {String}
 	 */
-	src: 'data-src'
+	src: 'data-src',
+	blur: 'data-blur'
 };
 
-/**
- * Images to be lazy loaded.
- * @type {Array}
- */
-const lazyImages = $$(classes.image);
+const CANVAS_BLUR_RADIUS = 8;
 
 /**
  * Elements to have their background image set.
@@ -42,64 +41,69 @@ const lazyImages = $$(classes.image);
  */
 const lazyBackgrounds = $$(classes.background);
 
-// Do an initial check to see if any images are visible on the screen
-setTimeout(function () {
-	lazyImages.forEach(function (image) {
-		let src;
-
-		if (isVisible(image, true)) {
-			src = image.getAttribute(attributes.src);
-			loadImage(image, src)
-				.then(onImageLoaded, onImageError);
-		}
-	});
-
-	lazyBackgrounds.forEach(function (background) {
-		let src;
-
-		if (isVisible(background, true)) {
-			src = background.getAttribute(attributes.src);
-			loadBackgroundImage(background, src)
-				.then(onBackgroundImageLoaded, onImageError);
-		}
-	});
-}, 200);
-
-function onImageError(err) {
-	console.log('error', err);
-}
-
 /**
- * Adds the "is-loaded" attributes to the progressive media component
- * @param  {Event} event
+ * Draws an image into the canvas. The image can be optionally blurred
+ * @param  {Element} canvas     The canvas to draw the image onto
+ * @param  {Element} thumbnail  The image used to draw onto the canvas
+ * @param  {Number}  blurRadius The amount to blur the canvas
  * @return {void}
  */
-function onBackgroundImageLoaded(element) {
-	element.classList.add(classes.isBackgroundLoaded.replace('.', ''));
+function drawCanvasWithBlur(canvas, thumbnail, blurRadius) {
+	var context = canvas.getContext('2d');
+
+	// Draw the thumbnail onto the canvas
+	context.drawImage(thumbnail, 0, 0,
+
+		// These two arguments allow the canvas image to scale
+		thumbnail.naturalWidth, thumbnail.naturalHeight,
+
+		0, 0, canvas.width, canvas.height);
+	// Blur the canvas
+	Stackblur.canvasRGBA(canvas, 0, 0, canvas.width, canvas.height, blurRadius);
 }
 
-function onImageLoaded(image) {
-	image.classList.add(classes.isImageLoaded.replace('.', ''));
+$$('.js-ProgressiveMedia').forEach(function (element) {
+	const thumbnail     = element.querySelector(classes.thumbnail);
+	const canvas        = element.querySelector(classes.canvas);
+	const intrinsicFill = element.parentNode;
+	const blurAttr      = canvas.getAttribute(attributes.blur);
+	const blur          = parseInt(blurAttr, 10);
+	const percentage    = (thumbnail.naturalHeight / thumbnail.naturalWidth) * 100;
+
+	// If it's already set, we don't want to possibly make elements reflow
+	if ( ! intrinsicFill.style.paddingBottom) {
+		intrinsicFill.style.paddingBottom = percentage + '%';
+	}
+
+	// Wait for the thumbnail to load if it hasn't
+	if (thumbnail.naturalWidth === 0 || ! thumbnail.complete) {
+		thumbnail.addEventListener('load', function onImageLoaded() {
+			// It's good practice to remove unecessary listeners
+			thumbnail.removeEventListener('load', onThumbnailLoad);
+
+			// Draw the canvas
+			drawCanvasWithBlur(canvas, thumbnail, blur || CANVAS_BLUR_RADIUS);
+		});
+	} else {
+		// The thumbnail is already loaded, draw it onto the canvas
+		drawCanvasWithBlur(canvas, thumbnail, blur || CANVAS_BLUR_RADIUS);
+	}
+
+	new Waypoint({
+		element,
+		handler: handleWaypoint,
+		offset: '80%'
+	})
+});
+
+function handleWaypoint() {
+	const { element } = this;
+	const image       = element.querySelector(classes.image);
+	const src         = element.getAttribute(attributes.src);
+
+	image.src = src;
+	image.addEventListener('load', function onImageLoaded() {
+		image.classList.add('is-image-loaded');
+		image.removeEventListener('load', onImageLoaded);
+	});
 }
-
-Visibility
-	.once({
-		elements: lazyImages,
-		handler({ target }) {
-			const src = target.getAttribute(attributes.src);
-			loadImage(target, src)
-				.then(onImageLoaded, onImageError);
-		},
-		past: true
-	});
-
-Visibility
-	.once({
-		elements: lazyBackgrounds,
-		handler({ target }) {
-			const src = target.getAttribute(attributes.src);
-			loadBackgroundImage(target, src)
-				.then(onBackgroundImageLoaded, onImageError);
-		},
-		past: true
-	});

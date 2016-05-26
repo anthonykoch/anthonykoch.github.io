@@ -15,8 +15,9 @@ module.exports =
 	sass:
 	{
 		src: '_resources/sass/**/*.{sass,scss}',
-		dest: './assets/stylesheets',
-		siteDest: './_site/assets/stylesheets',
+		dest: './_site/css',
+		main: '_resources/sass/main.sass',
+		preview: './css',
 		settings:
 		{
 			cssnano: {

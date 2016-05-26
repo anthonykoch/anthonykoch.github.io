@@ -1,1 +1,41 @@
-<!-- TODO: make this -->
+{% comment %%}
+Usage:
+
+{% include components/progressivemedia.html
+	intrinsic='60%'
+	thumbnail=item.thumbnail
+	image=item.image
+	alt=item.image.alt %}
+
+{% endcomment %}
+
+<div class="Intrinsic" style="padding-bottom: {{ include.intrinsic | default: '0%' }}">
+	<div
+		class="ProgressiveMedia  js-ProgressiveMedia"
+		data-src="{{ include.image.url | prepend:site.images }}"
+		data-is-background="{{ include.is_background | default: false }}">
+		<canvas
+			class="ProgressiveMedia__canvas js-ProgressiveMedia__canvas"
+			width="75"
+			data-blur="{{ include.thumbnail.blur }}"
+			height="38"></canvas>
+
+		<img
+			src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw"
+			alt="{{ include.image.alt }}"
+			class="ProgressiveMedia__image js-ProgressiveMedia__image">
+
+		<img
+			src="{{ include.thumbnail.url | prepend: site.images }}"
+			alt="{{ include.thumbnail.alt }}"
+			class="ProgressiveMedia__thumb  js-ProgressiveMedia__thumb">
+	</div>
+	<noscript>
+		<img
+			aria-hidden="true"
+			src="{{ include.image.url | prepend: site.images }}"
+			alt="{{ include.image.alt }}"
+			class="{{ include.className }} ProgressiveMedia__image">
+	</noscript>
+
+</div>

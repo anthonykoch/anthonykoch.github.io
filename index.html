@@ -3,29 +3,63 @@ layout: default
 title: Anthony Koch
 description: Hello, my name is Anthony Koch. I'm a front-end developer specializing in responsive design, web performance, and custom web development.
 hero:
-  title: Anthony Koch
   caption: Front-End Developer
-  description: Hello, my name is Anthony Koch. I'm a front-end developer specializing in responsive design, web performance, and custom web development. I'm obsessed with JavaScript, and programming best practices.
+  description: Hello, my name is Anthony Koch. I'm a front-end developer specializing in responsive design, web performance, and custom web development. I'm a lover of JavaScript, Python, and simple code.
   display_social: true
   more: true
 ---
 
-<div class="u-flex">
-	<section class="Band  col-6of12 col-12of12@large">
-		<div class="row">
-			<div class="Projects">
-				<h3 class="Title Title--small">Open Source Projects</h3>
-				<ul class="ProjectList  u-collapse@medium">
-					{% for project in site.data.projects %}
-						<li class="ProjectList__item">
-							{% include project.html %}
-						</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
-	</section>
+<section class="Band Band--medium  u-collapse-b">
+	<div class="row row--xxlarge">
+		<h2 class="Title Title--small">
+			<span>Codepen</span>
+			<span class="Title__caption">
+				My various codepen projects and experiments
+			</span>
+		</h2>
+		<p class="Paragraphs Paragraphs--small">
+			These are html and css creations of design shots taken from dribbble.
+		</p>
+	</div>
 
+	<div class="codepen-projects-section">
+		<div class="row row--xxlarge">
+			<ul class="CodepenPreviewList">
+
+				{% for item in site.data.codepen_projects %}
+					<li class="CodepenPreviewList__item">
+						{% include components/codepen_preview.html %}
+					</li>
+				{% endfor %}
+
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="Projects">
+		<header class="Projects__header">
+			<div class="row row--xxlarge">
+				<h3 class="Projects__header__title  Title Title--small">
+					<span>Github Projects</span>
+					<span class="Title__caption Title__caption--light">
+						Various plugins and scripts
+					</span>
+				</h3>
+			</div>
+		</header>
+		<ul class="ProjectList">
+			{% for project in site.data.open_source %}
+				<li class="ProjectList__item  row row--xxlarge">
+					{% include project.html %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
+{% comment %}
 	<div class="Background-gray  col-6of12 col-12of12@large">
 		<section class="row row--medium  Band  collapse-last-para">
 			<h2 class="Title Title--small">A little about myself</h2>
@@ -40,6 +74,4 @@ hero:
 			</p>
 		</section>
 	</div>
-</div>
-
-
+{% endcomment %}

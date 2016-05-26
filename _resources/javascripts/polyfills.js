@@ -29,3 +29,35 @@
             clearTimeout(id);
         };
 }());
+
+if ( ! Element.prototype.matches) {
+    const ElementPrototype = Element.prototype;
+
+    /**
+     * Is not extremely fast, so use with caution
+     * @param  {String}  selector
+     * @return {Boolean}
+     */
+    const matchesPolyfill = function matches(selector) {
+        const elements = document.querySelectorAll(selector);
+        const length = elements.length;
+        let i = 0;
+
+        for (; i < length; i++) {
+            if (elements[i] === this) {
+                return true;
+            }
+        }
+
+        return false;
+    };
+
+    Element.prototype.matches = (
+        ElementPrototype.matchesSelector ||
+        ElementPrototype.mozMatchesSelector ||
+        ElementPrototype.msMatchesSelector ||
+        ElementPrototype.oMatchesSelector ||
+        ElementPrototype.webkitMatchesSelector ||
+        matchesPolyfill
+    );
+}

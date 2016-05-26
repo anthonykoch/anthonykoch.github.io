@@ -1,5 +1,15 @@
 <div class="Project">
+	<div class="Project__media">
+		<a href="{{ project.links.repository }}" class="Project__link">
+			<img
+				class="Project__image"
+				src="{{ project.image.url | prepend:site.images }}"
+				alt="{{ project.image.alt | prepend:site.images }}">
+		</a>
+	</div>
 	<div class="Project__details">
+		<div class="Project__quote Quote">{{ project.quote }}</div>
+
 		<h3 class="Project__title">
 			<a href="{{ project.links.repository }}" class="Project__title__link">
 				{{ project.title }}
@@ -9,7 +19,4 @@
 			{{ project.caption }}
 		</div>
 	</div>
-	<a href="{{ project.links.repository }}" class="u-font-center">
-		<img src="{{ site.images | append: project.image.url }}" alt="{{ project.image.alt %}}" class="Project__image">
-	</a>
 </div>

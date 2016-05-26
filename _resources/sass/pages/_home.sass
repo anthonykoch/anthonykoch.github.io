@@ -3,46 +3,238 @@
  * Styles for the home page
  */
 
-$project-width: rem(540px)
+$codepen-border-radius: 3px
+$project-image-width: rem(550px)
+$project-quote-margin-top: 60px
 
 
 
-.home-about
-	background: color('primary') url('../images/office.svg') no-repeat center / cover
+.codepen-projects-section
+	border-top: 1px solid rgba(black, 0.05)
+	position: relative
+
+	&:before
+		background:
+			size: cover
+			image: url(image('topo_bg.png'))
+			attachment: fixed
+		content: ''
+		opacity: 0.7
+		transition: background-size 0.4s
+		z-index: -1
+		+fill
 
 
 
-.landing-arrow
-	animation: floatUpDown 1s infinite alternate ease-in-out
-	color: color('primary')
-	fill: color('primary')
-	transform: translate(-50%, -50%)
-	+position(absolute, null null 4rem 50%)
-	+size(1rem)
+.CodepenPreviewList
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	opacity: 1
+	padding: double($base-spacing) 0 0
+	transition: opacity 0.4s
 
-	@media (max-width: breakpoint('medium'))
-		display: none /* Remove so it doesn't clash with social icons on home page */
+.CodepenPreviewList__item
+	$width: 400px
+	border-radius: $codepen-border-radius
+	flex: 0 0 33.33333%
+	line-height: 0
+	max-width: $width
+	padding: 0 0 double($base-spacing)
+	transition: all 0.3s
+
+@media (max-width: 1300px)
+	.CodepenPreviewList
+		justify-content: center
+
+	.CodepenPreviewList__item
+		$width: 50%
+		flex: 0 0 $width
+		max-width: 500px
+		+padding(null half($base-gutter))
+
+	.CodepenPreviewList__item
+		flex: 0 0 50%
+		max-width: 500px
+
+@media (max-width: 800px)
+	.CodepenPreviewList__item
+		flex: 100%
+		max-width: 500px
+		+padding(null 0)
+
+	.codepen-projects-section:before
+		background-attachment: initial
+		background-size: 180%
+
+@media (max-width: 580px)
+	.codepen-projects-section:before
+		background-size: 270%
+		opacity: 0.9
 
 
 
-// FIXME: move this to appropriate file
+/**
+ * 1. Once a codepen project has been selected we will move it to the center
+ * of the screen, but the thing needs to be position absolute first.
+ *
+ * 2. When the codepen preview is being selected (or previewed) we want to hide
+ * the title and the dark hover overlay. The transition is changed to be longer
+ * so the fade out is prolonged.
+ *
+ * 3. Shows the overlay and title when the project is hovered.
+ */
+.CodepenPreview
+	cursor: pointer
+	position: relative
+	-webkit-tap-highlight-color: transparent
+	transition: transform 0.6s
+	width: 100%
+
+	&:hover,
+	&:active
+		.CodepenPreview__link:before
+			// /* [3] */
+			opacity: 1
+
+	&:hover,
+	&:active
+		.CodepenPreview__title
+			// /* [3] */
+			transform: translate(-50.5%, -50%)
+			opacity: 1
+
+.CodepenPreview__container
+	box-shadow: 0 6px 16px -2px rgba(black, 0.3)
+	overflow: hidden
+	padding-bottom: 56.25%
+	position: relative
+	transition: all 0.5s
+
+.CodepenPreview__video
+	border-radius: $codepen-border-radius
+	+fill
+
+.CodepenPreview__background
+	background:
+		color: #eee
+		size: cover
+		position: center
+	border-radius: $codepen-border-radius
+	transition: all 0.5s
+	+position(absolute, 0)
+
+/**
+ * TODO: Figure out what background looks best
+ */
+.CodepenPreview__link
+	$transform: translate(-50%, -50%)
+	border-radius: $codepen-border-radius
+	overflow: hidden
+	transition: all 0.4s
+	z-index: 2
+	+fill
+
+	&:before
+		border-radius: $codepen-border-radius
+		background: rgba(color('background', 'dark'), 0.92)
+		content: ''
+		opacity: 0
+		transition: all 0.3s $ease-in-out-cubic
+		+position(absolute, 0)
+
+.CodepenPreview__icon
+	$size: 26px
+	border-radius: 50%
+	display: inline-block
+	fill: white
+	filter: drop-shadow(0px 0px 6px rgba(black, 0.4))
+	padding: 7px 5px
+	position: absolute
+	z-index: 3
+
+	> svg
+		+size($size)
+
+.CodepenPreview__title
+	border: 2px solid rgba(white, 0.8)
+	backface-visibility: hidden
+	box-shadow: 0 2px 10px 0 rgba(black, 0.1)
+	color: rgba(white, 0.9)
+	font-size: 11px
+	font-family: $heading-font-family
+	letter-spacing: 2px
+	opacity: 0
+	padding: 20px 40px
+	text-shadow: 0 1px 8px rgba(black, 0.3)
+	text-transform: uppercase
+	transform: translate(-50%, 0%)
+	transition: transform 0.45s, opacity 0.45s
+	user-select: none
+	-webkit-font-smoothing: subpixel-antialiased
+	white-space: nowrap
+	z-index: 9
+	+position(absolute, 50% null null 50%)
+
+
+
+/**
+ * FIXME: all these magic numbers
+ */
 .Projects
-	max-width: $project-width
-	margin: 0 auto
+	margin: 0 auto triple($base-spacing)
+	position: relative
 
+/**
+ * 1. This uses element is given a large amount of bottom padding because other
+ * elements will be translated up onto it.
+ */
+.Projects__header
+	background: color('background', 'dark')
+	border-bottom: 6px solid color('link')
+	padding: 100px 0 240px/* [1] */
+
+.Projects__header__title
+	color: #62686f
+	color: #555
+
+/**
+ * 1. Brings the project last to be translated over the dark projects header
+ * background.
+ */
 .ProjectList
-	pass
+	margin-top: -180px /* [1] */
 
 .ProjectList__item
-	padding-bottom: 0
+	padding-bottom: triple($base-spacing)
+	position: relative
+
+/**
+ * Displays flex so that the details (title and caption) and image display side
+ * by side.
+ */
+.Project
+	display: flex
+	justify-content: center
 
 .Project__details
-	padding: 1rem
+	max-width: $project-image-width
+	padding: 0 2rem 0 0
 
+.Project__quote
+	color: #62686F
+	margin-top: $project-quote-margin-top
+
+/**
+ * Pushes away the title from the quote so that the quote is on the header and
+ * the rest of the project details are on the white background.
+ */
 .Project__title
-	+title('small')
+	font-size: 22px
 	font-weight: 400
+	letter-spacing: 1px
 	padding-bottom: half($base-spacing)
+	margin-top: 220px - $project-quote-margin-top /* [1] */
 
 .Project__title__link
 	$foreground: #333
@@ -54,12 +246,71 @@ $project-width: rem(540px)
 	&:hover, &:active
 		color: $foreground--active
 
-.Project__image
-	border-radius: $base-border-radius
-	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
-	max-width: $project-width
-	margin: 0 auto
-	width: 100%
-
 .Project__caption
 	padding-bottom: rem(10px)
+
+	& > p
+		color: #62686f
+		font-size: rem(15px)
+		padding-bottom: 1.25rem
+
+.Project__caption,
+.Project__title
+	max-width: 470px
+	+margin(null auto)
+
+/**
+ * 1. This is so the link doesn't stretch (which flex does by default) down past
+ * what it actually should.
+ */
+.Project__media
+	align-self: flex-start /* [1] */
+	flex: 0 0 $project-image-width
+	position: relative
+	order: 2
+
+.Project__link
+	border-radius: $base-border-radius
+	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
+	display: block
+	max-width: $project-image-width
+	margin: 0 auto
+	transform: translateX(50px)
+
+.Project__image
+	$r: $base-border-radius
+
+@media (max-width: 1250px)
+	.Project
+		justify-content: space-between
+		margin: 0 auto
+
+	.Project__image
+		transform: none
+
+	.Project__details,
+	.Project__image
+		margin: 0 auto
+
+/**
+ * Display everything as a single column
+ */
+@media (max-width: 1000px)
+	.Project
+		flex-direction: column
+		justify-content: center
+
+	.Project__media
+		order: -1
+
+	.Project__details
+		padding-right: 0
+
+	.Project__title
+		margin-top: 100px
+
+	.Project__image
+		max-width: 100%
+
+	.Project__quote
+		text-align: center

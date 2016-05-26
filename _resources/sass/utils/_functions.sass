@@ -148,3 +148,21 @@
  */
 @function abbr($name)
 	@return map-get($abbreviations, $name)
+
+
+
+@function grayscale($variant)
+	@return map-get($color-grayscale, $variant)
+
+
+/**
+ * Returns an image prefixed with a path. This does not smartly join the paths,
+ * it only concatenates the two parts together.
+ *
+ * Note: The path in $config should end with a forward slash, e.g. '../images/'
+ *
+ * @param  {String} $url
+ * @return {String} The image prefixed with the path
+ */
+@function image($url)
+	@return map-get($config, 'images') + $url
