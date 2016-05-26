@@ -24,7 +24,8 @@ $site-nav-link-border-width: rem(0px)
 	font-weight: 900
 	padding: calc(#{$padding-v} - #{$site-nav-link-border-width}) $site-nav-link-padding-h $padding-v
 	text-transform: uppercase
-	transition: all $link-transition-duration
+	transition: background-color, color
+	transition-duration: $link-transition-duration
 
 	&:link, &:visited
 		color: $site-nav-link-foreground
