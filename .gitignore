@@ -5,3 +5,5 @@ extras.txt
 *.sublime-project
 /_drafts
 /extras
+/css/*.css
+.sass-cache
