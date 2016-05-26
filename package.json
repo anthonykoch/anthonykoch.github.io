@@ -7,7 +7,7 @@
     "watch:gulp": "gulp",
     "clean": "rm assets/** -rf",
     "build:js": "webpack --optimize-minimize",
-    "build:images": "gulp images:optimize",
+    "build:images": "gulp images",
     "build:fonts": "gulp fonts",
     "build:sass": "gulp sass",
     "build": "npm run clean && npm run build:js & npm run build:images & npm run build:fonts & npm run build:sass"

@@ -9,6 +9,7 @@ module.exports =
 		notify: false,
 		open: false,
 		injectChanges: true,
+		files: ['css'],
 		reloadDelay: 600,
 		middleware: [require('compression')()]
 	},
