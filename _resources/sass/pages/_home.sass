@@ -216,6 +216,7 @@ $project-quote-margin-top: 60px
 .Project
 	display: flex
 	justify-content: center
+	align-items: flex-start
 
 .Project__details
 	max-width: $project-image-width
@@ -259,26 +260,22 @@ $project-quote-margin-top: 60px
 	max-width: 470px
 	+margin(null auto)
 
-/**
- * 1. This is so the link doesn't stretch (which flex does by default) down past
- * what it actually should.
- */
 .Project__media
-	align-self: flex-start /* [1] */
 	flex: 0 0 $project-image-width
 	position: relative
 	order: 2
+	margin: 0 auto
 
 .Project__link
 	border-radius: $base-border-radius
 	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
 	display: block
-	max-width: $project-image-width
-	margin: 0 auto
 	transform: translateX(50px)
 
 .Project__image
 	$r: $base-border-radius
+	max-width: $project-image-width
+	margin: 0 auto
 
 @media (max-width: 1250px)
 	.Project
@@ -297,6 +294,7 @@ $project-quote-margin-top: 60px
  */
 @media (max-width: 1000px)
 	.Project
+		display: block
 		flex-direction: column
 		justify-content: center
 
@@ -314,3 +312,4 @@ $project-quote-margin-top: 60px
 
 	.Project__quote
 		text-align: center
+		margin-top: triple($base-spacing)
