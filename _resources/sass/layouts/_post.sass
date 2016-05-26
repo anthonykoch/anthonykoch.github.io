@@ -5,6 +5,13 @@
 $post-font-size: rem(16px)
 $post-max-width: rem(800px)
 $post-header-background: #eee
+$post-gutter: double($row-gutter)
+$post-elements: (blockquote, figure, img, ul, ol, li, p, dl, div)
+$post-body-children: ()
+
+@each $selector in join($headings, $post-elements)
+	$post-body-children: join($post-body-children, '.Post__body > ' + $selector + ',')
+
 
 .Post
 	font-size: $post-font-size
@@ -43,14 +50,20 @@ $post-header-background: #eee
 	line-height: $base-spacing
 	color: #aaa
 
+#{$post-body-children}
+	color: lighten(color('foreground'), 4)
+	max-width: $post-max-width
+	+padding(null $post-gutter)
+	+margin(null auto)
+
 /**
  * FIXME: Change star selector to specific elements
  */
 .Post__body
-	$gutter: double($row-gutter)
 	padding: double($base-spacing) 0 $base-spacing
 
 	> #{$headings}
+		color: #404040
 		padding-top: 1rem
 
 	> ol
@@ -59,23 +72,21 @@ $post-header-background: #eee
 	> ul
 		+list(bullet)
 
-	& >  #{$headings},
-	& > blockquote,
-	& > figure,
-	& > img,
-	& > ul,
-	& > ol,
-	& > li,
-	& > p,
-	& > dl,
-	& > div,
-		max-width: $post-max-width
-		+padding(null $gutter)
-		+margin(null auto)
-
 	> .full-width
 		max-width: initial
 
+
+
+/**
+ * 1. Make code displays full width on mobile for max viewability
+ */
+@media (max-width: breakpoint('medium'))
+	#{$post-body-children}
+		+padding(null $row-gutter-at-small)
+
+	.Post__body > .highlighter-rouge
+		padding-left: 0 !important
+		padding-right: 0 !important
 
 
 /**
@@ -93,6 +104,9 @@ $post-header-background: #eee
 
 .PostPreview
 	padding: $base-spacing 0
+
+	@media (max-width: breakpoint('medium'))
+		padding: $base-spacing 0
 
 .PostPreview__title
 	+title('small')
@@ -117,12 +131,3 @@ $post-header-background: #eee
 	text-align: right
 	+clearfix
 	+link
-
-
-
-@media (max-width: breakpoint('medium'))
-	.Post__body > *
-		+padding(null $row-gutter-at-small)
-
-	.PostPreview
-		padding: $base-spacing 0

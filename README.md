@@ -13,6 +13,3 @@ This is my site. Cool, init?
 - Change post title and post preview title size
 - Fix 404 page
 - Change page header at mobile width
-
-
-
