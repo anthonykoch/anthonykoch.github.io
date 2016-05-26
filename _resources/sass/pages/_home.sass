@@ -41,7 +41,6 @@ $project-quote-margin-top: 60px
 	line-height: 0
 	max-width: $width
 	padding: 0 0 double($base-spacing)
-	transition: all 0.3s
 
 @media (max-width: 1300px)
 	.CodepenPreviewList
@@ -262,18 +261,18 @@ $project-quote-margin-top: 60px
 
 .Project__media
 	flex: 0 0 $project-image-width
+	max-width: $project-image-width
 	position: relative
 	order: 2
 	margin: 0 auto
 
 .Project__link
 	border-radius: $base-border-radius
-	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
-	display: block
 	transform: translateX(50px)
 
 .Project__image
-	$r: $base-border-radius
+	border-radius: $base-border-radius
+	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
 	max-width: $project-image-width
 	margin: 0 auto
 
