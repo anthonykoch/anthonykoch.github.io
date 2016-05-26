@@ -9,29 +9,12 @@ $project-quote-margin-top: 60px
 
 
 
-.codepen-projects-section
-	border-top: 1px solid rgba(black, 0.05)
-	position: relative
-
-	&:before
-		background:
-			size: cover
-			image: url(image('topo_bg.png'))
-			attachment: fixed
-		content: ''
-		opacity: 0.7
-		transition: background-size 0.4s
-		z-index: -1
-		+fill
-
-
-
 .CodepenPreviewList
 	display: flex
 	flex-wrap: wrap
 	justify-content: space-between
 	opacity: 1
-	padding: double($base-spacing) 0 0
+	padding: double($base-spacing) 0 double($base-spacing)
 	transition: opacity 0.4s
 
 .CodepenPreviewList__item
@@ -190,7 +173,6 @@ $project-quote-margin-top: 60px
  */
 .Projects__header
 	background: color('background', 'dark')
-	border-bottom: 6px solid color('link')
 	padding: 100px 0 240px/* [1] */
 
 .Projects__header__title
@@ -222,7 +204,7 @@ $project-quote-margin-top: 60px
 	padding: 0 2rem 0 0
 
 .Project__quote
-	color: #62686F
+	color: #565656
 	margin-top: $project-quote-margin-top
 
 /**
@@ -250,25 +232,19 @@ $project-quote-margin-top: 60px
 	padding-bottom: rem(10px)
 
 	& > p
-		color: #62686f
 		font-size: rem(15px)
 		padding-bottom: 1.25rem
-
-.Project__caption,
-.Project__title
-	max-width: 470px
-	+margin(null auto)
 
 .Project__media
 	flex: 0 0 $project-image-width
 	max-width: $project-image-width
 	position: relative
 	order: 2
-	margin: 0 auto
 
 .Project__link
 	border-radius: $base-border-radius
-	transform: translateX(50px)
+	display: inline-block
+	transform: translateX(30px)
 
 .Project__image
 	border-radius: $base-border-radius
@@ -298,6 +274,7 @@ $project-quote-margin-top: 60px
 		justify-content: center
 
 	.Project__media
+		margin: 0 auto
 		order: -1
 
 	.Project__details

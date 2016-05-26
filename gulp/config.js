@@ -30,7 +30,7 @@ module.exports =
 				indentedSyntax: true,
 			},
 			autoprefixer: {
-				browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']
+				browsers: ['last 2 versions']
 			}
 		}
 	},

@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "watch": "npm run watch:jekyll",
     "watch:jekyll": "bundle exec jekyll build --watch --drafts --config _config.dev.yaml",
     "watch:js": "webpack -d --watch",
     "watch:gulp": "gulp",

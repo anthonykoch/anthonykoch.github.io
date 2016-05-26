@@ -4,7 +4,7 @@ exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
 url: '//www.anthonykoch.com'
 
 
-mainstylesheet: "/css/main.css"
+mainstylesheet: "/css/main.min.css"
 javascripts: '//www.anthonykoch.com/assets/javascripts'
 stylesheets: '//www.anthonykoch.com/assets/stylesheets'
 images: '//www.anthonykoch.com/assets/images'
