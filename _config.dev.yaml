@@ -6,7 +6,6 @@ url: "http://localhost:3000"
 baseurl: ""
 
 
-mainstylesheet: "/css/main.css"
 javascripts: "//localhost:3000/assets/javascripts"
 stylesheets: "//localhost:3000/assets/stylesheets"
 images: "//localhost:3000/assets/images"
