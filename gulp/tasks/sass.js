@@ -20,7 +20,6 @@ gulp.task('sass', ['copy-main'], function () {
 		.pipe(autoprefixer(config.settings.autoprefixer))
 		.pipe(gulp.dest(config.dest))
 		.pipe(browserSync.reload({ stream: true }))
-		.pipe(gulp.dest(config.preview))
 		.pipe(cssnano(config.settings.cssnano))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(config.preview))
