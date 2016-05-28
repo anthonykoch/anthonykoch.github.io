@@ -6,32 +6,8 @@
 	padding-top: ($base-spacing * 5)
 	+row(xxlarge)
 
-	/**
-	 * 1. Push the header down so the background image doesn't show under the text,
-	 *    making it unreadable.
-	 */
-	@media (max-width: 750px)
-		padding-top: ($base-spacing * 3)
-		padding-bottom: ($base-spacing * 8) /* [1] */
-
-.Hero__title
-	color: color('primary')
-	font-family: $heading-font-family
-	font-size: rem(32px)
-	font-weight: 900
-	letter-spacing: rem(10px)
-	line-height: 1.3
-	padding-bottom: ($base-spacing * 1)
-	text-transform: uppercase
-
 .Hero__caption
-	color: color('primary')
-	font-family: $base-font-family
-	font-size: rem(20px)
-	font-weight: 600
-	letter-spacing: rem(6px)
-	line-height: 1.3
-	text-transform: uppercase
+	+title('alternate')
 
 .Hero__description
 	color: #ddd
@@ -39,17 +15,16 @@
 	padding: $base-spacing 0 $base-spacing
 	max-width: breakpoint('medium')
 
+/**
+ * 1. Push the header down so the background image doesn't show under the text,
+ *    making it unreadable.
+ */
+@media (max-width: breakpoint('medium'))
+	.Hero
+		padding-top: ($base-spacing * 3)
 
-
-.Paragraphs
-	pass
-
-.Paragraphs--small > p
-	font-size: 15px
-
-.Paragraphs--light > p
-	color: #999
-
+	.Hero__description
+		padding-bottom: ($base-spacing * 9) /* [1] */
 
 
 
@@ -74,11 +49,6 @@
 	margin: 0 auto
 	max-width: breakpoint('large')
 	padding: ($base-spacing * 4) $row-gutter
-
-
-
-.collapse-last-para p:last-child
-	padding-bottom: 0
 
 
 

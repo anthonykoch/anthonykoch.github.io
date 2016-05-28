@@ -34,7 +34,7 @@ $post-body-children: ()
 	font-weight: 900
 	letter-spacing: rem(4px)
 	line-height: 1.4
-	padding-bottom: ($base-spacing * 1)
+	padding-bottom: $base-spacing
 	text-transform: uppercase
 	+row(readable)
 
@@ -56,9 +56,6 @@ $post-body-children: ()
 	+padding(null $post-gutter)
 	+margin(null auto)
 
-/**
- * FIXME: Change star selector to specific elements
- */
 .Post__body
 	padding: double($base-spacing) 0 $base-spacing
 
@@ -110,7 +107,8 @@ $post-body-children: ()
 
 .PostPreview__title
 	+title('small')
-	font-size: 1.5rem
+	font-size: 1.4rem
+	padding-bottom: 1.125rem
 
 .PostPreview__link
 	+link

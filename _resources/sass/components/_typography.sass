@@ -9,14 +9,21 @@
 	+title('small')
 	color: #555
 
-/**
- * TODO: Figure out what color is best
- */
+.Title--alternate
+	+title('alternate')
+
+.Title--dark
+	color: color('foreground')
+
+
+
 .Title__caption
-	color: #aaa
+	color: #bdbdbd
 	font-family: $heading-font-family
 	font-size: 0.55em
 	margin-left: 3px
+	letter-spacing: rem(3px)
+	line-height: inherit
 
 .Title__caption--light
 	color: #ddd
@@ -46,6 +53,7 @@
 		padding-right: 0
 
 
+
 @media (max-width: breakpoint('medium'))
 	.Title__caption
 		display: block
@@ -59,9 +67,19 @@
 
 
 
+.Paragraphs
+	pass
+
+.Paragraphs--small > p
+	font-size: rem(15px)
+
+.Paragraphs--light > p
+	color: #504F4D
+
+
 
 .Quote
 	font-family: Cambria
-	font-size: 20px
+	font-size: rem(20px)
 	font-style: italic
 	line-height: 1.4

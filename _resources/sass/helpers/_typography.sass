@@ -42,7 +42,7 @@
 	line-height: 30px
 	padding-bottom: ($base-spacing * 4)
 
-.u-font-left
++breakpointify('.u-font-left')
 	text-align: left
 
 .u-font-center
@@ -72,6 +72,9 @@
 
 .u-ls-0
 	letter-spacing: 0
+
+.u-collapse-last-para > p:last-child
+	padding-bottom: 0
 
 /**
  * Truncates text

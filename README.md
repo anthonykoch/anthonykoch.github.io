@@ -6,6 +6,7 @@ This is my site. Cool, init?
 
 ## Todo
 
+- Make the typography more consistent
 - Change the look of the form
 - Clean up the color situation
 - Fix form responsiveness

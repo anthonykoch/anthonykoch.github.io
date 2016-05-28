@@ -8,15 +8,17 @@
 		</a>
 	</div>
 	<div class="Project__details">
-		<div class="Project__quote Quote">{{ project.quote }}</div>
+		<div class="Project__quote">{{ project.quote }}</div>
 
 		<h3 class="Project__title">
 			<a href="{{ project.links.repository }}" class="Project__title__link">
 				{{ project.title }}
 			</a>
 		</h3>
-		<div class="Project__caption">
-			{{ project.caption }}
+		<div class="Project__caption  Paragraphs Paragraphs--light  u-collapse-last-para">
+			<p>
+				{{ project.caption }}
+			</p>
 		</div>
 	</div>
 </div>
