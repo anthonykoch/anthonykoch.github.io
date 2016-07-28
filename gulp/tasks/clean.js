@@ -8,7 +8,7 @@ var del  = require('del');
  * Doesn't delete js because js is completely managed by webpack
  */
 gulp.task('clean', function () {
-	del.sync([
+	return del([
 		'assets/images/**',
 		'assets/stylesheets/**',
 		'assets/fonts/**'

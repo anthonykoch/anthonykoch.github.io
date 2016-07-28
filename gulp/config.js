@@ -28,6 +28,7 @@ module.exports =
 			sass:
 			{
 				indentedSyntax: true,
+				precision: 8
 			},
 			autoprefixer: {
 				browsers: ['last 2 versions']
