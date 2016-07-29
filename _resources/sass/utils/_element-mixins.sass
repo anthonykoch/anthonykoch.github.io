@@ -3,9 +3,9 @@
  */
 
 =heading-border
+	+padding($base-spacing null)
 	border-bottom: rem(1px) solid $base-border-color
 	margin-bottom: quarter($base-spacing)
-	+padding($base-spacing null)
 
 
 
@@ -22,7 +22,6 @@
 	@if (contains($type, 'default'))
 		font-size: 2rem
 		padding-bottom: $base-spacing
-		// font-weight: 300
 
 	@if (contains($type, 'bordered'))
 		+heading-border
@@ -43,6 +42,7 @@
  */
 =row($args: ())
 	$max-width: breakpoint('xlarge')
+	+margin(null auto)
 
 	@each $item in $args
 		@if breakpoint($item)
@@ -53,7 +53,6 @@
 
 	display: block
 	max-width: $max-width
-	+margin(null auto)
 
 	@media (max-width: breakpoint('small'))
 		+padding(null $row-gutter-at-small)
@@ -108,24 +107,30 @@
 
 =link($type: ('base'))
 	@if (contains($type, 'base'))
-		&:link, &:visited
+		&:link,
+		&:visited
 			color: color('link')
 
-		&:hover, &:active
+		&:hover,
+		&:active
 			color: color('link', 'hover')
 
 	@if (contains($type, 'dark'))
-		&:link, &:visited
+		&:link,
+		&:visited
 			color: color('foreground')
 
-		&:hover, &:active
+		&:hover,
+		&:active
 			color: color('foreground', 'alternate')
 
 	@else if (contains($type, 'light'))
-		&:link, &:visited
+		&:link,
+		&:visited
 			color: color('foreground', 'alternate')
 
-		&:hover, &:active
+		&:hover,
+		&:active
 			color: color('foreground')
 
 

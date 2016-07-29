@@ -7,7 +7,7 @@
 
 .Title--small
 	+title('small')
-	color: #555
+	color: #555555
 
 .Title--alternate
 	+title('alternate')
@@ -21,33 +21,33 @@
 	color: #bdbdbd
 	font-family: $heading-font-family
 	font-size: 0.55em
-	margin-left: 3px
 	letter-spacing: rem(3px)
 	line-height: inherit
+	margin-left: 3px
 
 .Title__caption--light
-	color: #ddd
+	color: #dddddd
 
 .Title--underline
 	display: inline-block
-	padding-right: 80px
-	padding-bottom: 0
-	position: relative
 	margin-bottom: $base-spacing
+	padding-bottom: 0
+	padding-right: 80px
+	position: relative
 
 	&:before
-		content: ''
+		+position(absolute, null null -6px 0)
 		border-bottom: 2px solid rgba(color('link'), 0.4)
+		content: ''
 		height: 2px
-		transition: transform 2s $ease-out-quint, opacity 0.4s ease-in
 		transform: scale(0)
 		transform-origin: 0 50%
+		transition: transform 2s $ease-out-quint, opacity 0.4s ease-in
 		width: 100%
-		+position(absolute, null null -6px 0)
 
 	&.is-seen:before
-		transform: scale(1)
 		opacity: 1
+		transform: scale(1)
 
 	@media (max-width: breakpoint('large'))
 		padding-right: 0
@@ -57,9 +57,9 @@
 @media (max-width: breakpoint('medium'))
 	.Title__caption
 		display: block
-		margin-top: 0.3em
-		margin-left: 0
 		line-height: 1.6
+		margin-left: 0
+		margin-top: 0.3em
 
 	.Title--underline
 		display: block
@@ -68,13 +68,13 @@
 
 
 .Paragraphs
-	pass
+	exists: true
 
 .Paragraphs--small > p
 	font-size: rem(15px)
 
 .Paragraphs--light > p
-	color: #504F4D
+	color: #504f4d
 
 
 

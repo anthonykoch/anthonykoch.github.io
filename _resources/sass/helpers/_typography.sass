@@ -28,7 +28,7 @@
  * A font to be used on a dark background
  */
 .u-font-light
-	color: #ddd
+	color: #dddddd
 
 @each $name, $size in $font-sizes
 	.u-font-size-#{$name}
@@ -37,6 +37,7 @@
 /**
  * Styles for an introductory paragraph
  */
+
 .u-para-intro
 	color: rgba(black, 0.6)
 	line-height: 30px
@@ -67,8 +68,8 @@
 	font-style: italic
 
 .u-heading-border
-	margin-bottom: $paragraph-spacing
 	border-bottom: 1px solid $base-border-color
+	margin-bottom: $paragraph-spacing
 
 .u-ls-0
 	letter-spacing: 0
@@ -80,19 +81,19 @@
  * Truncates text
  */
 .u-truncate
-	white-space: nowrap !important
 	overflow: hidden !important
 	text-overflow: ellipsis !important
+	white-space: nowrap !important
 
 /**
  * Hides text, except for screen readers
  */
 .sr-only
-	position: absolute
-	width: 1px
+	border: 0
+	clip: rect(0, 0, 0, 0)
 	height: 1px
-	padding: 0
 	margin: -1px
 	overflow: hidden
-	clip: rect(0, 0, 0, 0)
-	border: 0
+	padding: 0
+	position: absolute
+	width: 1px

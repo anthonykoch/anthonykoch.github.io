@@ -5,12 +5,12 @@
 
 $site-header-height: rem(500px)
 $site-header-background: color('background', 'dark')
-$site-nav-link-foreground: #ddd
+$site-nav-link-foreground: #dddddd
 $site-nav-link-foreground--active: rgba(black, 0.7)
 $site-nav-link-background--active: color('primary')
 $site-nav-link-padding-v: 1rem
 $site-nav-link-padding-h: 3rem
-$site-nav-link-border-width: rem(0px)
+$site-nav-link-border-width: rem(0)
 
 
 
@@ -27,14 +27,16 @@ $site-nav-link-border-width: rem(0px)
 	transition: background-color, color
 	transition-duration: $base-transition-duration
 
-	&:link, &:visited
+	&:link,
+	&:visited
 		color: $site-nav-link-foreground
 
-	&:hover, &:active,
+	&:hover,
+	&:active,
 	&.is-active
 		$background: $site-nav-link-background--active
-		border-color: white
 		background: $background
+		border-color: white
 		color: $site-nav-link-foreground--active
 
 
@@ -44,26 +46,27 @@ $site-nav-link-border-width: rem(0px)
  * 2. Allows the background image to go farther down so it doesn't display
  * underneath the hero text, making it unreadable.
  */
+
 .site-header-wrapper
 	background: $site-header-background url(image('desk.svg')) no-repeat 100% 100% / cover
 	min-height: rem(500px) /* [1] */
 	position: relative
 	width: 100%
 
-.site-header-wrapper
 	@media (max-width: rem(890px))
 		min-height: rem(650px) /* [2] */
 
-	&[data-page="about"]
-		@media (max-width: rem(890px))
-			min-height: rem(720px)
+.site-header-wrapper[data-page='about']
+	@media (max-width: rem(890px))
+		min-height: rem(720px)
 
 /**
  * Meant to move away the background image of the header from the post title text,
  * so as to not decrease readability.
  * @type {String}
  */
-.site-header-wrapper[data-page="post"]
+
+.site-header-wrapper[data-page='post']
 	@media (max-width: breakpoint('large'))
 		min-height: rem(900px)
 
@@ -71,6 +74,7 @@ $site-nav-link-border-width: rem(0px)
  * Inherit the height from the site-header-wrapper, which is set differently
  * for most pages.
  */
+
 .SiteHeader
 	padding: 0 0 3rem 0
 	position: relative
@@ -106,8 +110,8 @@ $site-nav-link-border-width: rem(0px)
 	display: flex
 
 .SiteNav__list__item__link
-	letter-spacing: rem(2px)
 	+site-nav-link
+	letter-spacing: rem(2px)
 
 
 
@@ -121,14 +125,15 @@ $site-nav-link-border-width: rem(0px)
 		display: block
 
 	.Logo__link
-		&:link, &:visited
+		&:link,
+		&:visited
 			background: $site-nav-link-background--active
 			color: $site-nav-link-foreground--active
 
 	.Logo,
 	.SiteNav
-		text-align: center
 		padding-left: 0
+		text-align: center
 
 	.SiteNav__list__item
 		flex: 33.33333%

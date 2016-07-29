@@ -3,17 +3,17 @@
  */
 
 .Hero
-	padding-top: ($base-spacing * 5)
 	+row(xxlarge)
+	padding-top: ($base-spacing * 5)
 
 .Hero__caption
 	+title('alternate')
 
 .Hero__description
-	color: #ddd
+	color: #dddddd
 	font-size: rem(17px)
-	padding: $base-spacing 0 $base-spacing
 	max-width: breakpoint('medium')
+	padding: $base-spacing 0 $base-spacing
 
 /**
  * 1. Push the header down so the background image doesn't show under the text,
@@ -32,7 +32,7 @@
 	background-color: white
 
 .Background-gray
-	background-color: #eee
+	background-color: #eeeeee
 
 .Background-primary
 	background-color: color('primary')
@@ -63,22 +63,22 @@
 @media (max-width: breakpoint('medium'))
 	.Social
 		left: 50%
-		text-align: center
-		width: 100%
 		right: initial
+		text-align: center
 		transform: translateX(-50%)
+		width: 100%
 
 
 
 .Overlay
-	background: rgba(color('background'), 0.5)
-	opacity: 0
-	transition: opacity 0.3s
-	z-index: zindex('modal')
-	pointer-events: none
 	+position(fixed, 0 null null 0)
 	+size(100%)
+	background: rgba(color('background'), 0.5)
+	opacity: 0
+	pointer-events: none
+	transition: opacity 0.3s
+	z-index: zindex('modal')
 
 	&.is-showing
-		pointer-events: initial
 		opacity: 1
+		pointer-events: initial

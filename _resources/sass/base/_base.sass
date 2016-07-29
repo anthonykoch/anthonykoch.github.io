@@ -3,10 +3,17 @@
  * Contains base styles for tags
  */
 
+$code-background: #e6e6e6
+$pre-background: #eeeeee
+$pre-font-size: em(13px)
+$code-font-size: em(12px)
+
 /**
  * Makes all elements inherit box-sizing from html element
  */
-*, *:before, *:after
+*,
+*:before,
+*:after
 	box-sizing: inherit
 	margin: 0
 	padding: 0
@@ -20,11 +27,10 @@ html
 body
 	background-color: white
 	color: color('foreground')
-	min-height: 100vh
 	margin: 0
+	min-height: 100vh
 	padding: 0
-	width: 100% /* [1] */
-	// text-rendering: geometricPrecision // FIXME: Remove this later
+	width: 100%
 	-webkit-text-size-adjust: 100%
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
@@ -32,8 +38,8 @@ body
 
 
 #{$headings}
-	font-weight: 400
 	font-family: $heading-font-family
+	font-weight: 400
 	margin:  0
 	padding: 0 0 1rem 0
 
@@ -70,10 +76,12 @@ a
 	text-decoration: none
 	transition: color $base-transition-duration
 
-	&:link, &:visited
+	&:link,
+	&:visited
 		color: color('link')
 
-	&:hover, &:active
+	&:hover,
+	&:active
 		color: color('link', 'hover')
 
 
@@ -84,11 +92,6 @@ p
 
 
 
-$code-background: #e6e6e6
-$pre-background: #eee
-$pre-font-size: em(13px)
-$code-font-size: em(12px)
-
 code
 	background-color: $code-background
 	border-radius: $base-border-radius
@@ -96,34 +99,33 @@ code
 	font-family: Source Code Pro
 	font-size: $code-font-size
 	line-height: 1.6
-	padding: rem(1px) rem(6px)
 	margin: 0 rem(4px)
+	padding: rem(1px) rem(6px)
 	word-wrap: break-word
 
 pre
 	$margin: ($base-spacing * 2)
 	$padding-v: ($base-spacing * 1)
+	+scrollbar
 	background-color: $pre-background
 	border-radius: 1px $base-border-radius $base-border-radius 1px
-	font-size: $pre-font-size
-	overflow: auto
 	font-family: Source Code Pro
-	position: relative
+	font-size: $pre-font-size
 	margin-bottom: $paragraph-spacing
+	overflow: auto
 	padding: $paragraph-spacing $row-gutter
+	position: relative
 	tab-size: 2
 	word-wrap: normal
-	+scrollbar
 
 	> code
 		background-color: inherit
 		color: inherit
-		font-size: inherit
 		font-family: inherit
+		font-size: inherit
 		line-height: rem(21px)
 		margin: 0
 		padding: 0
-
 
 	@media screen and (max-width: breakpoint('small'))
 		padding: $padding-v $row-gutter
@@ -132,15 +134,16 @@ pre
 
 img
 	display: block
-	max-width: 100%
 	max-height: 100%
+	max-width: 100%
 
 
 
-ul, ol
+ul,
+ol
+	list-style-type: none
 	margin: 0
 	padding: 0
-	list-style-type: none
 
 
 

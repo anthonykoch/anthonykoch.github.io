@@ -3,6 +3,23 @@
  * Contains animations
  */
 
+/**
+ * 1. We have to use the padding-bottom trick so that the height and width are
+ * the same size. Setting the height to 100% may cause the ripple to be
+ * non-circular if the container does not have the same height and width.
+ */
++keyframes(a-ripple)
+	0%
+		opacity: 0
+
+	40%
+		opacity: 1
+
+	100%
+		padding-bottom: 220% /* [1] */
+		width: 220%
+		opacity: 0
+
 +keyframes(slideUpFadeIn)
 	from
 		opacity: 0

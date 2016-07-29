@@ -1,4 +1,4 @@
-exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
+exclude: ['linters', node_modules', '_resources', 'gulp', 'extras.txt']
 
 
 

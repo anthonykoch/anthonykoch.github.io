@@ -35,9 +35,9 @@ $project-quote-margin-top: 60px
 
 	.CodepenPreviewList__item
 		$width: 50%
+		+padding(null half($base-gutter))
 		flex: 0 0 $width
 		max-width: 500px
-		+padding(null half($base-gutter))
 
 	.CodepenPreviewList__item
 		flex: 0 0 50%
@@ -45,9 +45,9 @@ $project-quote-margin-top: 60px
 
 @media (max-width: 800px)
 	.CodepenPreviewList__item
+		+padding(null 0)
 		flex: 100%
 		max-width: 500px
-		+padding(null 0)
 
 	.codepen-projects-section:before
 		background-attachment: initial
@@ -77,64 +77,67 @@ $project-quote-margin-top: 60px
 	transition: transform 0.6s
 	width: 100%
 
-	&:hover,
-	&:active
-		.CodepenPreview__link:before
-			// /* [3] */
-			opacity: 1
+.CodepenPreview:hover,
+.CodepenPreview:active
+	.CodepenPreview__link:before
+		// /* [3] */
+		opacity: 1
 
-	&:hover,
-	&:active
-		.CodepenPreview__title
-			// /* [3] */
-			transform: translate(-50.5%, -50%)
-			opacity: 1
+.CodepenPreview:hover,
+.CodepenPreview:active
+	.CodepenPreview__title
+		// /* [3] */
+		opacity: 1
+		transform: translate(-50.5%, -50%)
 
 .CodepenPreview__container
 	box-shadow: 0 6px 16px -2px rgba(black, 0.3)
 	overflow: hidden
 	padding-bottom: 56.25%
 	position: relative
-	transition: all 0.5s
 
 .CodepenPreview__video
-	border-radius: $codepen-border-radius
 	+fill
+	border-radius: $codepen-border-radius
 
 .CodepenPreview__background
-	background:
-		color: #eee
-		size: cover
-		position: center
-	border-radius: $codepen-border-radius
-	transition: all 0.5s
 	+position(absolute, 0)
+	background:
+		color: #eeeeee
+		position: center
+		size: cover
+	border-radius: $codepen-border-radius
+	transition-duration: 0.5s
+	transition-property: background
 
 /**
  * TODO: Figure out what background looks best
  */
 .CodepenPreview__link
 	$transform: translate(-50%, -50%)
+	+fill
 	border-radius: $codepen-border-radius
 	overflow: hidden
-	transition: all 0.4s
+	transition-duration: 0.4s
+	transition-property: background
 	z-index: 2
-	+fill
 
 	&:before
-		border-radius: $codepen-border-radius
+		+position(absolute, 0)
 		background: rgba(color('background', 'dark'), 0.92)
+		border-radius: $codepen-border-radius
 		content: ''
 		opacity: 0
-		transition: all 0.3s $ease-in-out-cubic
-		+position(absolute, 0)
+		transition-duration: 0.3s
+		transition-property: background, opacity
+		transition-timing-function: $ease-in-out-cubic
 
 .CodepenPreview__icon
 	$size: 26px
 	border-radius: 50%
 	display: inline-block
 	fill: white
-	filter: drop-shadow(0px 0px 6px rgba(black, 0.4))
+	filter: drop-shadow(0 0 6px rgba(black, 0.4))
 	padding: 7px 5px
 	position: absolute
 	z-index: 3
@@ -143,12 +146,13 @@ $project-quote-margin-top: 60px
 		+size($size)
 
 .CodepenPreview__title
-	border: 2px solid rgba(white, 0.8)
+	+position(absolute, 50% null null 50%)
 	backface-visibility: hidden
+	border: 2px solid rgba(white, 0.8)
 	box-shadow: 0 2px 10px 0 rgba(black, 0.1)
 	color: rgba(white, 0.9)
-	font-size: 11px
 	font-family: $heading-font-family
+	font-size: 11px
 	letter-spacing: 2px
 	opacity: 0
 	padding: 20px 40px
@@ -160,7 +164,6 @@ $project-quote-margin-top: 60px
 	-webkit-font-smoothing: subpixel-antialiased
 	white-space: nowrap
 	z-index: 9
-	+position(absolute, 50% null null 50%)
 
 
 
@@ -180,8 +183,7 @@ $project-quote-margin-top: 60px
 	padding: 100px 0 240px/* [1] */
 
 .Projects__header__title
-	color: #62686f
-	color: #555
+	color: #555555
 
 /**
  * 1. Brings the project last to be translated over the dark projects header
@@ -199,9 +201,9 @@ $project-quote-margin-top: 60px
  * by side.
  */
 .Project
+	align-items: flex-start
 	display: flex
 	justify-content: center
-	align-items: flex-start
 
 .Project__details
 	max-width: $project-image-width
@@ -222,17 +224,19 @@ $project-quote-margin-top: 60px
 	font-size: 22px
 	font-weight: 400
 	letter-spacing: 1px
-	padding-bottom: half($base-spacing)
 	margin-top: 220px - $project-quote-margin-top /* [1] */
+	padding-bottom: half($base-spacing)
 
 .Project__title__link
-	$foreground: #333
+	$foreground: #333333
 	$foreground--active: #ababab
 
-	&:link, &:visited
+	&:link,
+	&:visited
 		color: $foreground
 
-	&:hover, &:active
+	&:hover,
+	&:active
 		color: $foreground--active
 
 .Project__caption
@@ -245,8 +249,8 @@ $project-quote-margin-top: 60px
 .Project__media
 	flex: 0 0 $project-image-width
 	max-width: $project-image-width
-	position: relative
 	order: 2
+	position: relative
 
 .Project__link
 	border-radius: $base-border-radius
@@ -256,8 +260,8 @@ $project-quote-margin-top: 60px
 .Project__image
 	border-radius: $base-border-radius
 	box-shadow: 0 rem(10px) rem(30px) rem(1px) rgba(black, 0.4)
-	max-width: $project-image-width
 	margin: 0 auto
+	max-width: $project-image-width
 
 @media (max-width: 1250px)
 	.Project
@@ -294,5 +298,5 @@ $project-quote-margin-top: 60px
 		max-width: 100%
 
 	.Project__quote
-		text-align: center
 		margin-top: triple($base-spacing)
+		text-align: center

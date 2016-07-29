@@ -30,35 +30,35 @@ $color-primary--light: #9c957e;
 $color-primary-darker: #383632;
 
 // Secondary colors
-$color-secondary: #4D5366; // hsla(226,14%,35%,1); // dark blue
+$color-secondary: #4d5366; // hsla(226,14%,35%,1); // dark blue
 $color-secondary: $green;
 
 // Accent colors
-$base-border-color: #44413A;
+$base-border-color: #44413a;
 
 // Foreground colors
-$color-foreground: #444;
+$color-foreground: #444444;
 $color-foreground-alternate: #bdbdbd;
-$color-foreground--meta: #989B9E;
+$color-foreground--meta: #989b9e;
 
 // Background colors
-$color-background: #3A2F3A;
+$color-background: #3a2f3a;
 $color-background--dark: #2b292b;
 
 
 $color-grayscale: (
 	'light': #f0f0f0,
-	'base':  #eee,
-	'dark':  #ddd,
+	'base':  #eeeeee,
+	'dark':  #dddddd,
 );
 
 $colors: (
 	'primary': getvariants($color-primary),
 	'secondary': getvariants($color-secondary),
 	'foreground': (
-		'lightest':  #E6ECEF,
-		'lighter':   #868A8C,
-		'light':     #737F86,
+		'lightest':  #e6ecef,
+		'lighter':   #868a8c,
+		'light':     #737f86,
 		'base':      $color-foreground,
 		'dark':      #202020,
 		'alternate': $color-foreground-alternate,
@@ -73,14 +73,14 @@ $colors: (
 	// 'warning': getvariants($orange),
 	// 'danger': getvariants($red),
 	'link': (
-		'base': #6196CC,
+		'base': #6196cc,
 		'hover': hsl(225, 34%, 40%),
-		// 'hover': #8FB5D8,
+		// 'hover': #8fb5d8,
 	),
 	'brand': (
-		'node': #80BD01,           // green
+		'node': #80bd01,           // green
 		'javascripttext': #323330, // brown,
-		'javascript': #F0DB4F,     // yellow
-		'sass': #c69               // pink
+		'javascript': #f0db4f,     // yellow
+		'sass': #cc6699               // pink
 	)
 );

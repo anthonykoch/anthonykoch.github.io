@@ -3,20 +3,16 @@
  */
 
 $input-background: white
-
-$input-foreground: #222
-$input-placeholder-foreground: #555
-
+$input-foreground: #222222
+$input-placeholder-foreground: #555555
 $input-padding-v: 1rem
 $input-padding-h: 1.5rem
-
 $input-font-size: rem(15.4px)
 $input-font-family: $base-font-family
 $input-placeholder-font-size: rem(15px)
-
 $input-border-width: rem(2px)
 $input-border-style: solid
-$input-border-color: #ddd
+$input-border-color: #dddddd
 $input-border-color--focus: color('primary')
 
 $form-width: rem(500px)
@@ -27,9 +23,8 @@ $form-width: rem(500px)
 #{$all-text-inputs},
 textarea
 	background: $input-background
-	border-radius: rem(2px)
-	border: 0
 	border: $input-border-width solid $input-border-color
+	border-radius: rem(2px)
 	color: $input-foreground
 	display: block
 	font-family: $input-font-family
@@ -37,8 +32,8 @@ textarea
 	font-weight: 400
 	line-height: 1.6
 	margin: $base-spacing 0
-	padding: $input-padding-v $input-padding-h
 	outline: none
+	padding: $input-padding-v $input-padding-h
 	transition: background-color
 	transition-duration: $base-transition-duration
 	width: 100%

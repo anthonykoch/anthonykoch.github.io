@@ -5,7 +5,7 @@
  */
 
 $button-background: $color-primary
-$button-background--hover: rgba(white, .85)
+$button-background--hover: rgba(white, 0.85)
 
 $button-foreground: #202020
 $button-foreground--active: #292929
@@ -30,7 +30,6 @@ $button-font-size: rem(12px)
 .Button
 	$transition-time: 0.3s
 	background-color: $button-background
-	border: 0
 	border: $button-border-width solid $button-border-color
 	border-radius: $button-border-radius
 	color: $button-foreground
@@ -39,20 +38,20 @@ $button-font-size: rem(12px)
 	filter: $button-drop-shadow
 	font-size: $button-font-size
 	font-weight: 600
-	letter-spacing: $button-letter-spacing
 	letter-spacing: 0.1rem
 	line-height: $button-line-height
 	outline: 0
 	padding: $button-padding-v $button-padding-h
-	text-transform: uppercase
 	text-align: center
 	text-decoration: none
+	text-transform: uppercase
 	transition: color, background-color, border-color, filter, -webkit-filter
 	transition-duration: $transition-time
 	user-select: none
 	will-change: border-color, background-color, color, filter, -webkit-filter
 
-	&:link, &:visited
+	&:link,
+	&:visited
 		color: $button-foreground
 
 	&:hover
@@ -63,28 +62,30 @@ $button-font-size: rem(12px)
 		filter: $button-drop-shadow--active
 
 .Button--outline
-	$border-color: #ddd
+	$border-color: #dddddd
 	$border-color: $color-primary
 	$foreground: $color-primary
-	$foreground--active: #444
+	$foreground--active: #444444
 	$background: transparent
 	$background--active: $color-primary
-	filter: none
 	background-color: $background
 	border: rem(2px) solid $border-color
 	color: $foreground
+	filter: none
 
-	&:link, &:visited
+	&:link,
+	&:visited
 		background-color: $background
 		color: $foreground
 
-	&:hover, &:active
-		color: $foreground--active
+	&:hover,
+	&:active
 		background-color: $background--active
+		color: $foreground--active
 
 .Button--large
-	padding: $button-padding-v $button-padding-h--large
 	line-height: $button-line-height--large
+	padding: $button-padding-v $button-padding-h--large
 
 
 
@@ -113,5 +114,5 @@ $button-font-size: rem(12px)
 		width: 100%
 
 	.ButtonGroup__item
-		margin-right: 0
 		margin-bottom: $base-spacing
+		margin-right: 0

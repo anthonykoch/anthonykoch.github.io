@@ -36,8 +36,8 @@
  * Rounds the bottom left and bottom right corners by a few pixels
  */
 .u-rounded-bottom
-	border-bottom-right-radius: 3px
 	border-bottom-left-radius: 3px
+	border-bottom-right-radius: 3px
 
 
 
@@ -77,8 +77,8 @@
 	padding: 0
 
 .u-collapse-v
-	padding-top: 0
 	padding-bottom: 0
+	padding-top: 0
 
 .u-collapse-t
 	padding-top: 0
@@ -165,12 +165,6 @@
 
 
 
-@each $index in (1, 2)
-	+breakpointify('.u-order-#{$index}')
-		order: $index
-
-
-
 .u-flex
 	display: flex
 	flex-wrap: wrap
@@ -195,6 +189,7 @@
 /**
  * Helper classes for flex justify
  */
+
 .u-justify-center
 	justify-content: center
 
@@ -235,14 +230,20 @@
 
 
 
-.u-abs-center
-	+center
+@each $index in (1, 2)
+	+breakpointify('.u-order-#{$index}')
+		order: $index
 
 
 
 @each $index in (1,2,3,4)
 	.u-flex-#{$index}
 		flex: $index
+
+
+
+.u-abs-center
+	+center
 
 
 

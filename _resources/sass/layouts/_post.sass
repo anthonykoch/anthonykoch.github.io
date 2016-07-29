@@ -4,7 +4,7 @@
 
 $post-font-size: rem(16px)
 $post-max-width: rem(800px)
-$post-header-background: #eee
+$post-header-background: #eeeeee
 $post-gutter: double($row-gutter)
 $post-elements: (blockquote, figure, img, ul, ol, li, p, dl, div)
 $post-body-children: ()
@@ -29,6 +29,7 @@ $post-body-children: ()
 	width: 100%
 
 .Post__title
+	+row(readable)
 	font-family: $heading-font-family
 	font-size: 1.75rem
 	font-weight: 900
@@ -36,25 +37,26 @@ $post-body-children: ()
 	line-height: 1.4
 	padding-bottom: $base-spacing
 	text-transform: uppercase
-	+row(readable)
 
 .Post__title a
-	&:link, &:visited
+	&:link,
+	&:visited
 		color: color('primary')
 
-	&:hover, &:active
+	&:hover,
+	&:active
 		color: color('foreground', 'lightest')
 
 .Post__meta-list
 	+row(readable)
+	color: #aaaaaa
 	line-height: $base-spacing
-	color: #aaa
 
 #{$post-body-children}
-	color: lighten(color('foreground'), 4)
-	max-width: $post-max-width
 	+padding(null $post-gutter)
 	+margin(null auto)
+	color: lighten(color('foreground'), 4)
+	max-width: $post-max-width
 
 .Post__body
 	padding: double($base-spacing) 0 $base-spacing
@@ -105,6 +107,8 @@ $post-body-children: ()
 	@media (max-width: breakpoint('medium'))
 		padding: $base-spacing 0
 
+// EXTRA EMPTY LINE
+
 .PostPreview__title
 	+title('small')
 	font-size: 1.4rem
@@ -114,18 +118,18 @@ $post-body-children: ()
 	+link
 
 .PostPreview__meta
+	color: #666666
 	font-size: rem(14px)
 	letter-spacing: rem(1px)
 	padding-bottom: 1.25rem
-	color: #666
 
 .PostPreview__body
 	font-size: $post-font-size
 	padding: 0 0 half($base-spacing)
 
 .PostPreview__more
-	display: inline-block
-	text-transform: capitalize
-	text-align: right
 	+clearfix
 	+link
+	display: inline-block
+	text-align: right
+	text-transform: capitalize

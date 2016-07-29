@@ -1,36 +1,39 @@
 /**
  * file: _icons.sass
  */
+
 $icon-item-gutter: half(2rem)
+$icon-list-link-foreground: #dddddd
+$icon-list-link-foreground--active: darken($icon-list-link-foreground, 20)
 
 .svg-icon
 	+size(1.5rem)
 
 .IconList
+	+margin(null negative($icon-item-gutter))
 	display: inline-block
 	line-height: 0
 	user-select: none
-	+margin(null negative($icon-item-gutter))
 
 .IconList__item
 	display: inline-block
 	padding: 0 $icon-item-gutter
 
 .IconList__link
-	$foreground: #ddd
-	$foreground--active: darken($foreground, 20)
+	+size(2.4rem)
 	border-radius: 100%
 	display: block
 	position: relative
 	text-align: center
-	+size(2.4rem)
 
-	&:link, &:visited
-		color: $foreground
+	&:link,
+	&:visited
+		color: $icon-list-link-foreground
 
-	&:hover, &:active
-		color: $foreground--active
+	&:hover,
+	&:active
+		color: $icon-list-link-foreground--active
 
 	> svg
-		fill: currentColor
 		+center
+		fill: currentColor

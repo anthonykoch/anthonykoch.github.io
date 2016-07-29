@@ -40,12 +40,10 @@
 		&--#{$name}
 			max-width: $size
 
-.row--full
-	max-width: 100%
-
 /**
  * Restricts to a width that is best for reading
  */
+
 .row--readable
 	max-width: rem(700px)
 
@@ -53,7 +51,10 @@
  * Unset the margin centering
  */
 .row--left
-	+margin(null initial)
+	+margin(null 0)
+
+.row--full
+	max-width: 100%
 
 
 
@@ -70,6 +71,7 @@
 
 @for $column-index from 1 through 12
 	$class: '.' + $column-class + '-' + $column-index + 'of' + 12
+
 	+breakpointify($class)
 		$width: grid-column($column-index)
 		flex: 0 0 $width
