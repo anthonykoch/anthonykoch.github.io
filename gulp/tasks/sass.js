@@ -18,6 +18,7 @@ gulp.task('sass', function () {
 		.pipe(sass(config.settings.sass))
 		.pipe(autoprefixer(config.settings.autoprefixer))
 		.pipe(gulp.dest(config.siteDest))
+		.pipe(gulp.dest(config.dest))
 		.pipe(browserSync.reload({ stream: true }))
 		.pipe(cssnano(config.settings.cssnano))
 		.pipe(rename({ suffix: '.min' }))

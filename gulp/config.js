@@ -9,7 +9,7 @@ module.exports =
 		notify: false,
 		open: false,
 		injectChanges: true,
-		files: ['assets/stylesheets'],
+		files: ['assets/stylesheets', './**/*.html', '!_site'],
 		reloadDelay: 600,
 		middleware: [require('compression')()]
 	},
