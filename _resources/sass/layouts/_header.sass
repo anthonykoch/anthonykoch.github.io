@@ -25,7 +25,7 @@ $site-nav-link-border-width: rem(0px)
 	padding: calc(#{$padding-v} - #{$site-nav-link-border-width}) $site-nav-link-padding-h $padding-v
 	text-transform: uppercase
 	transition: background-color, color
-	transition-duration: $link-transition-duration
+	transition-duration: $base-transition-duration
 
 	&:link, &:visited
 		color: $site-nav-link-foreground
@@ -51,11 +51,11 @@ $site-nav-link-border-width: rem(0px)
 	width: 100%
 
 .site-header-wrapper
-	@media (max-width: 890px)
+	@media (max-width: rem(890px))
 		min-height: rem(650px) /* [2] */
 
 	&[data-page="about"]
-		@media (max-width: 890px)
+		@media (max-width: rem(890px))
 			min-height: rem(720px)
 
 /**

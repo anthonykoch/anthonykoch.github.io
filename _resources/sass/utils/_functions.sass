@@ -28,20 +28,14 @@
 
 
 
-/**
- * Returns a breakpoint number from the breakpoints map
- * @param  {String} $key
- * @return {Number}
- */
-@function breakpoint($key)
-	@return map-get($breakpoints, $key)
-
-
-
 @function zindex($key)
 	@return map-get($z-indexes, $key)
 
 
+
+/**
+ * MATH
+ */
 
 /**
  * Returns half of the number passed
@@ -84,33 +78,39 @@
 	@return ($n * 4)
 
 
+/**
+ * Returns the number signed as negative
+ * @param  {number} $n
+ * @return {number}
+ */
+@function negative($n)
+	@return -(abs($n))
+
+
+
+/**
+ * GRID
+ */
 
 /**
  * Calculates the width of a column based on the default
  * parameter $grid-columns
  * Example:
  * 		$width: grid-column(1) // 8.33333%
- * 		$width: grid-column(1, $grid-columns-count: 15) // 6.66667%
+ * 		$width: grid-column(1, $grid-total-columns: 15) // 6.66667%
  *
  * @param {number} column       The number of columns to span
  * @param {number} grid-columns The total number of columns in the grid
  * @return {percentage}
  */
-@function grid-column($column, $grid-columns: 12)
-	$width: ($column / $grid-columns)
-	@return percentage($width)
+@function grid-column($column, $grid-total-columns: $grid-total-columns)
+	@return percentage($column / $grid-total-columns)
 
 
 
 /**
- * Get an opacity level from settings
- * @param  {String} $level
- * @return {Number}
+ * LIST
  */
-@function opacity($level)
-	@return map-get($opacities, $level)
-
-
 
 /**
  * Checks if a list has the value passed
@@ -122,37 +122,6 @@
 	@return (index($list, $var) != null)
 
 
-
-/**
- * Returns the number signed as negative
- * @param  {number} $n
- * @return {number}
- */
-@function negative($n)
-	@return -(abs($n))
-
-
-
-@function colorvariant($color, $variant)
-	@if type-of($color) != color
-		@error 'First argument should be a color'
-
-	@return map-get(getvariants($color), $variant)
-
-
-
-/**
- * Returns the abbreviation for the name passed.
- * @param  {string} $name
- * @return {string}
- */
-@function abbr($name)
-	@return map-get($abbreviations, $name)
-
-
-
-@function grayscale($variant)
-	@return map-get($color-grayscale, $variant)
 
 
 /**
@@ -166,3 +135,31 @@
  */
 @function image($url)
 	@return map-get($config, 'images') + $url
+
+
+
+/**
+ * SPACING
+ */
+
+/**
+ * Returns a multiple of the base spacing
+ * @param  {Number} $multiplier
+ * @return {Number}
+ */
+@function spacing($multiplier)
+	@return $base-spacing * $multiplier
+
+
+
+/**
+ * BREAKPOINT
+ */
+
+/**
+ * Returns a breakpoint number from the breakpoints map
+ * @param  {String} $key
+ * @return {Number}
+ */
+@function breakpoint($breakpoint-name)
+	@return map-get($breakpoints, $breakpoint-name)

@@ -2,13 +2,12 @@ exclude: ['node_modules', '_resources', 'gulp', 'extras.txt']
 
 
 host: "localhost"
-url: "http://localhost:3000"
 baseurl: ""
 
 
-javascripts: "//localhost:3000/assets/javascripts"
-stylesheets: "//localhost:3000/assets/stylesheets"
-images: "//localhost:3000/assets/images"
+javascripts: "/assets/javascripts/"
+stylesheets: "/assets/stylesheets/"
+images: "/assets/images/"
 
 
 placeholder:

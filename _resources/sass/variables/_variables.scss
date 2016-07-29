@@ -1,5 +1,5 @@
 $config: (
-	'images': '../images/'
+	'images': '/assets/images/'
 );
 
 $intrinsic-ratios: (
@@ -30,21 +30,13 @@ $breakpoints: (
 	'readable': rem(760px)
 );
 
-$abbreviations: (
-	'xxlarge': 'xxlg',
-	'xlarge':  'xlg',
-	'large':   'lg',
-	'medium':  'md',
-	'small':   'sm'
-);
-
 $ionicons-font-path: "../fonts/ionicons-2.0.1" !default;
 
 /**
  * The base bottom spacing
  * @type {number}
  */
-$base-spacing: 1.875rem;
+$base-spacing: 2rem;
 
 /**
  * The base gutter width
@@ -63,6 +55,12 @@ $base-gutter--large: rem(50px);
  * @type {number}
  */
 $row-gutter: 1.25rem;
+
+/**
+ * The default number of total columns
+ * @type {Number}
+ */
+$grid-total-columns: 12;
 
 /**
  * The gutter used for the horizontal padding of rows when at mobile sizes.
@@ -94,10 +92,9 @@ $breakpoint-classes: ('xlarge', 'large', 'medium', 'small');
 $base-border-radius: 3px;
 
 /**
- * The duration of time a link's foreground color is transitioned
- * from it's link to hover/active color
+ * The base transition time to be used for hover states
  */
-$link-transition-duration: 0.3s;
+$base-transition-duration: 0.3s;
 
 /**
  * The header color for the background of post headers
@@ -115,4 +112,3 @@ $list-padding-v: $base-spacing;
  * The height of the header when
  */
 $site-header-height--post: rem(400px);
-
