@@ -24,7 +24,7 @@
 	{% endfor %}
 
 	<!-- Main stylesheet -->
-	<link rel="stylesheet" href="{{ site.mainstylesheet }}">
+	<link rel="stylesheet" href="{{ '/main.min.css' | prepend: site.stylesheets }}">
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 	<!-- Fonts -->
@@ -68,7 +68,9 @@
 	<!-- For debugging where the vertical and horizontal centers of the page are -->
 	<div class="wtf-middle-line horizontal vertical"></div>
 
-	{% include icons.html %}
+	<div class="u-hidden">
+		{% include icons.html %}
+	</div>
 
 	<div class="page-wrapper">
 		<main class="page-content">
