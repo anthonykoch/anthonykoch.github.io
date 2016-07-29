@@ -1,0 +1,65 @@
+
+/**
+ * Returns a color from the colors map
+ * @type {Color}
+ */
+@function color($key: 'primary', $variant: 'base')
+	$color: null
+	$color-spectrum: map-get($colors, $key)
+
+	@if $color-spectrum
+		$color: map-get($color-spectrum, $variant)
+
+	@return $color
+
+
+
+/**
+ * Returns a lightness variant setting by name
+ * @param  {String} $variant
+ * @return {Number}
+ */
+
+@function fontsize($variant)
+	$font-size: map-get($font-sizes, $variant)
+	@return $font-size
+
+
+
+@function zindex($key)
+	@return map-get($z-indexes, $key)
+
+
+
+/**
+ * Checks if a list has the value passed
+ * @param  {list}    $list
+ * @param  {*}       $var
+ * @return {boolean}
+ */
+@function contains($list, $var)
+	@return (index($list, $var) != null)
+
+
+
+/**
+ * Returns an image prefixed with a path. This does not smartly join the paths,
+ * it only concatenates the two parts together.
+ *
+ * Note: The path in $config should end with a forward slash, e.g. '../images/'
+ *
+ * @param  {String} $url
+ * @return {String} The image prefixed with the path
+ */
+@function image($url)
+	@return map-get($config, 'images') + $url
+
+
+
+/**
+ * Returns a multiple of the base spacing
+ * @param  {Number} $multiplier
+ * @return {Number}
+ */
+@function spacing($multiplier)
+	@return $base-spacing * $multiplier

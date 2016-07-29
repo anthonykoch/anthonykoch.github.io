@@ -1,6 +1,3 @@
-/**
- * file: _mixins.sass
- */
 
 /**
  * Centers an element optionally verticall or horizontally
@@ -53,19 +50,3 @@
 
 	+position($position, 0 null null 0)
 	+size(100%)
-
-
-
-/**
- * A great mixin thought of by Hugo Giruadel
- * TODO: Add options for min width vs max width
- */
-=breakpointify($class)
-	#{$class}
-		@content
-
-	@each $name, $size in $breakpoints
-		@if contains($breakpoint-classes, $name)
-			@media screen and (max-width: $size)
-				#{$class}\@#{$name}
-					@content

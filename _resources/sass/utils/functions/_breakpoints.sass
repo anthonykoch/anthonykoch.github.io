@@ -1,0 +1,8 @@
+
+/**
+ * Returns a breakpoint number from the breakpoints map
+ * @param  {String} $key
+ * @return {Number}
+ */
+@function breakpoint($breakpoint-name)
+	@return map-get($breakpoints, $breakpoint-name)

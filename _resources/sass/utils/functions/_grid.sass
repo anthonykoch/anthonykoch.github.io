@@ -1,0 +1,15 @@
+
+/**
+ * Calculates the width of a column based on the default
+ * parameter $grid-columns
+ * Example:
+ * 		$width: grid-column(1) // 8.33333%
+ * 		$width: grid-column(1, $grid-total-columns: 15) // 6.66667%
+ *
+ * @param {number} column       The number of columns to span
+ * @param {number} grid-columns The total number of columns in the grid
+ * @return {percentage}
+ */
+
+@function grid-column($column, $grid-total-columns: $grid-total-columns)
+	@return percentage($column / $grid-total-columns)
