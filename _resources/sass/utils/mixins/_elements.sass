@@ -59,18 +59,6 @@
 
 
 
-/**
- * Creates a grid column
- * @param {number} column The number of columns to span
- * @param {number} columns The total number of columns in the grid
- */
-=grid-column($column, $grid-columns: 12)
-	$width: grid-column($column, $grid-columns: 12)
-	flex: 1 0 $width
-	max-width: $width
-
-
-
 =list($type)
 	@if $type == 'number'
 		list-style-type: decimal

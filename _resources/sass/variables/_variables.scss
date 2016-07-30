@@ -57,10 +57,10 @@ $base-gutter--large: rem(50px);
 $row-gutter: 1.25rem;
 
 /**
- * The default number of total columns
+ * FIXME
  * @type {Number}
  */
-$grid-total-columns: 12;
+ $grid-sizes: (12);
 
 /**
  * The gutter used for the horizontal padding of rows when at mobile sizes.
@@ -72,12 +72,6 @@ $row-gutter-at-small: 1.25rem;
  * The left padding for the blockquote
  */
 $block-quote-padding-h: ($base-gutter * 3);
-
-/**
- * The basename of the column class
- * @type {String}
- */
-$column-class: 'col';
 
 /**
  * These classes will be used for the responsive @ classes.

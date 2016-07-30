@@ -58,27 +58,6 @@
 
 
 
-/**
- * The base column class is a flex item.
- */
-.#{$column-class}
-	flex: 1
-
-/**
- * The responsive column classes e.g. column-6@large where large is
- * the name of a breakpoint in $breakpoint-classes.
- */
-
-@for $column-index from 1 through 12
-	$class: '.' + $column-class + '-' + $column-index + 'of' + 12
-
-	+breakpointify($class)
-		$width: grid-column($column-index)
-		flex: 0 0 $width
-		max-width: $width
-
-
-
 @media screen and (max-width: breakpoint('small'))
 
 	.row

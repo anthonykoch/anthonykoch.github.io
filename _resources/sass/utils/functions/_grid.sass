@@ -13,3 +13,56 @@
 
 @function grid-column($column, $grid-total-columns: $grid-total-columns)
 	@return percentage($column / $grid-total-columns)
+
+/**
+ * Zips the data for a 12 column grid with 2 extra null values so that
+ * it can be used in conjuction with get-responsive-grid-list.
+ *
+ * @example
+ *   $grid-sizes: (12)
+ *   $zipped: get-grid-list($grid-sizes)
+ *   @debug $zipped; // ((1, 12, null, null), (2, 12, null, null), etc..)
+ * The list will contain all breakpoints in use.
+ * @param {Boolean} plain - Whether or not to
+ * @return {list}
+ */
+@function get-grid-list($grid-sizes)
+	$grid-list: ()
+
+	@each $grid-total-columns in $grid-sizes
+		$grid-total-columns: strip-units($grid-total-columns)
+
+		@if (type-of($grid-total-columns) != 'number')
+			@error 'Invalid grid size #{$grid-total-columns}'
+
+		@for $column-index from 1 through $grid-total-columns
+			$new-data: ($column-index, $grid-total-columns, null, null)
+			$grid-list: append($grid-list, $new-data)
+
+	@return $grid-list
+
+/**
+ * Zips the data for a 12 column grid with responsive classes.
+ * @example
+ *   $grid-sizes: (12)
+ *   $zipped: get-grid-list($grid-sizes)
+ *   @debug $zipped; // ((1, 12, 'small', 320px), (2, 12, 'small', 320px), etc..)
+ * The list will contain all breakpoints in use.
+ * @param {Boolean} plain - Whether or not to
+ * @return {list}
+ */
+@function get-responsive-grid-list($grid-sizes)
+	$grid-list: ()
+
+	@each $grid-total-columns in $grid-sizes
+		$grid-total-columns: strip-units($grid-total-columns)
+
+		@if (type-of($grid-total-columns) != 'number')
+			@error 'Invalid grid size #{$grid-total-columns}'
+
+		@each $breakpoint-name, $breakpoint-size in breakpoints-in-use()
+			@for $column-index from 1 through $grid-total-columns
+				$new-data: ($column-index, $grid-total-columns, $breakpoint-name, $breakpoint-size)
+				$grid-list: append($grid-list, $new-data)
+
+	@return $grid-list

@@ -1,0 +1,18 @@
+
+/**
+ * Outputs properties for a grid column.
+ * Keep this in mind: https://github.com/philipwalton/flexbugs
+ *
+ * 1. See https://www.sitepoint.com/a-tale-of-css-and-sass-precision/
+ */
+
+=grid-column($column-index, $grid-columns, $important: false)
+	$width: grid-column($column-index, $grid-columns)
+	$important-string: if($important, '!important', '')
+	flex-basis: auto #{$important-string}
+
+	@if (is-float($width))
+		width: $width #{$important-string}
+		width: calc(100% * #{$column-index} / #{$grid-columns}) #{$important-string} /* [1] */
+	@else
+		width: $width #{$important-string}

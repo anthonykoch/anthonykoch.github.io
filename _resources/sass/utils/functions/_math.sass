@@ -46,3 +46,10 @@
  */
 @function negative($n)
 	@return -(abs($n))
+
+/**
+ * Returns true if the value passed is a float
+ * @param {Number} $value
+ */
+@function is-float($value)
+  @return (type-of($value) == number and floor(abs($value)) != abs($value))
