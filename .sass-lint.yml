@@ -5,7 +5,7 @@ files:
   include: '_resources/sass/**/*.s+(a|c)ss'
   ignore:
     - '_resources/sass/vendor/**/*.*'
-    - '_resources/sass/_github-syntax.scss'
+    - '_resources/sass/themes/**/*.*'
     - '_resources/sass/base/_normalize.scss'
     # Sass, @keyframes, and sass-lint don't mix
     - '_resources/sass/_animations.sass'

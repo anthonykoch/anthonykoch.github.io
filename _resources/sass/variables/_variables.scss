@@ -2,11 +2,6 @@ $config: (
 	'images': '/assets/images/'
 );
 
-$intrinsic-ratios: (
-	'16by9': (16, 9),
-	'4by3': (4, 3)
-);
-
 $z-indexes: (
 	'below': -1,
 	'default': 1,

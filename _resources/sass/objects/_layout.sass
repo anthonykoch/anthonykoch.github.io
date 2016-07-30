@@ -23,5 +23,9 @@
 	.Layout--flush
 		+margin(null negative($gutter))
 
+	/**
+	 * 1. See https://github.com/philipwalton/flexbugs
+	 */
 	.Layout__item
+		flex-basis: auto /* 1 */
 		+padding(null $gutter)
