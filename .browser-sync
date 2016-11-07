@@ -1,0 +1,20 @@
+'use strict';
+
+module.exports = {
+	server: {
+		baseDir: '_site'
+	},
+	port: 5000,
+	notify: false,
+	open: false,
+	injectChanges: true,
+	files: [
+		'assets/stylesheets',
+		'config/**/*.yaml',
+		'./**/*.html',
+		'!_site',
+		'!assets/stylesheets/main.css'
+	],
+	reloadDelay: 700,
+	middleware: [require('compression')()]
+};
