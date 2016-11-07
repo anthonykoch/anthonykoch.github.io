@@ -1,20 +1,5 @@
 
 /**
- * Returns a color from the colors map
- * @type {Color}
- */
-@function color($key: 'primary', $variant: 'base')
-	$color: null
-	$color-spectrum: map-get($colors, $key)
-
-	@if $color-spectrum
-		$color: map-get($color-spectrum, $variant)
-
-	@return $color
-
-
-
-/**
  * Returns a lightness variant setting by name
  * @param  {String} $variant
  * @return {Number}

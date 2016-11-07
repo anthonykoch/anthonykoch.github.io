@@ -1,0 +1,25 @@
+<!--
+Settings:
+tab-size
+font-family
+ -->
+
+<div class="br-App  js-br-app">
+	{% include bladerepl/sidebar.html %}
+
+	<div class="br-MainPane">
+		<div class="br-Inputs">
+			<div class="br-Inputs-inputContainer">
+				{% include bladerepl/pane-files.html %}
+
+				<textarea class="br-Inputs-field br-Inputs-field--left  js-br-input-left"></textarea>
+			</div>
+
+			<div class="br-Inputs-outputContainer">
+				<textarea class="br-Inputs-field br-Inputs-field--right  js-br-input-right" readonly></textarea>
+
+				<div class="br-ErrorMessage  js-br-error-message"></div>
+			</div>
+		</div>
+	</div>
+</div>

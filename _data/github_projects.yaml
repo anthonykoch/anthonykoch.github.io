@@ -1,5 +1,9 @@
-- title: Editor Connect
-  caption: |
+editorconnect:
+  title: Editor Connect
+  subtitle: Node script
+  icon:
+    name: icon-nodejs
+  description: |
       <p>
         This is a plugin (more of a node script) which was created to eliminate the back and forth checks between the text editor and a gulp process.
         <em>It has not yet been published to npm.</em>

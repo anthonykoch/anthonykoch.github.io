@@ -68,9 +68,17 @@ $base-font-family: Source Sans Pro, Arial;
 /**
  * The font family for the headings
  */
-$heading-font-family: Lato, Arial;
+$heading-font-family: 'Lato', Arial, sans-serif;
+
+/**
+ * Font family for code blocks
+ * @type {[type]}
+ */
+$code-font-family: Source Code Pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
 
 /**
  * The tag names of headings
  */
 $headings: (h1, h2, h3, h4, h5, h6);
+

@@ -20,35 +20,9 @@ $form-width: rem(500px)
 /**
  * Base input styles
  */
-#{$all-text-inputs},
-textarea
-	background: $input-background
-	border: $input-border-width solid $input-border-color
-	border-radius: rem(2px)
-	color: $input-foreground
-	display: block
-	font-family: $input-font-family
-	font-size: $input-font-size
-	font-weight: 400
-	line-height: 1.6
-	margin: $base-spacing 0
-	outline: none
-	padding: $input-padding-v $input-padding-h
-	transition: background-color
-	transition-duration: $base-transition-duration
-	width: 100%
 
-	&:focus
-		border-color: color('primary')
-
-	&::placeholder
-		color: $input-placeholder-foreground
-		font-family: $base-font-family
-		font-size: $input-placeholder-font-size
-		font-weight: 400
-		letter-spacing: rem(1px)
-		line-height: 1.7
-		text-transform: capitalize
+.Input
+	+input()
 
 textarea
 	min-height: rem(200px)

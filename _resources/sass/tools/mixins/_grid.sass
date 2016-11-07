@@ -12,7 +12,6 @@
 	flex-basis: auto #{$important-string}
 
 	@if (is-float($width))
-		width: $width #{$important-string}
 		width: calc(100% * #{$column-index} / #{$grid-columns}) #{$important-string} /* [1] */
 	@else
 		width: $width #{$important-string}

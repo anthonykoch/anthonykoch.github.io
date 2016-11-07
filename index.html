@@ -2,14 +2,19 @@
 layout: default
 title: Anthony Koch
 description: Hello, my name is Anthony Koch. I'm a front-end developer specializing in responsive design, web performance, and custom web development.
+
 hero:
   caption: Front-End Developer
   description: Hello, my name is Anthony Koch. I'm a front-end developer specializing in responsive design, web performance, and custom web development. I'm a lover of JavaScript, Python, and simple code.
   display_social: true
   more: true
+
+scripts:
+  - |
+      <script defer src="/assets/javascripts/pages/home.js"></script>
 ---
 
-<section class="Band Band--medium  u-collapse-bottom">
+<section class="Band Band--small u-collapse-bottom">
 	<div class="row row--xxlarge">
 		<h2 class="Title Title--alternate Title--dark">
 			<span>Codepen</span>
@@ -19,16 +24,14 @@ hero:
 		</h2>
 	</div>
 
-	<div class="codepen-projects-section">
+	<div class="CodepenProjects">
 		<div class="row row--xxlarge">
 			<ul class="CodepenPreviewList">
-
 				{% for item in site.data.codepen_projects %}
 					<li class="CodepenPreviewList__item">
 						{% include components/codepen_preview.html %}
 					</li>
 				{% endfor %}
-
 			</ul>
 		</div>
 	</div>
@@ -45,30 +48,93 @@ hero:
 					</span>
 				</h3>
 			</div>
+			<div class="row row--xlarge">
+				<p class="Projects__header__quote">
+					Connecting the editor and GulpJS for error reporting
+				</p>
+			</div>
 		</header>
+
 		<ul class="ProjectList">
-			{% for project in site.data.open_source %}
-				<li class="ProjectList__item  row row--xxlarge">
-					{% include project.html %}
-				</li>
-			{% endfor %}
+			<li class="ProjectList__item row row--xlarge">
+				<div class="Project Project--first">
+					{% assign project = site.data.github_projects.editorconnect %}
+
+					<div class="Project__media  u-size6of12 u-size12of12@xlarge">
+						<a href="{{ project.links.repository }}" class="Project__link">
+							<img
+								class="Project__image"
+								src="{{ project.image.url | prepend:site.images }}"
+								alt="{{ project.image.alt | prepend:site.images }}">
+						</a>
+					</div>
+					<div class="Project__details
+								Project__details--is-inside-first
+								u-size6of12 u-size12of12@xlarge">
+
+						<div class="Project__title-container">
+							<div class="Project__subtitle">
+								{{ project.subtitle }}
+							</div>
+							<h3 class="Project__title">
+								<a href="{{ project.links.repository }}" class="Project__title__link">
+									{{ project.title }}
+								</a>
+
+								{% if project.icon %}
+									<div class="Project__icon u-foreground-node-fg">
+										<svg class="svg-icon">
+											<use xlink:href="#{{ project.icon.name }}"></use>
+										</svg>
+									</div>
+								{% endif %}
+							</h3>
+						</div>
+						<div class="Project__description  Paragraphs Paragraphs--light  u-collapse-last">
+							<p>
+								{{ project.description }}
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			<li class="ProjectList__item">
+				<div class="Project Project--other  Band  u-collapse-bottom">
+					<div class="row row--xlarge">
+						<h2 class="Title Title--alternate Title--dark  u-text-center">
+							<span>Other Notable Projects</span>
+						</h2>
+
+						<ul class="ProjectOtherList">
+							<li class="ProjectOtherList__item">
+								<h3 class="Project__title">
+									<a href="https://github.com/anthonykoch/bladejs" class="ProjectOtherTitle">BladeJS</a>
+								</h3>
+								<div class="Paragraphs Paragraphs--light Paragraphs--small">
+									<p>
+										An implementation of Laravel's Blade templating engine in JavaScript. This project was written purely for fun on my off days. It took a few months as I also wrote Blade Expression at the same time. <em>Try it down below!</em>
+									</p>
+								</div>
+							</li>
+							<li class="ProjectOtherList__item">
+								<h3 class="Project__title">
+									<a href="https://github.com/anthonykoch/blade-expression" class="ProjectOtherTitle">
+										Blade Expression
+									</a>
+								</h3>
+								<div class="Paragraphs Paragraphs--light Paragraphs--small">
+									<p>
+										A parser for JavaScript expressions created according to the ES6 specification. This parser was written for BladeJS so that Blade could output errors at compile time. It continues to be a work in progress.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					{% include bladerepl/main.html %}
+				</div>
+			</li>
 		</ul>
 	</div>
 </section>
-
-{% comment %}
-	<div class="Background-gray  u-size6of12 u-size12of12@large">
-		<section class="row row--medium  Band  u-collapse-last">
-			<h2 class="Title Title--alternate">A little about myself</h2>
-			<p>
-				Well, as I said before, I'm a front-end developer, which if you simplify it down, it basically means I build websites. I have a wealth of knowledge in HTML, CSS, responsive design, as well as some knowledge in server side scripting languages such as PHP and NodeJS.
-			</p>
-			<p>
-				I'm a big fan of JavaScript, Node, and Python, and have built some open source projects using them. If you'd like to see some of my code, I have some cool stuff on my <a href="{{ site.data.social.github.link }}">Github</a> and <a href="{{ site.data.social.codepen.link }}">Codepen</a>.
-			</p>
-			<p>
-				P.S. I also do a bit of blogging, where I write mostly on topics surrounding front-end development. Be sure to check it <a href="/blog">out</a>.
-			</p>
-		</section>
-	</div>
-{% endcomment %}

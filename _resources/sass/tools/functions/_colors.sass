@@ -1,0 +1,30 @@
+
+/**
+ * Returns a color from the colors map
+ * @type {Color}
+ */
+@function color($key: 'primary', $variant: 'base')
+	$color: null
+	$color-spectrum: map-get($colors, $key)
+
+	@if $color-spectrum
+		$color: map-get($color-spectrum, $variant)
+
+	@return $color
+
+
+
+/**
+ * Returns a brand color
+ * @return {Color}
+ */
+@function brand($brand-name, $variant)
+	@if not map-has-key($brand-colors, $brand-name)
+		@error 'function.brand: no color map found for brand name #{$brand-name}'
+
+	$brand-colors: map-get($brand-colors, $brand-name)
+
+	@if not map-has-key($brand-colors, $variant)
+		@error 'function.brand: no color found for brand name #{$brand-name}'
+
+	@return map-get($brand-colors, $variant)

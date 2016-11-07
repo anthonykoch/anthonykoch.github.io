@@ -9,10 +9,41 @@
 
 
 
+=input
+	background: $input-background
+	border: $input-border-width solid $input-border-color
+	border-radius: rem(2px)
+	color: $input-foreground
+	display: block
+	font-family: $input-font-family
+	font-size: $input-font-size
+	font-weight: 400
+	line-height: 1.6
+	margin: $base-spacing 0
+	outline: none
+	padding: $input-padding-v $input-padding-h
+	transition: background-color
+	transition-duration: $base-transition-duration
+	width: 100%
+
+	&:focus
+		border-color: color('primary')
+
+	&::placeholder
+		color: $input-placeholder-foreground
+		font-family: $base-font-family
+		font-size: $input-placeholder-font-size
+		font-weight: 400
+		letter-spacing: rem(1px)
+		line-height: 1.7
+		text-transform: capitalize
+
+
+
 =title($type: ('default'))
 	@if (contains($type, 'small'))
 		color: color('foreground')
-		font-family: Lato, arial
+		font-family: $heading-font-family
 		font-size: 1.3rem
 		font-weight: 700
 		letter-spacing: rem(3px)

@@ -19,6 +19,13 @@
 	);
 }
 
+/**
+ * Some browsers supposedly mess up with transparent so rgba(black, 0)
+ * is used instead.
+ */
+
+$transparent: rgba(black, 0);
+
 $blue: hsl(210, 82%, 59%);
 $green: hsl(160, 100%, 37%);
 $bronze: hsl(15, 84%, 55%);
@@ -52,6 +59,28 @@ $color-grayscale: (
 	'dark':  #dddddd,
 );
 
+$brand-colors: (
+	'node': (
+		'foreground': #669f64,
+		'background': #333333,
+	),
+	'javascript': (
+		'foreground': #323330,
+		'background': #f0db4f,
+	),
+	'sass': (
+		'foreground': #cc6699,
+	),
+	'twitter': (
+		'foreground': #1da1f2,
+		'background': #1da1f2,
+	),
+	'facebook': (
+		'foreground': #3b5999,
+		'background': #3b5999,
+	)
+);
+
 $colors: (
 	'primary': getvariants($color-primary),
 	'secondary': getvariants($color-secondary),
@@ -77,10 +106,4 @@ $colors: (
 		'hover': hsl(225, 34%, 40%),
 		// 'hover': #8fb5d8,
 	),
-	'brand': (
-		'node': #80bd01,           // green
-		'javascripttext': #323330, // brown,
-		'javascript': #f0db4f,     // yellow
-		'sass': #cc6699               // pink
-	)
 );

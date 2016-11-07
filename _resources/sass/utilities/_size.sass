@@ -1,6 +1,9 @@
 
 /**
  * Outputs a grid for each of the total columns in $grid-sizes.
+ *
+ * Note: The parent must have `flex-wrap: wrap;` for the responsive
+ *       classes to work.
  */
 
 @at-root
@@ -10,9 +13,8 @@
 
 	@each $column, $grid-total-columns, $name, $size in get-responsive-grid-list($grid-sizes)
 		@media only screen and (max-width: $size)
-			@for $column from 1 through $grid-total-columns
-				.u-size#{$column}of#{$grid-total-columns}\@#{$name}
-					+grid-column($column, $grid-total-columns, $important: true)
+			.u-size#{$column}of#{$grid-total-columns}\@#{$name}
+				+grid-column($column, $grid-total-columns, $important: true)
 
 
 

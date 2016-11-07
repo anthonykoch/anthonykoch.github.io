@@ -1,12 +1,10 @@
 'use strict';
 
-import 'babel-polyfill';
-import'fastclick';
 import './polyfills';
-// Waypoints is installed onto window
-import'./lib/waypoints';
-import './components/ripple';
+import './vendor/waypoints';
+
 import { Overlay } from './components/overlay';
+import './components/ripple';
 
 setTimeout(function () {
 	hljs.initHighlighting();
