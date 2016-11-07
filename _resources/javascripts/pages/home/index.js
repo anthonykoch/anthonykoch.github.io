@@ -78,7 +78,7 @@ const home = {
 @section('content')
 
   @if(user)
-    Hello {{ user.name }}, if something goes wrong with this live preview, clear localStorage
+    Hello {{ user.name }}
   @else
 	  Sign in?
   @endif
