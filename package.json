@@ -12,7 +12,8 @@
     "build:fonts": "gulp fonts",
     "build:sass": "gulp sass",
     "build": "npm run clean && npm run build:js & npm run build:images & npm run build:fonts & npm run build:sass",
-    "lint:sass": "sass-lint -c .sass-lint.yml -vq || true"
+    "lint:sass": "sass-lint -c .sass-lint.yml -vq || true",
+    "lint": "npm run lint:sass"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
