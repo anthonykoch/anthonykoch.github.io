@@ -10,7 +10,7 @@ var config     = require('./gulp/config');
 
 requireDir('./gulp/tasks', { recurse: true });
 
-gulp.task('default', ['browser-sync', 'watch', 'images']);
+gulp.task('default', ['watch', 'browser-sync']);
 
 gulp.task('watch', function () {
 	gulp.watch(config.sass.src,   ['sass']);

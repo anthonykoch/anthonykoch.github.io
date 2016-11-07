@@ -1,9 +1,9 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync');
-var config      = require('./../config').browserSync;
+var config = require('../../.browser-sync');
 
 /**
- * Wait for jekyll-build, then launch the Server
+ * Builds all assets and then starts browsersync
  */
 gulp.task('browser-sync', ['images', 'sass', 'fonts', 'utils'], function() {
 	browserSync(config);

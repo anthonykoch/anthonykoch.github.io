@@ -1,7 +1,8 @@
 'use strict';
 
-var gulp = require('gulp');
-var Editor = require('editor-connect');
+var gulp    = require('gulp');
+var plumber = require('gulp-plumber');
+var Editor  = require('editor-connect');
 var sublime;
 
 /**
@@ -20,13 +21,13 @@ gulp.task('utils', function () {
 /**
  * Displays an error message and sends an error message to Sublime Text
  */
-module.exports.handleError = function handleError(taskName) {
+exports.catche = function catche(taskName) {
 	if (typeof taskName !== 'string') {
 		var err = new Error('No task name was specified for the error handler');
 		throw err;
 	}
 
-	var plumberErrorHandler = {
+	return plumber({
 		errorHandler: function (err) {
 			if (sublime) {
 				sublime.showError(err, taskName)
@@ -35,7 +36,5 @@ module.exports.handleError = function handleError(taskName) {
 			console.log(err.message);
 			this.emit('end');
 		}
-	};
-
-	return plumberErrorHandler;
+	});
 };

@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var del  = require('del');
 
 /**
- * Delete css and images folder
+ * Deletes the css and images folders
  * Doesn't delete js because js is completely managed by webpack
  */
 gulp.task('clean', function () {
