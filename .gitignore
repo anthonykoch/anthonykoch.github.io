@@ -1,6 +1,7 @@
 node_modules/
 npm-debug.log
 _site/
+assets/javascripts/**/*.map
 extras.txt
 *.sublime-workspace
 *.sublime-project
@@ -8,6 +9,7 @@ _drafts/
 extras/
 assets/stylesheets/main.css
 .sass-cache
+.jekyll-metadata
 .personal
 test/
 linters/
