@@ -20,18 +20,18 @@ layout: default
 
 	<div class="Post__container">
 		<header class="Post__header">
-			<h1 itemprop="name" class="Post__title  fadeIn">
+			<h1 itemprop="name" class="Post__title  a-fadeIn">
 				<a itemprop="url" href="{{ page.url }}" class="Link Link--dark">
 					{{ page.title }}
 				</a>
 			</h1>
-			<ul class="Post__meta-list  fadeIn">
+			<ul class="Post__meta-list  a-fadeIn">
 				<li class="u-text-meta" itemprop="datePublished">
 					{{ page.date | date:'%B %d, %Y'}}
 				</li>
 			</ul>
 		</header>
-		<div itemprop="articleBody" class="Post__body  fadeIn" style="animation-delay: 0.3s">
+		<div itemprop="articleBody" class="Post__body  a-fadeIn" style="animation-delay: 0.3s">
 			{{ content }}
 		</div>
 	</div>

@@ -4,22 +4,164 @@ tab-size
 font-family
  -->
 
-<div class="br-App  js-br-app">
-	<a href="/#blade" id="blade" name="blade"></a>
+
+{% raw %}
+<template class="js-template-tooltip">
+	<div class="br-Tooltip">
+		<div class="br-Tooltip-message">Hello there! This is a "REPL" for bladejs. </div>
+	</div>
+</template>
+
+<template class="js-template-br-file-list-item">
+	<li class="br-FilesList-item">
+		<div class="br-File">
+			<!-- <div>
+				<input type="checkbox">
+			</div> -->
+			<div
+				class="br-File-name"
+				tabindex="0"
+				@keyup.enter.self="updateActiveFile(file.id)"
+				@click="updateActiveFile(file.id)">
+
+				<span>{{ file.path }}</span>
+
+				<input class="br-File-inputEditText"
+					type="text"
+					value=""
+					autocomplete="off"
+					ref="input"
+					tabindex="-1"
+					v-model="filePath"
+					v-show="isEditingPath"
+					@keyup.enter="updateFilePath"
+					@keyup.esc="isEditingPath = false"
+					@focusout="isEditingPath = false">
+			</div>
+
+			<!-- Change these to buttons! -->
+
+			<ul class="br-File-actions">
+				<li class="br-File-icon br-File-icon--delete"
+					@click="deleteFile(file)">
+					<i class="br-File-iconInner  ion-ios-close-empty"></i>
+				</li>
+				<li class="br-File-icon br-File-icon--edit"
+					@click="editPath">
+					<i class="br-File-iconInner  ion-edit"></i>
+				</li>
+			</ul>
+		</div>
+	</li>
+</template>
+{% endraw %}
+
+{% comment %}
+TODO:
+- noscript message
+{% endcomment %}
+
+<div class="br-App  js-br-app" tabIndex="-1">
+	<a href="/#blade" id="blade" name="blade" tabindex="-1"></a>
 	{% include bladerepl/sidebar.html %}
 
 	<div class="br-MainPane">
 		<div class="br-Inputs">
 			<div class="br-Inputs-inputContainer">
-				{% include bladerepl/pane-files.html %}
 
-				<textarea class="br-Inputs-field br-Inputs-field--left  js-br-input-left"></textarea>
+				<!-- TODO: Change this pane to be more reusable by other things  -->
+				<div
+					class="br-FilesPane br-FilesPane"
+					style="display: none"
+					:class="{ 'br-FilesPane--is-showing': isViewingFiles }"
+					v-show="isViewingFiles">
+
+					<!-- <div class="br-FilesPane-title">
+						<div>
+							<span class="u-inline-block">Files</span>
+							<sup>
+								<a href="#" onclick="return false" title="You can include or extend these files from a template">?</a>
+							</sup>
+						</div>
+
+						<ul class="br-FilesActionsList" class="u-inline-flex">
+							<li class="br-FilesActionsList-item">
+								<i class="ion-trash-b"></i>
+							</li>
+						</ul>
+						{% comment %}
+						{% endcomment %}
+					</div> -->
+
+					{% raw %}
+					<transition-group
+						tag="ul"
+						name="tr-listRemove"
+						class="br-FilesList">
+						<li
+							is="br-file-list-item"
+							v-for="(file, index) in files"
+							:file="file"
+							:key="file.id"
+							:style="{ 'transition-delay': (index * 40) + 'ms' }"
+							v-on:file:delete="removeFile({ id: file.id })"
+							v-on:file:update-path="updateFilePath"
+							v-on:file:set-current="updateActiveFile({ id: file.id })"
+							v-on:files-pane:hide="updateIsViewingFiles({ value: false })">
+						</li>
+					</transition-group>
+
+					<div class="br-FilesPane-background">
+						<div class="br-FilesPane-backgroundWrapper">
+							<div class="u-text-center">
+								<!-- <div style="margin-bottom: 10px; color: #6a6f71">Did you know?</div> -->
+								<div class="br-FilesPane-backgroundComment">
+									<span class="u-inline-block">
+										{{ paneMessage }}
+									</span>
+								</div>
+							</div>
+							<div class="br-FilesPane-backgroundText">@_@</div>
+						</div>
+					</div>
+					{% endraw %}
+				</div>
+
+				<div>
+					<textarea
+						class="br-Inputs-jsonInput"
+						type="text"
+						:value="jsonHeader"
+						@keyup="onJsonHeaderKeyup"></textarea>
+
+					<textarea
+						class="br-Inputs-field br-Inputs-field--left"
+						ref="inputLeft"
+						:value="contents"
+						@keyup="onInputLeftKeyup"
+						@keydown.tab.prevent
+						@keydown="onInputleftKeydown"></textarea>
+				</div>
 			</div>
 
-			<div class="br-Inputs-outputContainer">
-				<textarea class="br-Inputs-field br-Inputs-field--right  js-br-input-right" readonly></textarea>
+			<div
+				class="br-Inputs-outputContainer"
+				:class="{ 'br-Inputs-outputContainer--is-hidden': isViewingFiles }">
+				{% comment %}
+					IMPORTANT: using v-model="output.data" causes the browser to
+					crash everytime, all the time
+				{% endcomment %}
+				{% raw %}
+				<textarea
+					class="br-Inputs-field br-Inputs-field--right"
+					readonly
+					:value="output"></textarea>
 
-				<div class="br-ErrorMessage  js-br-error-message"></div>
+				<div
+					style="display: none"
+					class="br-ErrorMessage"
+					v-show="error">{{ error }}</div>
+				{% endraw %}
 			</div>
 		</div>
 	</div>

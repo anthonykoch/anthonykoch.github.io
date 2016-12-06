@@ -48,22 +48,39 @@
 	to
 		transform: translateY(rem(5px))
 
-+keyframes(pulse--slow)
-	from
-		transform: scale(1)
-	to
-		transform: scale(1.05)
 
 
-.slideUpFadeIn
+.a-slideUpFadeIn
 	animation: slideUpFadeIn 1.1s forwards
 	opacity: 0
 	transform: translateY(0px)
 
-.fadeIn
+.a-fadeIn
 	animation: fadeIn 1.1s forwards
 	opacity: 0
 
-.fadeOut
+.a-fadeOut
 	animation: fadeOut 1.1s forwards
 	opacity: 1
+
+
+
+.tr-fadeOut
+	transition: opacity
+	transition-duration: 0.3s
+
+.tr-fadeOut--enter
+	opacity: 1
+
+.tr-fadeOut--enter-active
+	opacity: 0
+
+.tr-fadeOut--leave
+	opacity: 0
+
+.tr-fadeOut--leave-active
+	opacity: 1
+
+
+
+

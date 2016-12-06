@@ -71,26 +71,6 @@ function getWindowScrollLeft() {
 }
 
 /**
- * Gets the parent with the specified class name.
- * Only one class name can be passed, and the class
- * name must not contain a dot.
- * @param  {Element} node
- * @param  {string} className
- * @return {Element|null}
- */
-function closest(node, className) {
-	var parent = node.parentNode;
-
-	for (; parent !== document && parent !== undefined && parent !== null; parent = parent.parentNode) {
-		if (parent.classList.contains(className)) {
-			return parent;
-		}
-	}
-
-	return null;
-}
-
-/**
  * Returns true if the object passed is a window instance
  * From jQuery
  * @param  {*}       obj
@@ -140,31 +120,6 @@ function getOffset(element) {
 
 	// Return zeros for disconnected and hidden elements (gh-2310)
 	return rect;
-}
-
-/**
- * Returns true if the element is in the viewport
- * @param  {Element} element
- * @param  {Boolean} past    Whether or not to return true if the element has been scrolled past
- * @return {Boolean}
- */
-function isVisible(element, past) {
-	var rect = element.getBoundingClientRect();
-	var docElem = document.documentElement;
-	var innerHeight = window.innerHeight || docElem.clientHeight;
-	var innerWidth = window.innerWidth || docElem.clientWidth;
-
-	if (past) {
-		// Not sure if the left part is correct
-		return (rect.top - innerHeight) <= 0 && rect.left >= 0;
-	}
-
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <= innerHeight &&
-		rect.right <= innerWidth
-	);
 }
 
 /**
@@ -233,33 +188,33 @@ function loadBackgroundImage(target, src) {
 	});
 }
 
-function getNestedProperty(obj, str) {
-	const props = str.split('.');
-	const length = props.length - 1;
-	let i = 0;
-	let current = obj;
-
-	while ((current = current[props[i]]) !== undefined && i !== length) {
-		i++;
-	}
-
-	return current === undefined ? null : current;
-}
-
 export default {
+
 	_: {
+
 		throttle,
+
 		debounce,
-		uniqueId,
-		getNestedProperty
+
+		uniqueId
+
 	},
-	loadBackgroundImage,
-	loadImage,
+
+	load: {
+
+		loadBackgroundImage,
+
+		loadImage,
+
+	},
+
 	dom: {
+
 		getWindowScrollLeft,
+
 		getWindowScrollTop,
-		closest,
-		getOffset,
-		isVisible,
+
+		getOffset
+
 	},
 };

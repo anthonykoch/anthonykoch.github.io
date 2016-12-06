@@ -3,38 +3,46 @@
 import './polyfills';
 import './vendor/waypoints';
 
-import { Overlay } from './components/overlay';
-import './components/ripple';
-
-setTimeout(function () {
+setTimeout(() => {
 	hljs.initHighlighting();
-	setTimeout(function () {
+
+	setTimeout(() => {
 		$$('.hljs')
 			.forEach(code => code.setAttribute('limit-selection', true));
-
-		require('./text-selection');
 	}, 100);
 }, 0);
 
-const bodyFadeOutOverlay = Overlay.create({
-	style: {
-		background: 'white'
+/**
+ * Limits selection of text when pressing ctrl+a to any element with
+ * the [limit-selection] attribute.
+ */
+
+const A_KEY = 65;
+
+let lastElementClicked = null;
+
+$$('[limit-selection]').forEach(function(item) {
+	item.addEventListener('click', function () {
+		lastElementClicked = this;
+		console.log('wtf', lastElementClicked);
+	});
+});
+
+window.addEventListener('keydown', function (event) {
+	if (event.ctrlKey && event.which === A_KEY && lastElementClicked) {
+		event.preventDefault();
+		setTimeout(selectElementText.bind(null, lastElementClicked), 1);
+		console.log(lastElementClicked)
 	}
 });
 
-$$('.js-codepen-preview')
-	._.events({
-		click: function (e) {
-			// Avoid hyperlink changing window location
-			e.preventDefault();
-			const href = this.querySelector('.CodepenPreview__link').href;
+function selectElementText(element) {
+	const doc = element.ownerDocument;
+	const window = doc.defaultView.window;
+	const selection = window.getSelection();
+	const range = doc.createRange();
 
-			// Delay so the ripple effect inside the preview shows
-			setTimeout(() => {
-				bodyFadeOutOverlay.show();
-				setTimeout(function () {
-					window.location = href;
-				}, 300);
-			}, 300);
-		}
-	});
+	range.selectNodeContents(element);
+	selection.removeAllRanges();
+	selection.addRange(range);
+}
