@@ -1,18 +1,36 @@
 {% assign url = site.images | append:'/projects/' | append:item.image.url %}
 
-<div class="CodepenPreview js-codepen-preview"
-	data-background-url="{{ url }}"
-	data-hash="{{ item.hash }}">
-	<div class="CodepenPreview__container  js-ripple">
+{% assign delay = forloop.index | times:100 %}
+
+<a
+	href="{{ item.href }}"
+	style="transition-delay: {{ delay }}ms"
+	class="CodepenPreview CodepenPreview--is-animated js-codepen-preview"
+	tabindex="0"
+	data-fade="{{ item.fade }}"
+	has-ripple>
+	<div has-ripple class="[ CodepenPreview__container js-codepen-container ]">
+		<div
+			aria-hidden="true"
+			class="CodepenPreview__background js-codepen-background"
+			data-url="{{ url }}">
+			<div class="CodepenPreview__title">{{ item.title }}</div>
+		</div>
+
+		<noscript>
+			<div
+				class="CodepenPreview__background"
+				style="background-image: url('{{ url }}');">
+					<div class="CodepenPreview__title">{{ item.title }}</div>
+			</div>
+		</noscript>
+
 		<div class="CodepenPreview__icon">
 			<svg class="svg-icon">
 				<use xlink:href="#{{ item.icon }}"></use>
 			</svg>
 		</div>
-		<div class="CodepenPreview__background" style="background-image: url('{{ url }}');"></div>
-		<a href="{{ item.href }}" class="CodepenPreview__link  js-codepen-link">
-			<div class="Ripple__inner js-ripple-inner"></div>
-			<div class="CodepenPreview__title">{{ item.title }}</div>
-		</a>
+
+		<ripple></ripple>
 	</div>
-</div>
+</a>

@@ -2,6 +2,7 @@
   href: http://codepen.io/anthonykoch/pen/xVQOwb
   icon: icon-codepen-outline
   hash: xVQOwb
+  fade: codepen
   image:
     url: calculator.png
   thumbnail:
@@ -11,6 +12,7 @@
   href: http://codepen.io/anthonykoch/pen/QjJaQv
   hash: QjJaQv
   icon: icon-codepen-outline
+  fade: codepen
   image:
     url: settings.png
   thumbnail:
@@ -20,6 +22,7 @@
   href: http://codepen.io/anthonykoch/pen/WrOQQz
   hash: WrOQQz
   icon: icon-codepen-outline
+  fade: codepen
   image:
     url: medium.png
   thumbnail:
@@ -29,6 +32,7 @@
   href: http://codepen.io/anthonykoch/pen/GpQYrJ
   hash: GpQYrJ
   icon: icon-codepen-outline
+  fade: codepen
   image:
     url: smarthomeui.png
   thumbnail:
@@ -38,6 +42,7 @@
   href: http://codepen.io/anthonykoch/pen/MaQBrd
   hash: MaQBrd
   icon: icon-codepen-outline
+  fade: codepen
   image:
     url: social-connect.png
   thumbnail:
@@ -46,6 +51,7 @@
 - title: Ponymail
   href: http://www.anthonykoch.com/ponymail/inbox/
   icon: icon-octocat
+  fade: light
   image:
     url: ponymail.png
   thumbnail:

@@ -5,7 +5,7 @@ import Vuex from 'vuex';
 import storage from 'store';
 import { mapState, mapActions } from 'vuex';
 
-import utils from 'utils';
+import * as _ from '../../utils/_';
 
 let store;
 let app;
@@ -145,7 +145,7 @@ function App({ store, el }) {
 				this.$store.dispatch('updateFilePath', { id, value });
 			},
 
-			updateOutput: utils._.debounce(function (id) {
+			updateOutput: _.debounce(function (id) {
 				this.$store.dispatch('updateOutput', { id });
 			}, 200),
 

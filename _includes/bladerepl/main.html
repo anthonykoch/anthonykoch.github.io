@@ -103,7 +103,6 @@ TODO:
 							v-for="(file, index) in files"
 							:file="file"
 							:key="file.id"
-							:style="{ 'transition-delay': (index * 40) + 'ms' }"
 							v-on:file:delete="removeFile({ id: file.id })"
 							v-on:file:update-path="updateFilePath"
 							v-on:file:set-current="updateActiveFile({ id: file.id })"

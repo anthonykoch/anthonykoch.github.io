@@ -1,17 +1,18 @@
 
 // Adapted from http://codepen.io/KrisOlszewski/pen/Dnktj
-.Ripple
-	position: relative
+//
+// Requires a parent with position relative or absolute
 
-.Ripple__inner
-	background: rgba(black, 0.1)
+.Ripple
+	background: rgba(black, 0.12)
 	border-radius: 50%
 	display: inline-block
 	padding-bottom: 0%
 	position: absolute
+	pointer-events: none
 	transform: translate(-50%, -50%)
 	user-select: none
 	width: 0%
 
-	&.is-expanding
+	&--is-expanding
 		animation: a-ripple 0.7s

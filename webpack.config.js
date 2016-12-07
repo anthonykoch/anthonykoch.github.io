@@ -4,13 +4,16 @@ const path = require('path');
 
 const webpack = require('webpack');
 
+// NOTE: Order is important!
+
 const vendors = {
+	'babel-polyfill': 'babel-polyfill',
+	'bliss':          'blissfuljs',
+	'fastclick':      'fastclick',
+	'waypoints':      'waypoints/lib/noframework.waypoints',
+	'store':          'store/store.min.js',
 	'vue':            'vue',
 	'vuex':           'vuex',
-	'bliss':          'blissfuljs',
-	'babel-polyfill': 'babel-polyfill',
-	'store':          'store/store.min.js',
-	'fastclick':      'fastclick'
 };
 
 const config = {
@@ -25,7 +28,6 @@ const config = {
 	libraryTarget: 'umd',
 	resolve: {
 		alias: {
-			'utils': joinDirname('./_resources/javascripts/lib/utils'),
 			'vue$': 'vue/dist/vue.common.js'
 		}
 	},
