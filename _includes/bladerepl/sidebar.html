@@ -32,9 +32,9 @@
 				class="br-SidebarButton"
 				tabindex="0"
 				ref="buttonCode"
-				:class="{ 'br-SidebarButton--is-active': ! isViewingFiles }"
-				@keyup.enter="updateIsViewingFiles({ value: false })"
-				@click="updateIsViewingFiles({ value: false })">
+				:class="{ 'br-SidebarButton--is-active': activePane === 'code' }"
+				@keyup.enter="updateActivePane({ value: 'code' })"
+				@click="updateActivePane({ value: 'code' })">
 				<div class="br-SidebarButton-iconWrapper">
 					<i class="br-SidebarButton-icon br-SidebarButton-icon--code ion-code"></i>
 				</div>
@@ -47,9 +47,9 @@
 				class="br-SidebarButton"
 				tabindex="0"
 				ref="buttonViewFiles"
-				:class="{ 'br-SidebarButton--is-active': isViewingFiles }"
-				@keyup.enter="updateIsViewingFiles({ value: true })"
-				@click="updateIsViewingFiles({ value: true })">
+				:class="{ 'br-SidebarButton--is-active': activePane === 'files' }"
+				@keyup.enter="updateActivePane({ value: 'files' })"
+				@click="updateActivePane({ value: 'files' })">
 				<div class="br-SidebarButton-iconWrapper">
 					<i class="br-SidebarButton-icon  ion-document-text"></i>
 				</div>
@@ -57,31 +57,20 @@
 			</button>
 		</li>
 
-	<!--
+		{% comment %}
 		<li class="br-SidebarList-item br-SidebarList-item--seeFiles  js-br-view-files">
 			<button
 				class="br-SidebarButton"
 				tabindex="0"
 				ref="buttonViewFiles"
-				:class="{ 'br-SidebarButton--is-active': isViewingFiles }"
-				@keyup.enter="updateIsViewingFiles({ value: true })"
-				@click="updateIsViewingFiles({ value: true })">
+				:class="{ 'br-SidebarButton--is-active': activePane === 'about' }"
+				@keyup.enter="updateActivePane({ value: 'about' })"
+				@click="updateActivePane({ value: 'about' })">
 				<div class="br-SidebarButton-iconWrapper">
-					<i class="br-SidebarButton-icon  ion-help-circled"></i>
+					<i class="br-SidebarButton-icon br-SidebarButton-icon--about  ion-help-circled"></i>
 				</div>
 				<span class="br-SidebarButton-text">About</span>
 			</button>
-		</li>
-	 -->
-
-		{% comment %}
-		<li class="br-SidebarList-item">
-			<div class="br-SidebarButton">
-				<div class="br-SidebarButton-iconWrapper">
-					<i class="br-SidebarButton-icon  ion-gear-a"></i>
-				</div>
-				<span class="br-SidebarButton-text">Settings</span>
-			</div>
 		</li>
 		{% endcomment %}
 	</ul>

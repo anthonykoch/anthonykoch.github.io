@@ -858,8 +858,6 @@ return /******/ (function(modules) { // webpackBootstrap
 				token = this.lex();
 			}
 
-			console.log(token);
-
 			return token;
 		},
 

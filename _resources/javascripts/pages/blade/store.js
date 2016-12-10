@@ -139,7 +139,7 @@ const initialState = {
 
 	contents: defaultFile.contents,
 
-	isViewingFiles: false,
+	activePane: 'code',
 
 	jsonHeader: defaultFile.header,
 
@@ -200,7 +200,7 @@ const mutations = {
 		const file  = methods.getFileById(state, id);
 		const files = state.files;
 
-		// console.log('Rendering:', file.id, file);
+		console.log('Rendering:', file.id, file);
 
 		const options = {
 			files,
@@ -216,8 +216,9 @@ const mutations = {
 		}
 	},
 
-	UPDATE_IS_VIEWING_FILES(state, { value }) {
-		state.isViewingFiles = Boolean(value);
+	UPDATE_ACTIVE_PANE(state, { value }) {
+		console.log('Updating pane:', value);
+		state.activePane = value;
 	},
 
 	UPDATE_JSON_HEADER(state, { id, value }) {
@@ -271,8 +272,8 @@ const actions = {
 		commit('UPDATE_OUTPUT', { id: payload.id });
 	},
 
-	updateIsViewingFiles({ commit }, payload) {
-		commit('UPDATE_IS_VIEWING_FILES', payload);
+	updateActivePane({ commit }, payload) {
+		commit('UPDATE_ACTIVE_PANE', payload);
 	},
 
 	updateContents({ commit, state }, payload) {

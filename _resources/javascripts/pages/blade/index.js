@@ -49,7 +49,7 @@ Vue.component('br-file-list-item', {
 
 		updateActiveFile() {
 			this.$emit('file:set-current', this.file.id);
-			this.$emit('files-pane:hide', true);
+			this.$emit('pane:update', 'code');
 		},
 
 		updateFilePath() {
@@ -110,7 +110,7 @@ function App({ store, el }) {
 			...mapState([
 				'files',
 				'activeFile',
-				'isViewingFiles',
+				'activePane',
 				'jsonHeader',
 				'contents',
 				'output',
@@ -137,7 +137,7 @@ function App({ store, el }) {
 
 			...mapActions([
 				'removeFile',
-				'updateIsViewingFiles',
+				'updateActivePane',
 				'updateActiveFile'
 			]),
 
@@ -145,9 +145,9 @@ function App({ store, el }) {
 				this.$store.dispatch('updateFilePath', { id, value });
 			},
 
-			updateOutput: _.debounce(function (id) {
+			updateOutput(id) {
 				this.$store.dispatch('updateOutput', { id });
-			}, 200),
+			},
 
 			updateContents(newContents) {
 				this.$store.dispatch('updateContents', {
@@ -174,9 +174,9 @@ function App({ store, el }) {
 				this.updateJsonHeader(this.activeFile.id, e.target.value);
 			},
 
-			onInputLeftKeyup() {
+			onInputLeftKeyup: _.debounce(function () {
 				this.updateContents(this.$refs.inputLeft.value);
-			},
+			}, 150),
 
 			addFile() {
 				const value = this.newFileName;
