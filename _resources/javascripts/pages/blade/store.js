@@ -255,7 +255,7 @@ const mutations = {
 
 			path: newFilePath,
 
-			header: `{\n  "name": "${newFilePath.replace(/"/g, '\\"')}"\n}`,
+			header: `{\n  "file": "${newFilePath.replace(/"/g, '\\"')}"\n}`,
 
 			contents: `<div>\n \n</div>`,
 
