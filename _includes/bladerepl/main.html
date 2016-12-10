@@ -14,9 +14,9 @@ font-family
 				class="br-File-name"
 				tabindex="0"
 				@keyup.enter.self="updateActiveFile(file.id)"
-				@click="updateActiveFile(file.id)">
+				@click.self="updateActiveFile(file.id)">
 
-				<span>{{ file.path }}</span>
+				<span>{{ path }}</span>
 
 				<input class="br-File-inputEditText"
 					type="text"
@@ -24,8 +24,9 @@ font-family
 					autocomplete="off"
 					ref="input"
 					tabindex="-1"
-					v-model="filePath"
+					:value="path"
 					v-show="isEditingPath"
+					@keyup="path = $event.target.value"
 					@keyup.enter="updateFilePath"
 					@keyup.esc="isEditingPath = false"
 					@focusout="isEditingPath = false">
@@ -39,7 +40,7 @@ font-family
 					<i class="br-File-iconInner  ion-ios-close-empty"></i>
 				</li>
 				<li class="br-File-icon br-File-icon--edit"
-					@click="editPath">
+					@click="enableEditingPath">
 					<i class="br-File-iconInner  ion-edit"></i>
 				</li>
 			</ul>

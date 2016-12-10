@@ -28,7 +28,7 @@ Vue.component('br-file-list-item', {
 
 			isEditingPath: false,
 
-			filePath: this.file.path
+			path: this.file.path
 
 		};
 	},
@@ -39,7 +39,7 @@ Vue.component('br-file-list-item', {
 			this.$emit('file:delete', this.file);
 		},
 
-		editPath() {
+		enableEditingPath() {
 			this.isEditingPath = true;
 
 			Vue.nextTick(() => {
@@ -53,7 +53,7 @@ Vue.component('br-file-list-item', {
 		},
 
 		updateFilePath() {
-			if (this.file.path !== this.filePath) {
+			if (this.file.path !== this.path) {
 				this.$emit('file:update-path', this.file.id, this.filePath);
 			}
 
@@ -228,7 +228,7 @@ new Waypoint({
 				storage.set(STORAGE_KEY, state);
 				console.timeEnd('storage');
 
-				// console.log('Mutation:', mutation, state);
+				console.log('Mutation:', mutation, state);
 			});
 
 			// IMPORTANT: Init app AFTER assigning blade
