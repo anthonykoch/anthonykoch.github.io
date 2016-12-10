@@ -10,11 +10,11 @@ $br-input-border: rem(1px) solid $br-input-border-color
 $br-file-min-height: rem(60px)
 $br-hover-gray: hsla(0, 0%, 0%, 0.04)
 $br-file-name-padding-left: rem(32px)
-$sidebar-button-background: #2f2e2f;
-$sidebar-button-background: #333333;
-$sidebar-button-background--active: darken($sidebar-button-background, 3.3);
-$sidebar-background: $sidebar-button-background
-$sidebar-button-foreground--active: hsl(0, 0%, 83%)
+$br-sidebar-button-background: #2f2e2f;
+$br-sidebar-button-background: #333333;
+$br-sidebar-button-background--active: darken($br-sidebar-button-background, 3.3);
+$br-sidebar-background: $br-sidebar-button-background
+$br-sidebar-button-foreground--active: hsl(0, 0%, 83%)
 
 $br-input-field-line-height: rem(21px)
 $br-input-field-font-size: rem(14px)
@@ -30,7 +30,7 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 	outline: 0
 
 .br-Sidebar
-	background-color: $sidebar-background
+	background-color: $br-sidebar-background
 	min-width: rem($br-sidebar-width)
 	overflow: visible
 	position: relative
@@ -52,7 +52,7 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 
 .br-SidebarButton
 	+padding(rem(12px) spacing(0.75))
-	background-color: $sidebar-button-background
+	background-color: $br-sidebar-button-background
 	border: 0
 	border-bottom: rem(1px) solid rgba(black, 0.13)
 	border-top: rem(1px) solid rgba(white, 0.05)
@@ -77,7 +77,7 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 		z-index: -1
 
 .br-SidebarButton--has-static-background:before
-	background-color: $sidebar-button-background
+	background-color: $br-sidebar-button-background
 
 .br-SidebarList-item:hover .br-SidebarButton:before,
 .br-SidebarButton--is-active:before,
@@ -86,13 +86,13 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 	border-left-color: color('primary')
 
 .br-SidebarButton--is-active:before
-	background-color: $sidebar-button-background--active
+	background-color: $br-sidebar-button-background--active
 
 .br-SidebarButton--is-active .br-SidebarButton-icon
 	color: color('primary')
 
 .br-SidebarButton--is-active .br-SidebarButton-text
-	color: $sidebar-button-foreground--active
+	color: $br-sidebar-button-foreground--active
 
 .br-SidebarButton-text
 	display: inline-block
@@ -250,16 +250,6 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 	text-align: center
 	text-transform: uppercase
 	width: 100%
-
-.br-FilesPane-title
-	+padding(spacing(0.75) null)
-	background-color: #ffffff
-	font-size : rem(20px)
-	padding: $br-file-name-padding-left
-
-.br-FilesActionsList-item
-	color: #ababab
-	cursor: pointer
 
 
 
