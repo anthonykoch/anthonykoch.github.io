@@ -16,7 +16,7 @@ font-family
 				@keyup.enter.self="updateActiveFile(file.id)"
 				@click.self="updateActiveFile(file.id)">
 
-				<span>{{ path }}</span>
+				<span>{{ filePath }}</span>
 
 				<input class="br-File-inputEditText"
 					type="text"
@@ -24,7 +24,7 @@ font-family
 					autocomplete="off"
 					ref="input"
 					tabindex="-1"
-					:value="path"
+					:value="filePath"
 					v-show="isEditingPath"
 					@keyup="path = $event.target.value"
 					@keyup.enter="updateFilePath"

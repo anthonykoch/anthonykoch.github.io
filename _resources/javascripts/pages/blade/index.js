@@ -33,6 +33,14 @@ Vue.component('br-file-list-item', {
 		};
 	},
 
+	computed: {
+
+		filePath() {
+			return this.file.path;
+		}
+
+	},
+
 	methods: {
 
 		deleteFile() {
@@ -53,6 +61,8 @@ Vue.component('br-file-list-item', {
 		},
 
 		updateFilePath() {
+			console.log(this.file.path, this.path);
+
 			if (this.file.path !== this.path) {
 				this.$emit('file:update-path', this.file.id, this.path);
 			}

@@ -185,10 +185,10 @@ const mutations = {
 
 		try {
 			const header = JSON.parse(file.header);
-			header.name = newPath;
+			header.file = newPath;
 			const newHeader = JSON.stringify(header, null, '  ');
 			file.header = newHeader;
-			state.jsonHeader = newHeader.replace(/(['"])/g, '\\$1');
+			state.jsonHeader = newHeader;
 		} catch (err) {}
 	},
 
@@ -234,7 +234,7 @@ const mutations = {
 	UPDATE_JSON_HEADER(state, { id, value }) {
 		const file = methods.getFileById(state, id);
 		file.header = value;
-		state.jsonHeader = value.replace(/(['"])/g, '\\$1');
+		state.jsonHeader = value;
 	},
 
 	ADD_FILE(state, { value }) {
