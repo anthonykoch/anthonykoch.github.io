@@ -54,7 +54,7 @@ Vue.component('br-file-list-item', {
 
 		updateFilePath() {
 			if (this.file.path !== this.path) {
-				this.$emit('file:update-path', this.file.id, this.filePath);
+				this.$emit('file:update-path', this.file.id, this.path);
 			}
 
 			this.$refs.input.blur();

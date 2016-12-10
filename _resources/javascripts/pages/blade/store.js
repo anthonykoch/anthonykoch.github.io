@@ -179,7 +179,17 @@ const mutations = {
 			return;
 		}
 
-		file.path = normalizePath(value)
+		const newPath = normalizePath(value);
+
+		file.path = newPath;
+
+		try {
+			const header = JSON.parse(file.header);
+			header.name = newPath;
+			const newHeader = JSON.stringify(header, null, '  ');
+			file.header = newHeader;
+			state.jsonHeader = newHeader.replace(/(['"])/g, '\\$1');
+		} catch (err) {}
 	},
 
 	UPDATE_ACTIVE_FILE(state, { id }) {
@@ -224,7 +234,7 @@ const mutations = {
 	UPDATE_JSON_HEADER(state, { id, value }) {
 		const file = methods.getFileById(state, id);
 		file.header = value;
-		state.jsonHeader = value;
+		state.jsonHeader = value.replace(/(['"])/g, '\\$1');
 	},
 
 	ADD_FILE(state, { value }) {
@@ -247,7 +257,7 @@ const mutations = {
 
 			header: `{\n  "name": "${newFilePath.replace(/"/g, '\\"')}"\n}`,
 
-			contents: `<div>\n  New file: '{{ name }}'\n</div>`,
+			contents: `<div>\n \n</div>`,
 
 		};
 
