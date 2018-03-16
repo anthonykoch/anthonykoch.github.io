@@ -15,29 +15,29 @@ $site-nav-link-border-width: rem(0)
 
 
 =site-nav-link
-	$padding-v: $site-nav-link-padding-v
-	border-top: $site-nav-link-border-width solid transparent
-	display: block
-	filter: drop-shadow(3px 4px 7px rgba(black, 0.2))
-	font-family: Lato, Arial, sans-serif
-	font-size: rem(11px)
-	font-weight: 900
-	padding: calc(#{$padding-v} - #{$site-nav-link-border-width}) $site-nav-link-padding-h $padding-v
-	text-transform: uppercase
-	transition: background-color, color
-	transition-duration: $base-transition-duration
+  $padding-v: $site-nav-link-padding-v
+  border-top: $site-nav-link-border-width solid transparent
+  display: block
+  filter: drop-shadow(3px 4px 7px rgba(black, 0.2))
+  font-family: Lato, Arial, sans-serif
+  font-size: rem(11px)
+  font-weight: 900
+  padding: calc(#{$padding-v} - #{$site-nav-link-border-width}) $site-nav-link-padding-h $padding-v
+  text-transform: uppercase
+  transition: background-color, color
+  transition-duration: $base-transition-duration
 
-	&:link,
-	&:visited
-		color: $site-nav-link-foreground
+  &:link,
+  &:visited
+    color: $site-nav-link-foreground
 
-	&:hover,
-	&:active,
-	&.is-active
-		$background: $site-nav-link-background--active
-		background: $background
-		border-color: white
-		color: $site-nav-link-foreground--active
+  &:hover,
+  &:active,
+  &.is-active
+    $background: $site-nav-link-background--active
+    background: $background
+    border-color: white
+    color: $site-nav-link-foreground--active
 
 
 
@@ -48,18 +48,18 @@ $site-nav-link-border-width: rem(0)
  */
 
 .site-header-wrapper
-	background: $site-header-background url(image('desk.svg')) no-repeat 100% 100% / cover
-	background-color: $site-header-background
-	min-height: rem(500px) /* [1] */
-	position: relative
-	width: 100%
+  background: $site-header-background url(image('desk.svg')) no-repeat 100% 100% / cover
+  background-color: $site-header-background
+  min-height: rem(500px) /* [1] */
+  position: relative
+  width: 100%
 
-	@media (max-width: rem(890px))
-		min-height: rem(650px) /* [2] */
+  @media (max-width: rem(890px))
+    min-height: rem(650px) /* [2] */
 
 .site-header-wrapper[data-page='about']
-	@media (max-width: rem(890px))
-		min-height: rem(720px)
+  @media (max-width: rem(890px))
+    min-height: rem(720px)
 
 /**
  * Meant to move away the background image of the header from the post title text,
@@ -68,8 +68,8 @@ $site-nav-link-border-width: rem(0)
  */
 
 .site-header-wrapper[data-page='post']
-	@media (max-width: breakpoint('large'))
-		min-height: rem(900px)
+  @media (max-width: breakpoint('large'))
+    min-height: rem(900px)
 
 /**
  * Inherit the height from the site-header-wrapper, which is set differently
@@ -77,42 +77,42 @@ $site-nav-link-border-width: rem(0)
  */
 
 .SiteHeader
-	padding: 0 0 3rem 0
-	position: relative
-	width: 100%
-	z-index: zindex('header')
+  padding: 0 0 3rem 0
+  position: relative
+  width: 100%
+  z-index: zindex('header')
 
 .SiteHeader__border
-	border-bottom: 1px solid $base-border-color
+  border-bottom: 1px solid $base-border-color
 
 .SiteHeader__container
-	align-items: center
-	display: flex
-	justify-content: space-between
-	margin: 0 auto
-	width: 100%
+  align-items: center
+  display: flex
+  justify-content: space-between
+  margin: 0 auto
+  width: 100%
 
 
 
 .Logo
-	font-size: rem(14px)
-	letter-spacing: rem(4px)
+  font-size: rem(14px)
+  letter-spacing: rem(4px)
 
 .Logo__link
-	+site-nav-link
+  +site-nav-link
 
 
 
 .SiteNav
-	padding-left: $base-gutter
-	text-align: right
+  padding-left: $base-gutter
+  text-align: right
 
 .SiteNav__list
-	display: flex
+  display: flex
 
 .SiteNav__list__item__link
-	+site-nav-link
-	letter-spacing: rem(2px)
+  +site-nav-link
+  letter-spacing: rem(2px)
 
 
 
@@ -122,23 +122,23 @@ $site-nav-link-border-width: rem(0)
  * and logo layouts start breaking.
  */
 @media (max-width: 730px)
-	.SiteHeader__container
-		display: block
+  .SiteHeader__container
+    display: block
 
-	.Logo__link
-		&:link,
-		&:visited
-			background: $site-nav-link-background--active
-			color: $site-nav-link-foreground--active
+  .Logo__link
+    &:link,
+    &:visited
+      background: $site-nav-link-background--active
+      color: $site-nav-link-foreground--active
 
-	.Logo,
-	.SiteNav
-		padding-left: 0
-		text-align: center
+  .Logo,
+  .SiteNav
+    padding-left: 0
+    text-align: center
 
-	.SiteNav__list__item
-		flex: 33.33333%
-		margin: 0
+  .SiteNav__list__item
+    flex: 33.33333%
+    margin: 0
 
-	.SiteNav__list__item__link
-		+padding(null 0)
+  .SiteNav__list__item__link
+    +padding(null 0)

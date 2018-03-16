@@ -3,8 +3,8 @@
  * Calculates the width of a column based on the default
  * parameter $grid-columns
  * Example:
- * 		$width: grid-column(1) // 8.33333%
- * 		$width: grid-column(1, $grid-total-columns: 15) // 6.66667%
+ *    $width: grid-column(1) // 8.33333%
+ *    $width: grid-column(1, $grid-total-columns: 15) // 6.66667%
  *
  * @param {number} column       The number of columns to span
  * @param {number} grid-columns The total number of columns in the grid
@@ -12,7 +12,7 @@
  */
 
 @function grid-column($column, $grid-total-columns: $grid-total-columns)
-	@return percentage($column / $grid-total-columns)
+  @return percentage($column / $grid-total-columns)
 
 /**
  * Zips the data for a 12 column grid with 2 extra null values so that
@@ -27,19 +27,19 @@
  * @return {list}
  */
 @function get-grid-list($grid-sizes)
-	$grid-list: ()
+  $grid-list: ()
 
-	@each $grid-total-columns in $grid-sizes
-		$grid-total-columns: strip-units($grid-total-columns)
+  @each $grid-total-columns in $grid-sizes
+    $grid-total-columns: strip-units($grid-total-columns)
 
-		@if (type-of($grid-total-columns) != 'number')
-			@error 'Invalid grid size #{$grid-total-columns}'
+    @if (type-of($grid-total-columns) != 'number')
+      @error 'Invalid grid size #{$grid-total-columns}'
 
-		@for $column-index from 1 through $grid-total-columns
-			$new-data: ($column-index, $grid-total-columns, null, null)
-			$grid-list: append($grid-list, $new-data)
+    @for $column-index from 1 through $grid-total-columns
+      $new-data: ($column-index, $grid-total-columns, null, null)
+      $grid-list: append($grid-list, $new-data)
 
-	@return $grid-list
+  @return $grid-list
 
 /**
  * Zips the data for a 12 column grid with responsive classes.
@@ -52,17 +52,17 @@
  * @return {list}
  */
 @function get-responsive-grid-list($grid-sizes)
-	$grid-list: ()
+  $grid-list: ()
 
-	@each $grid-total-columns in $grid-sizes
-		$grid-total-columns: strip-units($grid-total-columns)
+  @each $grid-total-columns in $grid-sizes
+    $grid-total-columns: strip-units($grid-total-columns)
 
-		@if (type-of($grid-total-columns) != 'number')
-			@error 'Invalid grid size #{$grid-total-columns}'
+    @if (type-of($grid-total-columns) != 'number')
+      @error 'Invalid grid size #{$grid-total-columns}'
 
-		@each $breakpoint-name, $breakpoint-size in breakpoints-in-use()
-			@for $column-index from 1 through $grid-total-columns
-				$new-data: ($column-index, $grid-total-columns, $breakpoint-name, $breakpoint-size)
-				$grid-list: append($grid-list, $new-data)
+    @each $breakpoint-name, $breakpoint-size in breakpoints-in-use()
+      @for $column-index from 1 through $grid-total-columns
+        $new-data: ($column-index, $grid-total-columns, $breakpoint-name, $breakpoint-size)
+        $grid-list: append($grid-list, $new-data)
 
-	@return $grid-list
+  @return $grid-list

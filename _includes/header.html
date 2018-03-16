@@ -1,63 +1,63 @@
 {% if page.url contains '/blog/' and page.url != '/blog/' %}
-	{% assign data_page = 'post' %}
+  {% assign data_page = 'post' %}
 {% else %}
-	{% assign data_page = site.data.pathnames[page.url] %}
+  {% assign data_page = site.data.pathnames[page.url] %}
 {% endif %}
 <div class="site-header-wrapper" data-page="{{ data_page }}">
-	<header class="SiteHeader" role="banner">
-		<div class="SiteHeader__container">
+  <header class="SiteHeader" role="banner">
+    <div class="SiteHeader__container">
 
-			<div class="Logo">
-				<a href="/" class="Logo__link {% if page.url == '/' %}is-active{% endif %}">
-					<span>Anthony</span>
-					<span>Koch</span>
-				</a>
-			</div>
+      <div class="Logo">
+        <a href="/" class="Logo__link {% if page.url == '/' %}is-active{% endif %}">
+          <span>Anthony</span>
+          <span>Koch</span>
+        </a>
+      </div>
 
-			<nav class="SiteNav" role="navigation">
-				<ul class="SiteNav__list">
-					{% for item in site.data.navigation %}
-						<li class="SiteNav__list__item">
-							{% if page.url contains '/blog/' and item.active == '/blog/' %}
-								{% assign active = 'is-active' %}
-							{% elsif page.url == item.active %}
-								{% assign active = 'is-active' %}
-							{% else %}
-								{% assign active = '' %}
-							{% endif %}
-							<a href="{{ item.href }}" class="SiteNav__list__item__link  {{ active }}">{{ item.text }}</a>
-						</li>
-					{% endfor %}
-				</ul>
-			</nav>
-		</div>
+      <nav class="SiteNav" role="navigation">
+        <ul class="SiteNav__list">
+          {% for item in site.data.navigation %}
+            <li class="SiteNav__list__item">
+              {% if page.url contains '/blog/' and item.active == '/blog/' %}
+                {% assign active = 'is-active' %}
+              {% elsif page.url == item.active %}
+                {% assign active = 'is-active' %}
+              {% else %}
+                {% assign active = '' %}
+              {% endif %}
+              <a href="{{ item.href }}" class="SiteNav__list__item__link  {{ active }}">{{ item.text }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
 
-		{% comment %}
-			In Jekyll, other partials do not have access to any blocks in another partial, so instead of just declaring a block with the a specific content we want rendered in another template, we have to set variables on the page and check what we want to be rendered. Extremely convoluted, but I don't know of any other way.
-		{% endcomment %}
+    {% comment %}
+      In Jekyll, other partials do not have access to any blocks in another partial, so instead of just declaring a block with the a specific content we want rendered in another template, we have to set variables on the page and check what we want to be rendered. Extremely convoluted, but I don't know of any other way.
+    {% endcomment %}
 
-		{% if page.hero %}
-			<div class="Hero">
-				<div>
-					{% if page.hero.caption %}
-						<div class="Hero__caption">
-							{{ page.hero.caption }}
-						</div>
-					{% endif %}
+    {% if page.hero %}
+      <div class="Hero">
+        <div>
+          {% if page.hero.caption %}
+            <div class="Hero__caption">
+              {{ page.hero.caption }}
+            </div>
+          {% endif %}
 
-					{% if page.hero.description %}
-						<div class="Hero__description">
-							{{ page.hero.description }}
-						</div>
-					{% endif %}
-				</div>
+          {% if page.hero.description %}
+            <div class="Hero__description">
+              {{ page.hero.description }}
+            </div>
+          {% endif %}
+        </div>
 
-			{% if page.hero.display_social %}
-				<div class="SiteHeader__social">
-					{% include components/social.html %}
-				</div>
-			{% endif %}
-		</div>
-		{% endif %}
-	</header>
+      {% if page.hero.display_social %}
+        <div class="SiteHeader__social">
+          {% include components/social.html %}
+        </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </header>
 </div>

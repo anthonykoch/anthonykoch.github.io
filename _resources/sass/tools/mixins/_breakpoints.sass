@@ -4,11 +4,11 @@
  * TODO: Add options for min width vs max width
  */
 =breakpointify($class)
-	#{$class}
-		@content
+  #{$class}
+    @content
 
-	@each $name, $size in $breakpoints
-		@if contains($breakpoint-classes, $name)
-			@media screen and (max-width: $size)
-				#{$class}\@#{$name}
-					@content
+  @each $name, $size in $breakpoints
+    @if contains($breakpoint-classes, $name)
+      @media screen and (max-width: $size)
+        #{$class}\@#{$name}
+          @content

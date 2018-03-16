@@ -28,64 +28,64 @@ $button-letter-spacing: rem(2px)
 $button-font-size: rem(12px)
 
 .Button
-	$transition-time: 0.3s
-	background-color: $button-background
-	border: $button-border-width solid $button-border-color
-	border-radius: $button-border-radius
-	color: $button-foreground
-	cursor: pointer
-	display: inline-block
-	filter: $button-drop-shadow
-	font-size: $button-font-size
-	font-weight: 600
-	letter-spacing: 0.1rem
-	line-height: $button-line-height
-	outline: 0
-	padding: $button-padding-v $button-padding-h
-	text-align: center
-	text-decoration: none
-	text-transform: uppercase
-	transition: color, background-color, border-color, filter, -webkit-filter
-	transition-duration: $transition-time
-	user-select: none
-	will-change: border-color, background-color, color, filter, -webkit-filter
+  $transition-time: 0.3s
+  background-color: $button-background
+  border: $button-border-width solid $button-border-color
+  border-radius: $button-border-radius
+  color: $button-foreground
+  cursor: pointer
+  display: inline-block
+  filter: $button-drop-shadow
+  font-size: $button-font-size
+  font-weight: 600
+  letter-spacing: 0.1rem
+  line-height: $button-line-height
+  outline: 0
+  padding: $button-padding-v $button-padding-h
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  transition: color, background-color, border-color, filter, -webkit-filter
+  transition-duration: $transition-time
+  user-select: none
+  will-change: border-color, background-color, color, filter, -webkit-filter
 
-	&:link,
-	&:visited
-		color: $button-foreground
+  &:link,
+  &:visited
+    color: $button-foreground
 
-	&:hover
-		background-color: $button-background--hover
-		color: $button-foreground--active
+  &:hover
+    background-color: $button-background--hover
+    color: $button-foreground--active
 
-	&:active
-		filter: $button-drop-shadow--active
+  &:active
+    filter: $button-drop-shadow--active
 
 .Button--outline
-	$border-color: #dddddd
-	$border-color: $color-primary
-	$foreground: $color-primary
-	$foreground--active: #444444
-	$background: transparent
-	$background--active: $color-primary
-	background-color: $background
-	border: rem(2px) solid $border-color
-	color: $foreground
-	filter: none
+  $border-color: #dddddd
+  $border-color: $color-primary
+  $foreground: $color-primary
+  $foreground--active: #444444
+  $background: transparent
+  $background--active: $color-primary
+  background-color: $background
+  border: rem(2px) solid $border-color
+  color: $foreground
+  filter: none
 
-	&:link,
-	&:visited
-		background-color: $background
-		color: $foreground
+  &:link,
+  &:visited
+    background-color: $background
+    color: $foreground
 
-	&:hover,
-	&:active
-		background-color: $background--active
-		color: $foreground--active
+  &:hover,
+  &:active
+    background-color: $background--active
+    color: $foreground--active
 
 .Button--large
-	line-height: $button-line-height--large
-	padding: $button-padding-v $button-padding-h--large
+  line-height: $button-line-height--large
+  padding: $button-padding-v $button-padding-h--large
 
 
 
@@ -95,14 +95,14 @@ $button-font-size: rem(12px)
  * FIXME: Buttons may not bye flush by setting margin
  */
 .ButtonGroup
-	$gutter: half(2rem)
-	margin-bottom: $base-spacing
+  $gutter: half(2rem)
+  margin-bottom: $base-spacing
 
-	&--flush
-		+margin(null negative($gutter))
+  &--flush
+    +margin(null negative($gutter))
 
-	& > .Button
-		margin: 0 $gutter
+  & > .Button
+    margin: 0 $gutter
 
 
 
@@ -110,9 +110,9 @@ $button-font-size: rem(12px)
  * Puts the buttons at full width at smaller screen sizes
  */
 @media screen and (max-width: rem(460px))
-	.Button
-		width: 100%
+  .Button
+    width: 100%
 
-	.ButtonGroup__item
-		margin-bottom: $base-spacing
-		margin-right: 0
+  .ButtonGroup__item
+    margin-bottom: $base-spacing
+    margin-right: 0

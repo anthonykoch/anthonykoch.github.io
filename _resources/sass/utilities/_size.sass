@@ -7,14 +7,14 @@
  */
 
 @at-root
-	@each $column, $grid-total-columns, $a, $b in get-grid-list($grid-sizes)
-		.u-size#{$column}of#{$grid-total-columns}
-			+grid-column($column, $grid-total-columns, $important: true)
+  @each $column, $grid-total-columns, $a, $b in get-grid-list($grid-sizes)
+    .u-size#{$column}of#{$grid-total-columns}
+      +grid-column($column, $grid-total-columns, $important: true)
 
-	@each $column, $grid-total-columns, $name, $size in get-responsive-grid-list($grid-sizes)
-		@media only screen and (max-width: $size)
-			.u-size#{$column}of#{$grid-total-columns}\@#{$name}
-				+grid-column($column, $grid-total-columns, $important: true)
+  @each $column, $grid-total-columns, $name, $size in get-responsive-grid-list($grid-sizes)
+    @media only screen and (max-width: $size)
+      .u-size#{$column}of#{$grid-total-columns}\@#{$name}
+        +grid-column($column, $grid-total-columns, $important: true)
 
 
 

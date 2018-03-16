@@ -5,9 +5,9 @@
 $intrinsic-ratios: ('16by9': (16, 9), '4by3': (4, 3));
 
 .Intrinsic
-	border-radius: inherit
-	position: relative
+  border-radius: inherit
+  position: relative
 
 @each $name, $ratio in $intrinsic-ratios
-	.Intrinsic--#{$name}
-		padding-bottom: ((nth($ratio, 2) / nth($ratio, 1)) * 100) + unquote('%')
+  .Intrinsic--#{$name}
+    padding-bottom: ((nth($ratio, 2) / nth($ratio, 1)) * 100) + unquote('%')

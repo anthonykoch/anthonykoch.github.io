@@ -7,33 +7,33 @@ $icon-list-link-foreground: #dddddd
 $icon-list-link-foreground--active: darken($icon-list-link-foreground, 20)
 
 .svg-icon
-	+size(1.5rem)
+  +size(1.5rem)
 
 .IconList
-	+margin(null negative($icon-item-gutter))
-	display: inline-block
-	line-height: 0
-	user-select: none
+  +margin(null negative($icon-item-gutter))
+  display: inline-block
+  line-height: 0
+  user-select: none
 
 .IconList__item
-	display: inline-block
-	padding: 0 $icon-item-gutter
+  display: inline-block
+  padding: 0 $icon-item-gutter
 
 .IconList__link
-	+size(2.4rem)
-	border-radius: 100%
-	display: block
-	position: relative
-	text-align: center
+  +size(2.4rem)
+  border-radius: 100%
+  display: block
+  position: relative
+  text-align: center
 
-	&:link,
-	&:visited
-		color: $icon-list-link-foreground
+  &:link,
+  &:visited
+    color: $icon-list-link-foreground
 
-	&:hover,
-	&:active
-		color: $icon-list-link-foreground--active
+  &:hover,
+  &:active
+    color: $icon-list-link-foreground--active
 
-	> svg
-		+center
-		fill: currentColor
+  > svg
+    +center
+    fill: currentColor

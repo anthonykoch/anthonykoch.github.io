@@ -3,58 +3,58 @@
  */
 
 .u-text-meta
-	font-size: fontsize('small')
-	font-weight: 600
-	letter-spacing: 1px
-	line-height: $base-spacing
-	text-transform: capitalize
+  font-size: fontsize('small')
+  font-weight: 600
+  letter-spacing: 1px
+  line-height: $base-spacing
+  text-transform: capitalize
 
 .u-text-caption
-	color: color('foreground', 'lighter') !important
+  color: color('foreground', 'lighter') !important
 
 .u-text-success
-	color: color('success') !important
+  color: color('success') !important
 
 .u-text-error
-	color: color('danger') !important
+  color: color('danger') !important
 
 .u-text-warning
-	color: color('warning') !important
+  color: color('warning') !important
 
 .u-text-white
-	color: white !important
+  color: white !important
 
 
 
 @each $name, $size in $font-sizes
-	.u-text-size-#{$name}
-		font-size: $size
+  .u-text-size-#{$name}
+    font-size: $size
 
 
 
 +breakpointify('.u-text-left')
-	text-align: left !important
+  text-align: left !important
 
 .u-text-center
-	text-align: center !important
+  text-align: center !important
 
 .u-text-right
-	text-align: right !important
+  text-align: right !important
 
 .u-text-justify
-	text-align: justify !important
+  text-align: justify !important
 
 .u-text-upper
-	text-transform: uppercase !important
+  text-transform: uppercase !important
 
 .u-text-cap
-	text-transform: capitalize !important
+  text-transform: capitalize !important
 
 .u-text-bold
-	text-weight: bold !important
+  text-weight: bold !important
 
 .u-text-italic
-	font-style: italic !important
+  font-style: italic !important
 
 /**
  * From SUIT
@@ -89,4 +89,4 @@
 
 
 .u-letter-spacing-0
-	letter-spacing: 0
+  letter-spacing: 0

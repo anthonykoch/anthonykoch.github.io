@@ -3,68 +3,68 @@
  */
 
 =heading-border
-	+padding($base-spacing null)
-	border-bottom: rem(1px) solid $base-border-color
-	margin-bottom: quarter($base-spacing)
+  +padding($base-spacing null)
+  border-bottom: rem(1px) solid $base-border-color
+  margin-bottom: quarter($base-spacing)
 
 
 
 =input
-	background: $input-background
-	border: $input-border-width solid $input-border-color
-	border-radius: rem(2px)
-	color: $input-foreground
-	display: block
-	font-family: $input-font-family
-	font-size: $input-font-size
-	font-weight: 400
-	line-height: 1.6
-	margin: $base-spacing 0
-	outline: none
-	padding: $input-padding-v $input-padding-h
-	transition: background-color
-	transition-duration: $base-transition-duration
-	width: 100%
+  background: $input-background
+  border: $input-border-width solid $input-border-color
+  border-radius: rem(2px)
+  color: $input-foreground
+  display: block
+  font-family: $input-font-family
+  font-size: $input-font-size
+  font-weight: 400
+  line-height: 1.6
+  margin: $base-spacing 0
+  outline: none
+  padding: $input-padding-v $input-padding-h
+  transition: background-color
+  transition-duration: $base-transition-duration
+  width: 100%
 
-	&:focus
-		border-color: color('primary')
+  &:focus
+    border-color: color('primary')
 
-	&::placeholder
-		color: $input-placeholder-foreground
-		font-family: $base-font-family
-		font-size: $input-placeholder-font-size
-		font-weight: 400
-		letter-spacing: rem(1px)
-		line-height: 1.7
-		text-transform: capitalize
+  &::placeholder
+    color: $input-placeholder-foreground
+    font-family: $base-font-family
+    font-size: $input-placeholder-font-size
+    font-weight: 400
+    letter-spacing: rem(1px)
+    line-height: 1.7
+    text-transform: capitalize
 
 
 
 =title($type: ('default'))
-	@if (contains($type, 'small'))
-		color: color('foreground')
-		font-family: $heading-font-family
-		font-size: 1.3rem
-		font-weight: 700
-		letter-spacing: rem(3px)
-		padding-bottom: $base-spacing
-		text-transform: uppercase
+  @if (contains($type, 'small'))
+    color: color('foreground')
+    font-family: $heading-font-family
+    font-size: 1.3rem
+    font-weight: 700
+    letter-spacing: rem(3px)
+    padding-bottom: $base-spacing
+    text-transform: uppercase
 
-	@if (contains($type, 'default'))
-		font-size: 2rem
-		padding-bottom: $base-spacing
+  @if (contains($type, 'default'))
+    font-size: 2rem
+    padding-bottom: $base-spacing
 
-	@if (contains($type, 'bordered'))
-		+heading-border
+  @if (contains($type, 'bordered'))
+    +heading-border
 
-	@if (contains($type, 'alternate'))
-		color: color('primary')
-		font-family: $base-font-family
-		font-size: rem(20px)
-		font-weight: 600
-		letter-spacing: rem(6px)
-		line-height: 1.3
-		text-transform: uppercase
+  @if (contains($type, 'alternate'))
+    color: color('primary')
+    font-family: $base-font-family
+    font-size: rem(20px)
+    font-weight: 600
+    letter-spacing: rem(6px)
+    line-height: 1.3
+    text-transform: uppercase
 
 
 
@@ -72,87 +72,87 @@
  * Creates a row
  */
 =row($args: ())
-	$max-width: breakpoint('xlarge')
-	+margin(null auto)
+  $max-width: breakpoint('xlarge')
+  +margin(null auto)
 
-	@each $item in $args
-		@if breakpoint($item)
-			$max-width: breakpoint($item)
+  @each $item in $args
+    @if breakpoint($item)
+      $max-width: breakpoint($item)
 
-	@if (contains($args, 'nogutter')) == false
-		+padding(null $row-gutter)
+  @if (contains($args, 'nogutter')) == false
+    +padding(null $row-gutter)
 
-	display: block
-	max-width: $max-width
+  display: block
+  max-width: $max-width
 
-	@media (max-width: breakpoint('small'))
-		+padding(null $row-gutter-at-small)
+  @media (max-width: breakpoint('small'))
+    +padding(null $row-gutter-at-small)
 
 
 
 =list($type)
-	@if $type == 'number'
-		list-style-type: decimal
-		padding-bottom: $list-padding-v
+  @if $type == 'number'
+    list-style-type: decimal
+    padding-bottom: $list-padding-v
 
-		& > li
-			margin-left: $list-item-margin-h
-			padding-left: $list-item-padding-h
+    & > li
+      margin-left: $list-item-margin-h
+      padding-left: $list-item-padding-h
 
-	@else if $type == 'bullet'
-		counter-reset: list-counter
-		list-style-type: disc
-		padding-bottom: $list-padding-v
+  @else if $type == 'bullet'
+    counter-reset: list-counter
+    list-style-type: disc
+    padding-bottom: $list-padding-v
 
-		> li
-			margin-left: $list-item-margin-h
-			padding-left: $list-item-padding-h
+    > li
+      margin-left: $list-item-margin-h
+      padding-left: $list-item-padding-h
 
-	@else
-		@error 'Invalid list type: "' + $type + '"'
+  @else
+    @error 'Invalid list type: "' + $type + '"'
 
 
 
 // FIXME: this is unfinished
 =button($type: (null))
-	@if (contains($type, 'reset'))
-		background-color: transparent
-		border: 0
-		cursor: pointer
-		font-size: $button-font-size
-		outline: 0
+  @if (contains($type, 'reset'))
+    background-color: transparent
+    border: 0
+    cursor: pointer
+    font-size: $button-font-size
+    outline: 0
 
 
 
 =link($type: ('base'))
-	@if (contains($type, 'base'))
-		&:link,
-		&:visited
-			color: color('link')
+  @if (contains($type, 'base'))
+    &:link,
+    &:visited
+      color: color('link')
 
-		&:hover,
-		&:active
-			color: color('link', 'hover')
+    &:hover,
+    &:active
+      color: color('link', 'hover')
 
-	@if (contains($type, 'dark'))
-		&:link,
-		&:visited
-			color: color('foreground')
+  @if (contains($type, 'dark'))
+    &:link,
+    &:visited
+      color: color('foreground')
 
-		&:hover,
-		&:active
-			color: color('foreground', 'alternate')
+    &:hover,
+    &:active
+      color: color('foreground', 'alternate')
 
-	@else if (contains($type, 'light'))
-		&:link,
-		&:visited
-			color: color('foreground', 'alternate')
+  @else if (contains($type, 'light'))
+    &:link,
+    &:visited
+      color: color('foreground', 'alternate')
 
-		&:hover,
-		&:active
-			color: color('foreground')
+    &:hover,
+    &:active
+      color: color('foreground')
 
 
-	@else if (contains($type, 'underline'))
-		border-bottom: rem(1px) solid currentColor
-		padding-bottom: rem(4px)
+  @else if (contains($type, 'underline'))
+    border-bottom: rem(1px) solid currentColor
+    padding-bottom: rem(4px)

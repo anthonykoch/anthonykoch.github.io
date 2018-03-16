@@ -8,15 +8,15 @@
  * @return {Map}
  */
 @function getvariants($color) {
-	@return (
-		'base':   $color,
-		'light':    adjust-color($color, $lightness: 10,  $saturation: 10),
-		'lighter':  adjust-color($color, $lightness: 21,  $saturation: 22),
-		'lightest': adjust-color($color, $lightness: 36,  $saturation: 32),
-		'dark':     adjust-color($color, $lightness: -10, $saturation: 10),
-		'darker':   change-color($color, $lightness: 20,   $saturation: 25),
-		'darkest':  change-color($color, $lightness: 15,   $saturation: 16),
-	);
+  @return (
+    'base':   $color,
+    'light':    adjust-color($color, $lightness: 10,  $saturation: 10),
+    'lighter':  adjust-color($color, $lightness: 21,  $saturation: 22),
+    'lightest': adjust-color($color, $lightness: 36,  $saturation: 32),
+    'dark':     adjust-color($color, $lightness: -10, $saturation: 10),
+    'darker':   change-color($color, $lightness: 20,   $saturation: 25),
+    'darkest':  change-color($color, $lightness: 15,   $saturation: 16),
+  );
 }
 
 /**
@@ -54,56 +54,56 @@ $color-background--dark: #2b292b;
 
 
 $color-grayscale: (
-	'light': #f0f0f0,
-	'base':  #eeeeee,
-	'dark':  #dddddd,
+  'light': #f0f0f0,
+  'base':  #eeeeee,
+  'dark':  #dddddd,
 );
 
 $brand-colors: (
-	'node': (
-		'foreground': #669f64,
-		'background': #333333,
-	),
-	'javascript': (
-		'foreground': #323330,
-		'background': #f0db4f,
-	),
-	'sass': (
-		'foreground': #cc6699,
-	),
-	'twitter': (
-		'foreground': #1da1f2,
-		'background': #1da1f2,
-	),
-	'facebook': (
-		'foreground': #3b5999,
-		'background': #3b5999,
-	)
+  'node': (
+    'foreground': #669f64,
+    'background': #333333,
+  ),
+  'javascript': (
+    'foreground': #323330,
+    'background': #f0db4f,
+  ),
+  'sass': (
+    'foreground': #cc6699,
+  ),
+  'twitter': (
+    'foreground': #1da1f2,
+    'background': #1da1f2,
+  ),
+  'facebook': (
+    'foreground': #3b5999,
+    'background': #3b5999,
+  )
 );
 
 $colors: (
-	'primary': getvariants($color-primary),
-	'secondary': getvariants($color-secondary),
-	'foreground': (
-		'lightest':  #e6ecef,
-		'lighter':   #868a8c,
-		'light':     #737f86,
-		'base':      $color-foreground,
-		'dark':      #202020,
-		'alternate': $color-foreground-alternate,
-	),
-	'background': (
-		'light': hsl(hue($color-primary), 7%, 96%),
-		'base': $color-background,
-		'dark': $color-background--dark,
-		'darkest': #202020,
-	),
-	'success': getvariants($green),
-	// 'warning': getvariants($orange),
-	// 'danger': getvariants($red),
-	'link': (
-		'base': #6196cc,
-		'hover': hsl(225, 34%, 40%),
-		// 'hover': #8fb5d8,
-	),
+  'primary': getvariants($color-primary),
+  'secondary': getvariants($color-secondary),
+  'foreground': (
+    'lightest':  #e6ecef,
+    'lighter':   #868a8c,
+    'light':     #737f86,
+    'base':      $color-foreground,
+    'dark':      #202020,
+    'alternate': $color-foreground-alternate,
+  ),
+  'background': (
+    'light': hsl(hue($color-primary), 7%, 96%),
+    'base': $color-background,
+    'dark': $color-background--dark,
+    'darkest': #202020,
+  ),
+  'success': getvariants($green),
+  // 'warning': getvariants($orange),
+  // 'danger': getvariants($red),
+  'link': (
+    'base': #6196cc,
+    'hover': hsl(225, 34%, 40%),
+    // 'hover': #8fb5d8,
+  ),
 );

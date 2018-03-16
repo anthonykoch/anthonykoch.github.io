@@ -26,423 +26,423 @@ $br-input-json-header-height: $br-input-field-line-height * 8
 $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json-header-height})
 
 .br-App
-	display: flex
-	outline: 0
+  display: flex
+  outline: 0
 
 .br-Sidebar
-	background-color: $br-sidebar-background
-	min-width: rem($br-sidebar-width)
-	overflow: visible
-	position: relative
-	width: rem($br-sidebar-width)
-	z-index: $z-layer5
+  background-color: $br-sidebar-background
+  min-width: rem($br-sidebar-width)
+  overflow: visible
+  position: relative
+  width: rem($br-sidebar-width)
+  z-index: $z-layer5
 
 .br-SidebarList
-	pass: pass
+  pass: pass
 
 .br-SidebarList-item
-	color: #eeeeee
-	cursor: pointer
-	font-size: rem(24px)
-	line-height: rem(30px)
-	position: relative
+  color: #eeeeee
+  cursor: pointer
+  font-size: rem(24px)
+  line-height: rem(30px)
+  position: relative
 
-	&:last-of-type
-		border-bottom: rem(1px) solid rgba(white, 0.03)
+  &:last-of-type
+    border-bottom: rem(1px) solid rgba(white, 0.03)
 
 .br-SidebarButton
-	+padding(rem(12px) spacing(0.75))
-	background-color: $br-sidebar-button-background
-	border: 0
-	border-bottom: rem(1px) solid rgba(black, 0.13)
-	border-top: rem(1px) solid rgba(white, 0.05)
-	box-shadow: 0 0 rem(4px) 0 rgba(black, 0.2)
-	opacity: 1
-	outline: 0
-	position: relative
-	text-align: left
-	text-shadow: rem(1px) rem(1px) rem(1px) rgba(black, 0.2)
-	user-select: none
-	width: 100%
-	z-index: $z-layer4
+  +padding(rem(12px) spacing(0.75))
+  background-color: $br-sidebar-button-background
+  border: 0
+  border-bottom: rem(1px) solid rgba(black, 0.13)
+  border-top: rem(1px) solid rgba(white, 0.05)
+  box-shadow: 0 0 rem(4px) 0 rgba(black, 0.2)
+  opacity: 1
+  outline: 0
+  position: relative
+  text-align: left
+  text-shadow: rem(1px) rem(1px) rem(1px) rgba(black, 0.2)
+  user-select: none
+  width: 100%
+  z-index: $z-layer4
 
-	&:before
-		+position(absolute, 0)
-		border-left: rem(3px) solid rgba(black, 0)
-		content: ''
-		display: block
-		transition-duration: 0.2s, 0.2s
-		transition-property: border, background-color
-		will-change: border, background-color
-		z-index: -1
+  &:before
+    +position(absolute, 0)
+    border-left: rem(3px) solid rgba(black, 0)
+    content: ''
+    display: block
+    transition-duration: 0.2s, 0.2s
+    transition-property: border, background-color
+    will-change: border, background-color
+    z-index: -1
 
 .br-SidebarButton--has-static-background:before
-	background-color: $br-sidebar-button-background
+  background-color: $br-sidebar-button-background
 
 .br-SidebarList-item:hover .br-SidebarButton:before,
 .br-SidebarButton--is-active:before,
 .br-SidebarButton:focus:before,
 .br-SidebarButton--is-focused:before
-	border-left-color: color('primary')
+  border-left-color: color('primary')
 
 .br-SidebarButton--is-active:before
-	background-color: $br-sidebar-button-background--active
+  background-color: $br-sidebar-button-background--active
 
 .br-SidebarButton--is-active .br-SidebarButton-icon
-	color: color('primary')
+  color: color('primary')
 
 .br-SidebarButton--is-active .br-SidebarButton-text
-	color: $br-sidebar-button-foreground--active
+  color: $br-sidebar-button-foreground--active
 
 .br-SidebarButton-text
-	display: inline-block
-	font-size: rem(14px)
-	line-height: rem(30px)
-	vertical-align: middle
+  display: inline-block
+  font-size: rem(14px)
+  line-height: rem(30px)
+  vertical-align: middle
 
 .br-SidebarButton-iconWrapper
-	display: inline-block
-	margin-right: rem(8px)
-	text-align: center
+  display: inline-block
+  margin-right: rem(8px)
+  text-align: center
 
 .br-SidebarButton-icon
-	display: inline-block
-	filter: drop-shadow(rem(3px) rem(3px) rem(6px) rgba(black, 0.3))
-	min-width: rem(20px)
-	vertical-align: middle
+  display: inline-block
+  filter: drop-shadow(rem(3px) rem(3px) rem(6px) rgba(black, 0.3))
+  min-width: rem(20px)
+  vertical-align: middle
 
 .br-SidebarButton-icon--code
-	font-size: rem(20px)
+  font-size: rem(20px)
 
 .br-SidebarButton-icon--about
-	font-size: rem(20px)
+  font-size: rem(20px)
 
 
 
 .br-MainPane
-	+clearfix
-	max-width: 100%
-	width: 100%
+  +clearfix
+  max-width: 100%
+  width: 100%
 
 .br-MainPane-left
-	float: left
-	overflow-y: auto
-	width: $br-pane-left-width
+  float: left
+  overflow-y: auto
+  width: $br-pane-left-width
 
 .br-MainPane-right
-	float: left
-	overflow-y: auto
-	width: 100% - $br-pane-left-width
+  float: left
+  overflow-y: auto
+  width: 100% - $br-pane-left-width
 
 
 
 // .br-AboutPane
-// 	background-color: #ffffff
-// 	height: $br-pane-calc-min-height
-// 	overflow-y: auto
+//  background-color: #ffffff
+//  height: $br-pane-calc-min-height
+//  overflow-y: auto
 
 // .br-AboutPane-header
-// 	position: relative
-// 	box-shadow: inset 0 0 rem(10px) rem(-1px) rgba(black, 0.3)
-// 	background: radial-gradient(circle, rgba(black, 0.2) 10%, transparent 10%)
-// 	// box-shadow: 0 6px 20px -2px rgba(black, 0.2)
-// 	background-size: 12px 12px
-// 	background-color: color('primary')
-// 	// background-color: #f6f5f3
-// 	overflow: hidden
-// 	margin-bottom: spacing(2)
+//  position: relative
+//  box-shadow: inset 0 0 rem(10px) rem(-1px) rgba(black, 0.3)
+//  background: radial-gradient(circle, rgba(black, 0.2) 10%, transparent 10%)
+//  // box-shadow: 0 6px 20px -2px rgba(black, 0.2)
+//  background-size: 12px 12px
+//  background-color: color('primary')
+//  // background-color: #f6f5f3
+//  overflow: hidden
+//  margin-bottom: spacing(2)
 
 // .br-AboutPane-headerTitle
-// 	+padding(spacing(0) spacing(1.5) )
-// 	color: color('primary')
-// 	color: white
-// 	// color: rgba(#211e1d, 0.5)
-// 	color: #3a3635
-// 	color: transparent
-// 	font-style: italic
-// 	letter-spacing: rem(10px)
-// 	line-height: 1.2
-// 	// font-family: lato
-// 	font-weight: 900
-// 	// font-weight: 600
-// 	// font-weight: 300
-// 	// font-weight: 200
-// 	// font-size: rem(200px)
-// 	// font-size: rem(150px)
-// 	font-size: rem(60px)
-// 	// font-size: rem(100px)
-// 	left: 50%
-// 	position: relative
-// 	text-transform: uppercase
-// 	transform: translate(-50%, rem(0px))
-// 	z-index: 1
+//  +padding(spacing(0) spacing(1.5) )
+//  color: color('primary')
+//  color: white
+//  // color: rgba(#211e1d, 0.5)
+//  color: #3a3635
+//  color: transparent
+//  font-style: italic
+//  letter-spacing: rem(10px)
+//  line-height: 1.2
+//  // font-family: lato
+//  font-weight: 900
+//  // font-weight: 600
+//  // font-weight: 300
+//  // font-weight: 200
+//  // font-size: rem(200px)
+//  // font-size: rem(150px)
+//  font-size: rem(60px)
+//  // font-size: rem(100px)
+//  left: 50%
+//  position: relative
+//  text-transform: uppercase
+//  transform: translate(-50%, rem(0px))
+//  z-index: 1
 
 
 // .About
-// 	color: color('primary')
-// 	font-size: rem(60px)
-// 	font-style: italic
-// 	font-weight: 600
-// 	letter-spacing: rem(10px)
-// 	left: 60px * 5
-// 	line-height: 0
-// 	position: absolute
-// 	text-transform: uppercase
-// 	text-align: right
-// 	top: 86px
+//  color: color('primary')
+//  font-size: rem(60px)
+//  font-style: italic
+//  font-weight: 600
+//  letter-spacing: rem(10px)
+//  left: 60px * 5
+//  line-height: 0
+//  position: absolute
+//  text-transform: uppercase
+//  text-align: right
+//  top: 86px
 
 // .br-AboutPane-title
-// 	+title('alternate')
-// 	color: color('foreground')
-// 	font-weight: 400
-// 	font-style: italic
-// 	font-size: rem(20px)
-// 	letter-spacing: rem(1px)
-// 	letter-spacing: rem(0)
-// 	padding-bottom: spacing(0.75)
-// 	text-transform: none
+//  +title('alternate')
+//  color: color('foreground')
+//  font-weight: 400
+//  font-style: italic
+//  font-size: rem(20px)
+//  letter-spacing: rem(1px)
+//  letter-spacing: rem(0)
+//  padding-bottom: spacing(0.75)
+//  text-transform: none
 
 // .br-AboutPane-body
-// 	+padding(spacing(1) spacing(1.5) spacing(3))
-// 	max-width: rem(800px)
+//  +padding(spacing(1) spacing(1.5) spacing(3))
+//  max-width: rem(800px)
 
-// 	& > p
-// 		font-size: rem(16px)
-// 		color: color('foreground', 'light')
-// 		color: #7e8488
+//  & > p
+//    font-size: rem(16px)
+//    color: color('foreground', 'light')
+//    color: #7e8488
 
 
 
 .br-FilesPane
-	background-color: $br-files-pane-background-color
-	background-image: linear-gradient(to right, #dce4e7, #ccd1d4)
-	height: $br-pane-calc-min-height
-	overflow: auto
+  background-color: $br-files-pane-background-color
+  background-image: linear-gradient(to right, #dce4e7, #ccd1d4)
+  height: $br-pane-calc-min-height
+  overflow: auto
 
 .br-FilesPane--is-showing
-	z-index: $z-layer3
+  z-index: $z-layer3
 
 .br-FilesPane-background
-	position: relative
+  position: relative
 
 .br-FilesPane-backgroundWrapper
-	+size(100%)
-	+margin(spacing(1) auto null)
-	cursor: default
-	max-width: rem(450px)
-	user-select: none
-	width: 80%
+  +size(100%)
+  +margin(spacing(1) auto null)
+  cursor: default
+  max-width: rem(450px)
+  user-select: none
+  width: 80%
 
 .br-FilesPane-backgroundText
-	color: #bfcace
-	font-size: rem(60px)
-	text-align: center
+  color: #bfcace
+  font-size: rem(60px)
+  text-align: center
 
 .br-FilesPane-backgroundComment
-	background-color: #c4cdd0
-	border-radius: rem(200px)
-	box-shadow: inset 0 0 rem(10px) rem(-1px) rgba(black, 0.2)
-	color: hsla(197,4%,53%,1)
-	display: inline-block
-	font-size: rem(11px)
-	letter-spacing: 2px
-	overflow: hidden
-	padding: rem(10px) rem(20px)
-	text-align: center
-	text-transform: uppercase
-	width: 100%
+  background-color: #c4cdd0
+  border-radius: rem(200px)
+  box-shadow: inset 0 0 rem(10px) rem(-1px) rgba(black, 0.2)
+  color: hsla(197,4%,53%,1)
+  display: inline-block
+  font-size: rem(11px)
+  letter-spacing: 2px
+  overflow: hidden
+  padding: rem(10px) rem(20px)
+  text-align: center
+  text-transform: uppercase
+  width: 100%
 
 
 
 .br-FilesList
-	position: relative
+  position: relative
 
 .br-FilesList-item
-	background-color: #ffffff
-	box-shadow: 0 rem(6px) rem(18px) rem(-6px) rgba(black, 0.25)
-	position: relative
-	z-index: 2
+  background-color: #ffffff
+  box-shadow: 0 rem(6px) rem(18px) rem(-6px) rgba(black, 0.25)
+  position: relative
+  z-index: 2
 
 .br-FilesList-item:hover .br-File-actions
-	opacity: 1
+  opacity: 1
 
 
 
 .br-File
-	background-color: hsla(0,0%,97%,1)
-	border-bottom: rem(1px) solid rgba(black, 0.08)
-	cursor: pointer
-	display: flex
-	justify-content: space-between
+  background-color: hsla(0,0%,97%,1)
+  border-bottom: rem(1px) solid rgba(black, 0.08)
+  cursor: pointer
+  display: flex
+  justify-content: space-between
 
 .br-File-name
-	align-items: center
-	border-right: rem(1px) solid $transparent
-	color: #949188
-	display: flex
-	flex: 1 0 auto
-	font-size: rem(15px)
-	font-style: italic
-	outline-color: color('primary')
-	padding-left: $br-file-name-padding-left
-	position: relative
-	transition: border-color 0.3s
-	user-select: none
+  align-items: center
+  border-right: rem(1px) solid $transparent
+  color: #949188
+  display: flex
+  flex: 1 0 auto
+  font-size: rem(15px)
+  font-style: italic
+  outline-color: color('primary')
+  padding-left: $br-file-name-padding-left
+  position: relative
+  transition: border-color 0.3s
+  user-select: none
 
-	&:hover
-		background-color: $br-hover-gray
-		border-right: rem(1px) solid rgba(black, 0.055)
+  &:hover
+    background-color: $br-hover-gray
+    border-right: rem(1px) solid rgba(black, 0.055)
 
 .br-File-inputEditText
-	+position(absolute, 0 null null 0)
-	+size(100%)
-	border: 0
-	display: block
-	padding-left: $br-file-name-padding-left
+  +position(absolute, 0 null null 0)
+  +size(100%)
+  border: 0
+  display: block
+  padding-left: $br-file-name-padding-left
 
 .br-File-actions
-	align-items: center
-	display: flex
-	opacity: 0
-	transition-duration: 0.2s
-	transition-property: opacity
-	user-select: none
+  align-items: center
+  display: flex
+  opacity: 0
+  transition-duration: 0.2s
+  transition-property: opacity
+  user-select: none
 
 .br-File-icon
-	+size($br-file-min-height null)
-	min-height: spacing(1.75)
-	position: relative
-	text-align: center
-	transition-duration: 0.3s
-	transition-property: background-color, box-shadow
+  +size($br-file-min-height null)
+  min-height: spacing(1.75)
+  position: relative
+  text-align: center
+  transition-duration: 0.3s
+  transition-property: background-color, box-shadow
 
-	&:active,
-	&:focus
-		box-shadow: inset 0 rem(4px) rem(16px) rgba(black, 0.1)
+  &:active,
+  &:focus
+    box-shadow: inset 0 rem(4px) rem(16px) rgba(black, 0.1)
 
 .br-File-icon--delete
-	box-shadow: inset 0 rem(4px) rem(16px) $transparent
-	box-sizing: border-box
-	font-size: rem(26px)
-	text-shadow: 0 0 0 $transparent
-	top: 0
+  box-shadow: inset 0 rem(4px) rem(16px) $transparent
+  box-sizing: border-box
+  font-size: rem(26px)
+  text-shadow: 0 0 0 $transparent
+  top: 0
 
-	&:active .br-File-iconInner
-		font-size: rem(20px)
+  &:active .br-File-iconInner
+    font-size: rem(20px)
 
-	&:hover,
-	&:active
-		background-color: hsl(0, 0%, 90%)
+  &:hover,
+  &:active
+    background-color: hsl(0, 0%, 90%)
 
 .br-File-icon--edit
-	background-color: $transparent
-	color: rgba(black, 0.5)
-	font-size: rem(15px)
+  background-color: $transparent
+  color: rgba(black, 0.5)
+  font-size: rem(15px)
 
-	&:active .br-File-iconInner
-		font-size: rem(12px)
+  &:active .br-File-iconInner
+    font-size: rem(12px)
 
-	&:hover
-		background-color: hsl(0, 0%, 90%)
+  &:hover
+    background-color: hsl(0, 0%, 90%)
 
 .br-File-iconInner
-	+center
-	transition-duration: 0.1s
-	transition-property: font-size
+  +center
+  transition-duration: 0.1s
+  transition-property: font-size
 
 
 
 .br-InputNewFile
-	+input
-	+padding(spacing(0.5) spacing(0.75))
-	+position(absolute, 0 0 null null)
-	background-color: #ffffff
-	border: rem(1px) solid #eeeeee
-	border-bottom-left-radius: 0
-	border-top-left-radius: 0
-	box-shadow: 0 rem(4px) rem(10px) rem(-2px) rgba(black, 0.27)
-	display: block
-	height: 100%
-	margin: 0
-	transition-duration: 0.25s, 0.5s
-	transition-property: transform, opacity
-	width: rem(250px)
-	z-index: $z-layer3
+  +input
+  +padding(spacing(0.5) spacing(0.75))
+  +position(absolute, 0 0 null null)
+  background-color: #ffffff
+  border: rem(1px) solid #eeeeee
+  border-bottom-left-radius: 0
+  border-top-left-radius: 0
+  box-shadow: 0 rem(4px) rem(10px) rem(-2px) rgba(black, 0.27)
+  display: block
+  height: 100%
+  margin: 0
+  transition-duration: 0.25s, 0.5s
+  transition-property: transform, opacity
+  width: rem(250px)
+  z-index: $z-layer3
 
 .br-InputNewFile::placeholder
-	color: #ababab
-	font-size: rem(14px)
-	font-style: italic
-	letter-spacing: 0.5px
+  color: #ababab
+  font-size: rem(14px)
+  font-style: italic
+  letter-spacing: 0.5px
 
 .br-InputNewFile--is-showing
-	opacity: 1
-	transform: translateX(100%)
+  opacity: 1
+  transform: translateX(100%)
 
 
 
 .br-OutputContainer
-	position: relative
+  position: relative
 
 .br-Inputs-jsonInput
-	+input
-	background-color: #eeeeee
-	border: 0
-	border-right: $br-input-border
-	box-shadow: 0 rem(2px) rem(10px) rem(-2px) rgba(black, 0.2)
-	font-family: $code-font-family
-	font-size: $br-input-field-font-size
-	height: $br-input-json-header-height
-	margin: 0
-	min-height: 0
-	overflow-y: scroll
-	resize: none
-	tab-size: $br-input-tab-size
-	width: calc(100% - rem(1px))
-	z-index: 1000000000000
+  +input
+  background-color: #eeeeee
+  border: 0
+  border-right: $br-input-border
+  box-shadow: 0 rem(2px) rem(10px) rem(-2px) rgba(black, 0.2)
+  font-family: $code-font-family
+  font-size: $br-input-field-font-size
+  height: $br-input-json-header-height
+  margin: 0
+  min-height: 0
+  overflow-y: scroll
+  resize: none
+  tab-size: $br-input-tab-size
+  width: calc(100% - rem(1px))
+  z-index: 1000000000000
 
 .br-InputField
-	+input
-	background-color: hsl(0, 0, 98%)
-	border: $br-input-border
-	border-radius: 0
-	color: color('foreground')
-	font-family: $code-font-family
-	font-size: $br-input-field-font-size
-	line-height: $br-input-field-line-height
-	margin: 0
-	position: relative
-	resize: none
-	tab-size: $br-input-tab-size
-	width: 100%
+  +input
+  background-color: hsl(0, 0, 98%)
+  border: $br-input-border
+  border-radius: 0
+  color: color('foreground')
+  font-family: $code-font-family
+  font-size: $br-input-field-font-size
+  line-height: $br-input-field-line-height
+  margin: 0
+  position: relative
+  resize: none
+  tab-size: $br-input-tab-size
+  width: 100%
 
-	&:focus
-		border-color: color('primary')
+  &:focus
+    border-color: color('primary')
 
 .br-InputField--left
-	height: $br-input-field-left-height
+  height: $br-input-field-left-height
 
 .br-InputField--right
-	height: $br-pane-calc-min-height
+  height: $br-pane-calc-min-height
 
-	&:focus
-		border: rem(1px) solid #cccccc
+  &:focus
+    border: rem(1px) solid #cccccc
 
 
 
 .br-ErrorMessage
-	background-color: #eeeeee
-	border: rem(1px) solid #dddddd
-	border-left: 0
-	bottom: 0
-	font-family: $code-font-family
-	font-size: rem(12px)
-	left: 1px
-	line-height: 1.4
-	padding: spacing(0.25)
-	position: absolute
-	white-space: pre-wrap
-	width: calc(100% - 1px)
+  background-color: #eeeeee
+  border: rem(1px) solid #dddddd
+  border-left: 0
+  bottom: 0
+  font-family: $code-font-family
+  font-size: rem(12px)
+  left: 1px
+  line-height: 1.4
+  padding: spacing(0.25)
+  position: absolute
+  white-space: pre-wrap
+  width: calc(100% - 1px)
 
 
 
@@ -451,131 +451,131 @@ $br-pane-calc-min-height: calc(#{$br-input-field-left-height} + #{$br-input-json
 .tr-listRemove-leave-active,
 .tr-listRemove-enter,
 .tr-listRemove-leave
-	transition: transform 0.2s
-	will-change: transform
+  transition: transform 0.2s
+  will-change: transform
 
 .tr-listRemove-enter,
 .tr-listRemove-leave
-	transform: translateY(rem(30px))
+  transform: translateY(rem(30px))
 
 .tr-listRemove-leave-active
-	transform: translateY(-120%)
-	z-index: 1
+  transform: translateY(-120%)
+  z-index: 1
 
 
 
 @media (max-width: breakpoint('large'))
 
-	.br-App
-		display: block
+  .br-App
+    display: block
 
 
 
-	.br-Sidebar
-		+size(100% auto)
+  .br-Sidebar
+    +size(100% auto)
 
-	.br-SidebarList
-		display: flex
+  .br-SidebarList
+    display: flex
 
-	.br-SidebarList-item
-		flex: 1 0 auto
-		white-space: nowrap
-		width: 25%
+  .br-SidebarList-item
+    flex: 1 0 auto
+    white-space: nowrap
+    width: 25%
 
-		&:last-child
-			border-bottom: 0
+    &:last-child
+      border-bottom: 0
 
-	.br-SidebarButton
-		text-overflow: ellipsis
+  .br-SidebarButton
+    text-overflow: ellipsis
 
-	.br-SidebarButton
-		border: 0
-		text-align: center
+  .br-SidebarButton
+    border: 0
+    text-align: center
 
-		&:before
-			border-left: 0
-			border-top: rem(3px) solid $transparent
+    &:before
+      border-left: 0
+      border-top: rem(3px) solid $transparent
 
-	.br-SidebarList-item:hover .br-SidebarButton:before,
-	.br-SidebarButton--is-active:before,
-	.br-SidebarButton:focus:before,
-	.br-SidebarButton--is-focused:before
-		border-top-color: color('primary')
+  .br-SidebarList-item:hover .br-SidebarButton:before,
+  .br-SidebarButton--is-active:before,
+  .br-SidebarButton:focus:before,
+  .br-SidebarButton--is-focused:before
+    border-top-color: color('primary')
 
-	.br-SidebarButton-iconWrapper
-		margin-right: 0
+  .br-SidebarButton-iconWrapper
+    margin-right: 0
 
-	.br-SidebarButton-text
-		font-size: rem(13px)
-
-
-
-	.br-InputNewFile
-		left: 0
-
-	.br-InputNewFile--is-showing
-		transform: translateY(100%)
-
-
-	// .br-AboutPane-body > p
-	// 	font-size: rem(15px)
-
-	.br-FilesPane
-		border-top: 0
+  .br-SidebarButton-text
+    font-size: rem(13px)
 
 
 
-	.br-AboutPane,
-	.br-FilesPane,
-	.br-InputField--left,
-	.br-InputField--right
-		height: 60vh
+  .br-InputNewFile
+    left: 0
+
+  .br-InputNewFile--is-showing
+    transform: translateY(100%)
+
+
+  // .br-AboutPane-body > p
+  //  font-size: rem(15px)
+
+  .br-FilesPane
+    border-top: 0
+
+
+
+  .br-AboutPane,
+  .br-FilesPane,
+  .br-InputField--left,
+  .br-InputField--right
+    height: 60vh
 
 
 
 @media (max-width: rem(690px))
 
-	.br-MainPane-left,
-	.br-MainPane-right
-		float: none
-		width: 100%
+  .br-MainPane-left,
+  .br-MainPane-right
+    float: none
+    width: 100%
 
-	// .br-MainPane-right
-	// 	position: absolute
-	// 	top: 0
-	// 	display: none
+  // .br-MainPane-right
+  //  position: absolute
+  //  top: 0
+  //  display: none
 
-	.br-AboutPane,
-	.br-FilesPane,
-	.br-InputField--left,
-	.br-InputField--right
-		height: 50vh
+  .br-AboutPane,
+  .br-FilesPane,
+  .br-InputField--left,
+  .br-InputField--right
+    height: 50vh
 
-	.br-FilesPane-backgroundWrapper
-		width: 90%
+  .br-FilesPane-backgroundWrapper
+    width: 90%
 
-	.br-File-icon
-		min-height: spacing(1.5)
-		width: spacing(1.75)
+  .br-File-icon
+    min-height: spacing(1.5)
+    width: spacing(1.75)
 
-	.br-File-name
-		flex: 1
-		font-size: rem(14px)
-		overflow: hidden
-		white-space: nowrap
+  .br-File-name
+    flex: 1
+    font-size: rem(14px)
+    overflow: hidden
+    white-space: nowrap
 
-		& > span
-			display: inline-block
-			overflow: hidden
-			text-overflow: ellipsis
-			white-space: nowrap
+    & > span
+      display: inline-block
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
 
 
 
 @media (max-width: rem(550px))
 
-	.br-SidebarList-item
-		border-bottom: 0
+  .br-SidebarList-item
+    border-bottom: 0
 
-	.br-SidebarButton-text
-		display: none
+  .br-SidebarButton-text
+    display: none

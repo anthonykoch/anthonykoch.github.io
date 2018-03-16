@@ -2,23 +2,23 @@
 {% case include.theme %}
 
 {% when 'dark' %}
-	{% assign theme = 'Hero--dark' %}
+  {% assign theme = 'Hero--dark' %}
 {% endcase %}
 
 
 {% if include.center != false %}
-	{% assign center = 'Hero__caption--center' %}
+  {% assign center = 'Hero__caption--center' %}
 {% endif %}
 
 
 <section class="Hero  {{ theme }}">
-	<div class="large-caption  Hero__caption  {{ center }}">
-		{{ include.body }}
-	</div>
+  <div class="large-caption  Hero__caption  {{ center }}">
+    {{ include.body }}
+  </div>
 
-	{% if include.show_social != false %}
-		<div class="Social">
-			{% include components/social.html %}
-		</div>
-	{% endif %}
+  {% if include.show_social != false %}
+    <div class="Social">
+      {% include components/social.html %}
+    </div>
+  {% endif %}
 </section>

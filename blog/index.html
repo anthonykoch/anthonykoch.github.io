@@ -8,13 +8,13 @@ hero:
 ---
 
 <section class="Band">
-	<div class="row row--readable">
-		<ul class="PostList">
-			{% for post in site.posts %}
-				<li class="PostList__item">
-					{% include post_preview.html %}
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
+  <div class="row row--readable">
+    <ul class="PostList">
+      {% for post in site.posts %}
+        <li class="PostList__item">
+          {% include post_preview.html %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </section>

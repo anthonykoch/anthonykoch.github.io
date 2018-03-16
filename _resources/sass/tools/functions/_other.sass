@@ -6,13 +6,13 @@
  */
 
 @function fontsize($variant)
-	$font-size: map-get($font-sizes, $variant)
-	@return $font-size
+  $font-size: map-get($font-sizes, $variant)
+  @return $font-size
 
 
 
 @function zindex($key)
-	@return map-get($z-indexes, $key)
+  @return map-get($z-indexes, $key)
 
 
 
@@ -23,7 +23,7 @@
  * @return {boolean}
  */
 @function contains($list, $var)
-	@return (index($list, $var) != null)
+  @return (index($list, $var) != null)
 
 
 
@@ -37,7 +37,7 @@
  * @return {String} The image prefixed with the path
  */
 @function image($url)
-	@return map-get($config, 'images') + $url
+  @return map-get($config, 'images') + $url
 
 
 
@@ -47,4 +47,4 @@
  * @return {Number}
  */
 @function spacing($multiplier)
-	@return $base-spacing * $multiplier
+  @return $base-spacing * $multiplier

@@ -4,32 +4,32 @@
  * left and to the right.
  */
 .row
-	+row
-	+margin(null auto)
+  +row
+  +margin(null auto)
 
-	@each $name, $size in $breakpoints
-		&--#{$name}
-			max-width: $size
+  @each $name, $size in $breakpoints
+    &--#{$name}
+      max-width: $size
 
 /**
  * Restricts to a width that is best for reading
  */
 
 .row--readable
-	max-width: breakpoint('readable')
+  max-width: breakpoint('readable')
 
 /**
  * Unset the margin centering
  */
 .row--left
-	+margin(null 0)
+  +margin(null 0)
 
 .row--full
-	max-width: 100%
+  max-width: 100%
 
 
 
 @media screen and (max-width: breakpoint('small'))
 
-	.row
-		+padding(null $row-gutter-at-small)
+  .row
+    +padding(null $row-gutter-at-small)

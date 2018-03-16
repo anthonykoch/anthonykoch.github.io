@@ -5,20 +5,20 @@
  * @param string $which Maybe be 'vertical' or 'horizontal', defaults to both
  */
 =center($which: null)
-	position: absolute
+  position: absolute
 
-	@if $which == 'vertical'
-		top: 50%
-		transform: translateY(-50%)
+  @if $which == 'vertical'
+    top: 50%
+    transform: translateY(-50%)
 
-	@else if $which == 'horizontal'
-		left: 50%
-		transform: translateX(-50%)
+  @else if $which == 'horizontal'
+    left: 50%
+    transform: translateX(-50%)
 
-	@else
-		left: 50%
-		top: 50%
-		transform: translate(-50%, -50%)
+  @else
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
 
 
 
@@ -27,15 +27,15 @@
  * TODO: Add options
  */
 =scrollbar($width: 9px, $height: 9px)
-	&::-webkit-scrollbar
-		height: $height
-		width: $width
+  &::-webkit-scrollbar
+    height: $height
+    width: $width
 
-	&::-webkit-scrollbar-track
-		background-color: #dddddd
+  &::-webkit-scrollbar-track
+    background-color: #dddddd
 
-	&::-webkit-scrollbar-thumb
-		background-color: #888888
+  &::-webkit-scrollbar-thumb
+    background-color: #888888
 
 
 
@@ -43,10 +43,10 @@
  * Causes an element to fill its parent's contianer using absolute positioning
  */
 =fill($args: ())
-	$position: absolute
+  $position: absolute
 
-	@if contains($args, 'fixed')
-		$position: fixed
+  @if contains($args, 'fixed')
+    $position: fixed
 
-	+position($position, 0 null null 0)
-	+size(100%)
+  +position($position, 0 null null 0)
+  +size(100%)

@@ -1,14 +1,14 @@
 $config: (
-	'images': '/assets/images/'
+  'images': '/assets/images/'
 );
 
 $z-indexes: (
-	'below': -1,
-	'default': 1,
-	'above': 2,
-	'header': 10,
-	'overlay': 5000,
-	'modal': 5001,
+  'below': -1,
+  'default': 1,
+  'above': 2,
+  'header': 10,
+  'overlay': 5000,
+  'modal': 5001,
 );
 
 /**
@@ -17,12 +17,12 @@ $z-indexes: (
  * override the larger classes
  */
 $breakpoints: (
-	'xxlarge': rem(1400px),
-	'xlarge': rem(1200px),
-	'large': rem(900px),
-	'medium': rem(600px),
-	'small': rem(350px),
-	'readable': rem(760px)
+  'xxlarge': rem(1400px),
+  'xlarge': rem(1200px),
+  'large': rem(900px),
+  'medium': rem(600px),
+  'small': rem(350px),
+  'readable': rem(760px)
 );
 
 // $ionicons-font-path: '../fonts/ionicons-2.0.1' !default;

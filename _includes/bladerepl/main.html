@@ -8,44 +8,44 @@ font-family
 {% raw %}
 
 <template class="js-template-br-file-list-item">
-	<li class="br-FilesList-item">
-		<div class="br-File">
-			<div
-				class="br-File-name"
-				tabindex="0"
-				@keyup.enter.self="updateActiveFile(file.id)"
-				@click.self="updateActiveFile(file.id)">
+  <li class="br-FilesList-item">
+    <div class="br-File">
+      <div
+        class="br-File-name"
+        tabindex="0"
+        @keyup.enter.self="updateActiveFile(file.id)"
+        @click.self="updateActiveFile(file.id)">
 
-				<span>{{ filePath }}</span>
+        <span>{{ filePath }}</span>
 
-				<input class="br-File-inputEditText"
-					type="text"
-					value=""
-					autocomplete="off"
-					ref="input"
-					tabindex="-1"
-					:value="filePath"
-					v-show="isEditingPath"
-					@keyup="path = $event.target.value"
-					@keyup.enter="updateFilePath"
-					@keyup.esc="isEditingPath = false"
-					@focusout="isEditingPath = false">
-			</div>
+        <input class="br-File-inputEditText"
+          type="text"
+          value=""
+          autocomplete="off"
+          ref="input"
+          tabindex="-1"
+          :value="filePath"
+          v-show="isEditingPath"
+          @keyup="path = $event.target.value"
+          @keyup.enter="updateFilePath"
+          @keyup.esc="isEditingPath = false"
+          @focusout="isEditingPath = false">
+      </div>
 
-			<!-- FIXME: Change these to buttons! -->
+      <!-- FIXME: Change these to buttons! -->
 
-			<ul class="br-File-actions">
-				<li class="br-File-icon br-File-icon--delete"
-					@click="deleteFile(file)">
-					<i class="br-File-iconInner  ion-ios-close-empty"></i>
-				</li>
-				<li class="br-File-icon br-File-icon--edit"
-					@click="enableEditingPath">
-					<i class="br-File-iconInner  ion-edit"></i>
-				</li>
-			</ul>
-		</div>
-	</li>
+      <ul class="br-File-actions">
+        <li class="br-File-icon br-File-icon--delete"
+          @click="deleteFile(file)">
+          <i class="br-File-iconInner  ion-ios-close-empty"></i>
+        </li>
+        <li class="br-File-icon br-File-icon--edit"
+          @click="enableEditingPath">
+          <i class="br-File-iconInner  ion-edit"></i>
+        </li>
+      </ul>
+    </div>
+  </li>
 </template>
 {% endraw %}
 
@@ -55,123 +55,123 @@ TODO:
 {% endcomment %}
 
 <div class="br-App  js-br-app" tabIndex="-1">
-	<a href="/#blade" id="blade" name="blade" tabindex="-1"></a>
-	{% include bladerepl/sidebar.html %}
+  <a href="/#blade" id="blade" name="blade" tabindex="-1"></a>
+  {% include bladerepl/sidebar.html %}
 
-	<div class="br-MainPane" :active-pane="activePane">
-		<div class="br-MainPane-left">
-			{% comment %}
-			<div
-				class="br-AboutPane"
-				style="display: none"
-				v-show="activePane === 'about'">
-				<div class="br-AboutPane-header">
-					<div class="br-AboutPane-headerTitle">About</div>
-				</div>
-				<div class="About">BladeJS</div>
-				<div class="br-AboutPane-body  u-collapse-last">
-					<h2 class="br-AboutPane-title">What is this project?</h2>
-					<p>
-						BladeJS is just a project I wrote for fun. The project took a couple of months.
-					</p>
+  <div class="br-MainPane" :active-pane="activePane">
+    <div class="br-MainPane-left">
+      {% comment %}
+      <div
+        class="br-AboutPane"
+        style="display: none"
+        v-show="activePane === 'about'">
+        <div class="br-AboutPane-header">
+          <div class="br-AboutPane-headerTitle">About</div>
+        </div>
+        <div class="About">BladeJS</div>
+        <div class="br-AboutPane-body  u-collapse-last">
+          <h2 class="br-AboutPane-title">What is this project?</h2>
+          <p>
+            BladeJS is just a project I wrote for fun. The project took a couple of months.
+          </p>
 
-					<h2 class="br-AboutPane-title">Can I use it?</h2>
-					<p>
-						Technically you could, but I wouldn't recommend it. There are plenty of well tested templating engines. This was just a fun project to test my coding abilities.
-					</p>
+          <h2 class="br-AboutPane-title">Can I use it?</h2>
+          <p>
+            Technically you could, but I wouldn't recommend it. There are plenty of well tested templating engines. This was just a fun project to test my coding abilities.
+          </p>
 
-					<h2 class="br-AboutPane-title">What'd you use to build REPL?</h2>
-					<p>
-						This little application was built in with <a href="https://vuejs.org/">Vue</a> with Vuex. You can find the code for it on my github interspersed amongst the files of my personal website.
-					</p>
+          <h2 class="br-AboutPane-title">What'd you use to build REPL?</h2>
+          <p>
+            This little application was built in with <a href="https://vuejs.org/">Vue</a> with Vuex. You can find the code for it on my github interspersed amongst the files of my personal website.
+          </p>
 
-					<a href="https://github.com/anthonykoch/anthonykoch.github.io/tree/master/_includes/bladerepl">HTML</a>
-					<span style="margin-right: 10px; margin-left: 10px">&bull;</span>
-					<a href="https://github.com/anthonykoch/anthonykoch.github.io/blob/master/_resources/sass/pages/_blade.sass">
-						Sass
-					</a>
-					<span style="margin-right: 10px; margin-left: 10px">&bull;</span>
-					<a href="https://github.com/anthonykoch/anthonykoch.github.io/tree/master/_resources/javascripts/pages/blade">
-						JavaScript
-					</a>
-				</div>
-			</div>
-			{% endcomment %}
+          <a href="https://github.com/anthonykoch/anthonykoch.github.io/tree/master/_includes/bladerepl">HTML</a>
+          <span style="margin-right: 10px; margin-left: 10px">&bull;</span>
+          <a href="https://github.com/anthonykoch/anthonykoch.github.io/blob/master/_resources/sass/pages/_blade.sass">
+            Sass
+          </a>
+          <span style="margin-right: 10px; margin-left: 10px">&bull;</span>
+          <a href="https://github.com/anthonykoch/anthonykoch.github.io/tree/master/_resources/javascripts/pages/blade">
+            JavaScript
+          </a>
+        </div>
+      </div>
+      {% endcomment %}
 
-			<div
-				class="br-FilesPane br-FilesPane"
-				style="display: none"
-				v-show="activePane === 'files'">
+      <div
+        class="br-FilesPane br-FilesPane"
+        style="display: none"
+        v-show="activePane === 'files'">
 
-				{% raw %}
-				<transition-group
-					tag="ul"
-					name="tr-listRemove"
-					class="br-FilesList">
-					<li
-						is="br-file-list-item"
-						v-for="(file, index) in files"
-						:file="file"
-						:key="file.id"
-						v-on:file:delete="removeFile({ id: file.id })"
-						v-on:file:update-path="updateFilePath"
-						v-on:file:set-current="updateActiveFile({ id: file.id })"
-						v-on:pane:update="updateActivePane({ value: 'code' })">
-					</li>
-				</transition-group>
+        {% raw %}
+        <transition-group
+          tag="ul"
+          name="tr-listRemove"
+          class="br-FilesList">
+          <li
+            is="br-file-list-item"
+            v-for="(file, index) in files"
+            :file="file"
+            :key="file.id"
+            v-on:file:delete="removeFile({ id: file.id })"
+            v-on:file:update-path="updateFilePath"
+            v-on:file:set-current="updateActiveFile({ id: file.id })"
+            v-on:pane:update="updateActivePane({ value: 'code' })">
+          </li>
+        </transition-group>
 
-				<div class="br-FilesPane-background">
-					<div class="br-FilesPane-backgroundWrapper">
-						<div class="u-text-center">
-							<!-- <div style="margin-bottom: 10px; color: #6a6f71">Did you know?</div> -->
-							<div class="br-FilesPane-backgroundComment">
-								<span class="u-inline-block">
-									{{ paneMessage }}
-								</span>
-							</div>
-						</div>
-						<div class="br-FilesPane-backgroundText">@_@</div>
-					</div>
-				</div>
-				{% endraw %}
-			</div>
+        <div class="br-FilesPane-background">
+          <div class="br-FilesPane-backgroundWrapper">
+            <div class="u-text-center">
+              <!-- <div style="margin-bottom: 10px; color: #6a6f71">Did you know?</div> -->
+              <div class="br-FilesPane-backgroundComment">
+                <span class="u-inline-block">
+                  {{ paneMessage }}
+                </span>
+              </div>
+            </div>
+            <div class="br-FilesPane-backgroundText">@_@</div>
+          </div>
+        </div>
+        {% endraw %}
+      </div>
 
-			<div class="br-InputContainer" v-show="activePane === 'code'">
-				<textarea
-					class="br-Inputs-jsonInput"
-					type="text"
-					:value="jsonHeader"
-					@keyup="onJsonHeaderKeyup"></textarea>
+      <div class="br-InputContainer" v-show="activePane === 'code'">
+        <textarea
+          class="br-Inputs-jsonInput"
+          type="text"
+          :value="jsonHeader"
+          @keyup="onJsonHeaderKeyup"></textarea>
 
-				<textarea
-					class="br-InputField br-InputField--left"
-					ref="inputLeft"
-					:value="contents"
-					@keyup="onInputLeftKeyup"
-					@keydown.tab.prevent
-					@keydown="onInputleftKeydown"></textarea>
-			</div>
-		</div>
+        <textarea
+          class="br-InputField br-InputField--left"
+          ref="inputLeft"
+          :value="contents"
+          @keyup="onInputLeftKeyup"
+          @keydown.tab.prevent
+          @keydown="onInputleftKeydown"></textarea>
+      </div>
+    </div>
 
-		<div class="br-MainPane-right">
-			<div
-				class="br-OutputContainer">
-				{% comment %}
-					IMPORTANT: using v-model="output.data" causes the browser to
-					crash everytime, all the time
-				{% endcomment %}
-				{% raw %}
-				<textarea
-					class="br-InputField br-InputField--right"
-					readonly
-					:value="output"></textarea>
+    <div class="br-MainPane-right">
+      <div
+        class="br-OutputContainer">
+        {% comment %}
+          IMPORTANT: using v-model="output.data" causes the browser to
+          crash everytime, all the time
+        {% endcomment %}
+        {% raw %}
+        <textarea
+          class="br-InputField br-InputField--right"
+          readonly
+          :value="output"></textarea>
 
-				<div
-					style="display: none"
-					class="br-ErrorMessage"
-					v-show="error">{{ error }}</div>
-				{% endraw %}
-			</div>
-		</div>
-	</div>
+        <div
+          style="display: none"
+          class="br-ErrorMessage"
+          v-show="error">{{ error }}</div>
+        {% endraw %}
+      </div>
+    </div>
+  </div>
 </div>

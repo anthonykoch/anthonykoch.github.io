@@ -7,11 +7,11 @@
  */
 
 =grid-column($column-index, $grid-columns, $important: false)
-	$width: grid-column($column-index, $grid-columns)
-	$important-string: if($important, '!important', '')
-	flex-basis: auto #{$important-string}
+  $width: grid-column($column-index, $grid-columns)
+  $important-string: if($important, '!important', '')
+  flex-basis: auto #{$important-string}
 
-	@if (is-float($width))
-		width: calc(100% * #{$column-index} / #{$grid-columns}) #{$important-string} /* [1] */
-	@else
-		width: $width #{$important-string}
+  @if (is-float($width))
+    width: calc(100% * #{$column-index} / #{$grid-columns}) #{$important-string} /* [1] */
+  @else
+    width: $width #{$important-string}

@@ -4,28 +4,28 @@
  */
 
 @at-root
-	$gutter: $base-gutter
+  $gutter: $base-gutter
 
-	.Layout
-		display: flex
-		flex-wrap: wrap
+  .Layout
+    display: flex
+    flex-wrap: wrap
 
-	.Layout--center
-		align-items: center
-		justify-content: center
+  .Layout--center
+    align-items: center
+    justify-content: center
 
-	.Layout--center-v
-		align-items: center
+  .Layout--center-v
+    align-items: center
 
-	.Layout--center-h
-		justify-content: center
+  .Layout--center-h
+    justify-content: center
 
-	.Layout--flush
-		+margin(null negative($gutter))
+  .Layout--flush
+    +margin(null negative($gutter))
 
-	/**
-	 * 1. See https://github.com/philipwalton/flexbugs
-	 */
-	.Layout__item
-		flex-basis: auto /* 1 */
-		+padding(null $gutter)
+  /**
+   * 1. See https://github.com/philipwalton/flexbugs
+   */
+  .Layout__item
+    flex-basis: auto /* 1 */
+    +padding(null $gutter)

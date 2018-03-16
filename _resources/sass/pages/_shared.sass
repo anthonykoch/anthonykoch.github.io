@@ -3,52 +3,52 @@
  */
 
 .Hero
-	+row(xxlarge)
-	padding-top: ($base-spacing * 5)
+  +row(xxlarge)
+  padding-top: ($base-spacing * 5)
 
 .Hero__caption
-	+title('alternate')
+  +title('alternate')
 
 .Hero__description
-	color: #dddddd
-	font-size: rem(17px)
-	max-width: breakpoint('medium')
-	padding: $base-spacing 0 $base-spacing
+  color: #dddddd
+  font-size: rem(17px)
+  max-width: breakpoint('medium')
+  padding: $base-spacing 0 $base-spacing
 
 /**
  * 1. Push the header down so the background image doesn't show under the text,
  *    making it unreadable.
  */
 @media (max-width: breakpoint('medium'))
-	.Hero
-		padding-top: ($base-spacing * 3)
+  .Hero
+    padding-top: ($base-spacing * 3)
 
-	.Hero__description
-		padding-bottom: ($base-spacing * 9) /* [1] */
+  .Hero__description
+    padding-bottom: ($base-spacing * 9) /* [1] */
 
 
 
 .Background-white
-	background-color: white
+  background-color: white
 
 .Background-gray
-	background-color: #eeeeee
+  background-color: #eeeeee
 
 .Background-primary
-	background-color: color('primary')
+  background-color: color('primary')
 
 
 
 .side-image
-	background-color: color('primary')
-	min-height: rem(300px)
+  background-color: color('primary')
+  min-height: rem(300px)
 
 
 
 .disqus_thread
-	margin: 0 auto
-	max-width: breakpoint('large')
-	padding: ($base-spacing * 4) $row-gutter
+  margin: 0 auto
+  max-width: breakpoint('large')
+  padding: ($base-spacing * 4) $row-gutter
 
 
 
@@ -56,26 +56,26 @@
  * This is the social icons that go below the header of a page
  */
 .Social
-	bottom: -4rem
-	position: absolute
-	right: 1.25rem
+  bottom: -4rem
+  position: absolute
+  right: 1.25rem
 
 @media (max-width: breakpoint('medium'))
-	.Social
-		left: 50%
-		right: initial
-		text-align: center
-		transform: translateX(-50%)
-		width: 100%
+  .Social
+    left: 50%
+    right: initial
+    text-align: center
+    transform: translateX(-50%)
+    width: 100%
 
 
 
 .Overlay
-	+position(fixed, 0 null null 0)
-	+size(100%)
-	background: rgba(color('background'), 0.5)
-	z-index: zindex('modal')
+  +position(fixed, 0 null null 0)
+  +size(100%)
+  background: rgba(color('background'), 0.5)
+  z-index: zindex('modal')
 
 .Overlay--solidWhite
-	background-color: #ffffff
+  background-color: #ffffff
 
