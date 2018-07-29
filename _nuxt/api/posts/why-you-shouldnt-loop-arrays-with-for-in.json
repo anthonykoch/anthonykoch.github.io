@@ -1,0 +1,49 @@
+{
+  "excerpt": {
+    "content": "<p>I had a friend ask me why you shouldn't iterate over arrays with a for-in loop, since after all, when he tried it everything worked as expected. Well, the reasoning for why you shouldn't do this is not immediately apparent, especially if you do not understand how property lookup and prototypes work.</p>\n",
+    "loc": {
+      "start": 0,
+      "end": 306
+    }
+  },
+  "layout": "post",
+  "author": "Anthony Koch",
+  "title": "Why you shouldn't loop arrays with for-in",
+  "tags": [
+    "JavaScript",
+    "arrays"
+  ],
+  "id": 4,
+  "created_at": "2015-12-03T00:00:00.000Z",
+  "humanized": {
+    "created_at": "December, 2 2015"
+  },
+  "url": "/blog/why-you-shouldnt-loop-arrays-with-for-in",
+  "slug": "why-you-shouldnt-loop-arrays-with-for-in",
+  "next": {
+    "url": "/blog/medium-style-images",
+    "layout": "post",
+    "author": "Anthony Koch",
+    "title": "Medium style image loading",
+    "tags": [
+      "stackblur",
+      "medium",
+      "lazy loading"
+    ],
+    "id": 5,
+    "created_at": "2016-01-07T00:00:00.000Z"
+  },
+  "previous": {
+    "url": "/blog/remember-directories-in-con-emu",
+    "layout": "post",
+    "author": "Anthony Koch",
+    "title": "Remember directories in Con Emu",
+    "tags": [
+      "con emu",
+      "command line"
+    ],
+    "id": 3,
+    "created_at": "2015-11-15T00:00:00.000Z"
+  },
+  "contents": "<p>I had a friend ask me why you shouldn't iterate over arrays with a for-in loop, since after all, when he tried it everything worked as expected. Well, the reasoning for why you shouldn't do this is not immediately apparent, especially if you do not understand how property lookup and prototypes work.</p>\n<!-- endexcerpt -->\n<h3>What does a for-in loop do?</h3>\n<p>A for-in loop enumerates over an object's properties, including the properties in the object's prototype chain. Arrays are a type of object, exhibiting the same characteristics as objects, but with extended functionality. Array indices are properties, which is why they are enumerated in for-in loops.</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> arr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> key <span class=\"hljs-keyword\">in</span> arr) {\n  <span class=\"hljs-comment\">// Would log 0, 1, 2</span>\n  <span class=\"hljs-built_in\">console</span>.log(key);\n}\n</code></pre>\n<p>If you enter the above code into the console, it will log <code>0</code>, <code>1</code>, and <code>2</code>, which are the indices of the items in the array. So, what's the issue? Well, let's just say we wanted to include a polyfill in our script that implements some cool, new upcoming feature for arrays and that the method is called <code>coolMethod</code>. Here comes the issue, since a for-in loop enumerates over an object's properties, and includes the object's prototype chain in the enumeration, we would find that <code>coolMethod</code> would also be logged to the console along with the indices of the array.</p>\n<pre class=\"hljs\"><code><span class=\"hljs-built_in\">Array</span>.prototype.coolMethod = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-comment\">// coolMethod polyfill </span>\n};\n\n<span class=\"hljs-keyword\">var</span> arr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> key <span class=\"hljs-keyword\">in</span> arr) {\n  <span class=\"hljs-comment\">// Would log 0, 1, 2, 'coolMethod'</span>\n  <span class=\"hljs-built_in\">console</span>.log(key);\n}\n</code></pre>\n<p>You could technically get around this by using <code>Object.defineProperty</code> to define <code>coolMethod</code> as non-enumerable, but you can't ensure every library you're using will do this.</p>\n<p>Now, here's something that may blow your mind if you aren't familiar with the way JavaScript prototypes work. We don't even have to set <code>coolMethod</code> on <code>Array.prototype</code>. Since the prototype chain of an array leads back to <code>Object.prototype</code>, we can set <code>coolMethod</code> on <code>Object.prototype</code> and have it show up in the for-in enumeration of the array.</p>\n<pre class=\"hljs\"><code><span class=\"hljs-built_in\">Object</span>.prototype.coolMethod = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\"></span>) </span>{};\n\n<span class=\"hljs-keyword\">var</span> arr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> key <span class=\"hljs-keyword\">in</span> arr) {\n  <span class=\"hljs-comment\">// Would log 0, 1, 2, 'coolMethod'</span>\n  <span class=\"hljs-built_in\">console</span>.log(key);\n}\n</code></pre>\n<h3>Alternatives</h3>\n<p>Either use a for-loop, or even better, use the built-in Array methods such as <code>.forEach</code>, <code>.map</code>, <code>.filter</code> and <code>.reduce</code>. I personally like the Array methods since they're a lot cleaner looking. A while loop could also be used, and can not only be useful for iterating an array forwards, but also backwards. It's also possible to iterate an array backwards with a regular for-loop, but the syntax is a little bit cleaner with a while loop.</p>\n<pre class=\"hljs\"><code><span class=\"hljs-keyword\">var</span> arr = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\n\n<span class=\"hljs-comment\">// for loop </span>\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">0</span>; i &lt; arr.length; i++) {\n  <span class=\"hljs-keyword\">var</span> item = arr[i];\n}\n\n<span class=\"hljs-comment\">// backwards iteration with a for loop</span>\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = arr.length; i &gt;= <span class=\"hljs-number\">0</span>; i--) {\n  <span class=\"hljs-keyword\">var</span> item = arr[i];\n}\n\n<span class=\"hljs-comment\">// Backwards iteration with a while loop</span>\n<span class=\"hljs-keyword\">var</span> i = arr.length;\n<span class=\"hljs-keyword\">while</span> (i--) {\n  <span class=\"hljs-keyword\">var</span> item = arr[i];\n}\n\narr.forEach(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">item</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(item);\n});\n\n<span class=\"hljs-keyword\">var</span> newArr = arr.map(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">item</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> item * <span class=\"hljs-number\">2</span>;\n});\n<span class=\"hljs-built_in\">console</span>.log(newArr); <span class=\"hljs-comment\">// [2, 4, 6]</span>\n\n<span class=\"hljs-keyword\">var</span> newArr = arr.filter(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">item</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> item !== <span class=\"hljs-number\">1</span>;\n});\n<span class=\"hljs-built_in\">console</span>.log(newArr); <span class=\"hljs-comment\">// [2, 3]</span>\n</code></pre>\n<p>Map and filter are useful because they reduce the boilerplate that you would have to set up with a for-loop or a while loop to accomplish the same task. You don't have to create a new array yourself, write an if statement to filter, or manually add or remove elements. For example, with filter you just pass a callback function that returns true for the elements you want to keep, and returns false for the elements of the array you want to remove. There's no need to create a new array, write an if statement for filtering, or manually adding to the new array with <code>.push</code>, it's all done in the background.</p>\n<h3>Conclusion</h3>\n<p>I'm sure there are even more reasons why for-in loops shouldn't be used for looping over arrays, but this is just a few I know. Just don't do it, leave the for-in loops for plain objects.</p>\n<h3>Further Reading</h3>\n<p><a href=\"http://www.2ality.com/2012/12/arrays.html\">2ality - Arrays</a></p>\n"
+}

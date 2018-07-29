@@ -1,0 +1,48 @@
+{
+  "excerpt": {
+    "content": "<p>This is an overview of some of the development tools I've found useful, as well as some opinions and experiences I have had with them.</p>\n",
+    "loc": {
+      "start": 0,
+      "end": 139
+    }
+  },
+  "layout": "post",
+  "author": "Anthony Koch",
+  "title": "The tools I use",
+  "tags": [
+    "development",
+    "tools"
+  ],
+  "id": 2,
+  "created_at": "2015-08-21T00:00:00.000Z",
+  "humanized": {
+    "created_at": "August, 20 2015"
+  },
+  "url": "/blog/the-tools-i-use",
+  "slug": "the-tools-i-use",
+  "next": {
+    "url": "/blog/remember-directories-in-con-emu",
+    "layout": "post",
+    "author": "Anthony Koch",
+    "title": "Remember directories in Con Emu",
+    "tags": [
+      "con emu",
+      "command line"
+    ],
+    "id": 3,
+    "created_at": "2015-11-15T00:00:00.000Z"
+  },
+  "previous": {
+    "url": "/blog/favorite-features-of-ES2015",
+    "layout": "post",
+    "author": "Anthony Koch",
+    "title": "My favorite features of ES2015",
+    "tags": [
+      "JavaScript",
+      "ES2015"
+    ],
+    "id": 1,
+    "created_at": "2015-08-17T00:00:00.000Z"
+  },
+  "contents": "<p>This is an overview of some of the development tools I've found useful, as well as some opinions and experiences I have had with them.</p>\n<!-- endexcerpt -->\n<h3>Con Emu</h3>\n<p>Con Emu is a <q>Windows <a href=\"http://askubuntu.com/questions/111144/are-terminal-and-shell-the-same\">console emulator</a> with tabs</q>. It has a lot of features and settings, and is very customizable. You can change the font, color scheme (the colors of the fonts), key bindings, transparency of the window, and other features.</p>\n<figure>\n\t<figcaption>A picture of Con Emu running the Git Bash shell</figcaption>\n\t<img src=\"{{site.images}}/posts/the-tools-i-use/con_emu_panels.png\" alt=\"An image of Git Bash running through Con Emu\">\n</figure>\n<h4>Transparency</h4>\n<p>One of the greatest features, in my opinion, is the the window transparency. Window transparency really helps when watching or reading a tutorial, and you don't want to keep switching back and forth between the command line and the browser.</p>\n<h4>Tabs</h4>\n<p>One of the things really lacking with the default windows command line, among lots of other things, is the lack of tabs. Con Emu not only has tabs, but allows multiple panes per tab! The panes can be aligned side be side or top and bottom.</p>\n<p>Each tab can be given a name for easy identification, and there is a tab restore setting that will preserve the directory the tab was closed at as well as the name the tab was given, so you don't have to keep opening up the same directory again and again. It's a great time saving feature.</p>\n<blockquote>\n<p><strong>Update:</strong> Con Emu can't remember the directory by default anymore, <a href=\"/blog/remember-directories-in-con-emu/\">read for more info</a></p>\n</blockquote>\n<h3>Git Bash</h3>\n<p>Git Bash is a shell that provides things like SSH (which Windows by default doesn't have), Git (of course), and various commands that are used in Linux/Mac OS. The picture above shows Git Bash, which I much prefer to the windows command line.</p>\n<h3>Sass</h3>\n<p>Sass is my preferred CSS preprocessor. There are people that hate on Sass, and other tools like it, but I think it's extremely useful, and makes CSS suck a lot less. The first time I saw Sass in use was by <a href=\"https://www.youtube.com/user/DevTipsForDesigners\">Travis Neilson</a>. He used the <a href=\"https://www.youtube.com/watch?v=-Z3qznaE9vc\">indented version</a> of Sass, which I also prefer over the SCSS syntax. To me, it's a lot cleaner looking, and will continue to boggle my mind why so few people use it.</p>\n<p>I really like what Sass has to offer. File separation, variables, mixins, and functions make writing CSS so much easier. One useful library I use with Sass is called <a href=\"http://bourbon.io/docs\">Bourbon</a>. Bourbon provides a bunch of mixins, such as <code>+position</code>, <code>+size</code>, and <code>+padding</code>. The position mixin allows you to specify the position, top, right, bottom, and left properties all in one place. This is useful to me because I like to specify properties in alphabetical order, but I also like to related properties together.</p>\n<pre class=\"hljs\"><code><span class=\"hljs-comment\">/*\n\tAn example of the indented version of Sass\n\t\n\tBtw: The `+` operator is an alternative syntax to @include\n\tand is exclusive to the indented syntax\n*/</span>\n\n<span class=\"hljs-selector-class\">.card</span>\n\t<span class=\"hljs-selector-tag\">padding</span>: 30<span class=\"hljs-selector-tag\">px</span>\n\t+<span class=\"hljs-selector-tag\">position</span>(<span class=\"hljs-selector-tag\">relative</span>, 20<span class=\"hljs-selector-tag\">px</span> 30<span class=\"hljs-selector-tag\">px</span> 0 <span class=\"hljs-selector-tag\">null</span>)\n\t+<span class=\"hljs-selector-tag\">size</span>(400<span class=\"hljs-selector-tag\">px</span>)\n\n\n@<span class=\"hljs-keyword\">media</span> screen and (max-width: <span class=\"hljs-number\">500px</span>)\n\t+padding(null <span class=\"hljs-number\">15px</span>)\n</code></pre>\n<p>The above would be output as:</p>\n<pre class=\"hljs\"><code><span class=\"hljs-selector-class\">.card</span> {\n\t<span class=\"hljs-attribute\">padding</span>: <span class=\"hljs-number\">30px</span>;\n\n\t<span class=\"hljs-attribute\">position</span>: relative;\n\t<span class=\"hljs-attribute\">top</span>: <span class=\"hljs-number\">20px</span>;\n\t<span class=\"hljs-attribute\">right</span>: <span class=\"hljs-number\">30px</span>;\n\t<span class=\"hljs-attribute\">bottom</span>: <span class=\"hljs-number\">0</span>;\n\n\t<span class=\"hljs-attribute\">height</span>: <span class=\"hljs-number\">400px</span>;\n\t<span class=\"hljs-attribute\">width</span>: <span class=\"hljs-number\">400px</span>;\n}\n\n// <span class=\"hljs-selector-tag\">Override</span> <span class=\"hljs-selector-tag\">just</span> <span class=\"hljs-selector-tag\">the</span> <span class=\"hljs-selector-tag\">right</span> <span class=\"hljs-selector-tag\">and</span> <span class=\"hljs-selector-tag\">left</span>\n@<span class=\"hljs-keyword\">media</span> screen and (max-width: <span class=\"hljs-number\">500px</span>) {\n\t<span class=\"hljs-selector-tag\">padding-right</span>: 15<span class=\"hljs-selector-tag\">px</span>;\n\t<span class=\"hljs-selector-tag\">padding-left</span>: 15<span class=\"hljs-selector-tag\">px</span>;\n}\n</code></pre>\n<h3>Gulp and Webpack</h3>\n<p>I started using Gulp because I wanted to start using Sass, and I read the gulp-sass plugin was so much faster than ruby-sass (which it is). I now use Gulp for live reloading, compiling Sass, and JavaScript minification. Getting started with Gulp was pretty easy after watching a couple <a href=\"https://www.youtube.com/playlist?list=PLLnpHn493BHE2RsdyUNpbiVn-cfuV7Fos\">tutorials</a>. I was able to get up and going with it in a small amount of time.</p>\n<p>Some while after learning Gulp, I came across <a href=\"http://webpack.github.io/\">Webpack</a>. Webpack is a bundler tool that can be used to preprocess files, bundle JavaScript, and many other tasks. My interest in it was being able to transpile ES6 code to ES5 as well as giving the ability to require modules like in nodejs. I had originally looked into Browserify for this, but I couldn't figure out how to set it up, and Webpack seemed like the easier option.</p>\n<p>Webpack took me a much longer time to learn and get going than gulp did. I don't know why, but I just couldn't make sense of how to set it up. And that's the thing with tools like this, they are difficult to learn for a beginner, and the setup can take a long time, plus they also take up a bit of disk space.</p>\n<h3>Further Resources</h3>\n<p><a href=\"https://conemu.github.io/\">Con Emu</a>\n<a href=\"https://git-for-windows.github.io/\">Git Bash for Windows</a>\n<a href=\"https://github.com/gulpjs/gulp\">GulpJS</a>\n<a href=\"http://webpack.github.io/\">Webpack</a></p>\n"
+}

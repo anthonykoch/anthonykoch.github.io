@@ -1,15 +1,11 @@
+# STATIC
 
-# My website
+This directory contains your static files.
+Each file inside this directory is mapped to /.
 
-This is my site. Cool, init?
+Example: /static/robots.txt is mapped as /robots.txt.
 
+More information about the usage of this directory in the documentation:
+https://nuxtjs.org/guide/assets#static
 
-## Todo
-
-- Change BEM to SUIT
-- Make the typography more consistent
-- Prefix animations with a-
-- Remove $z-indexes
-- Change comments to use triple forward slashes
-- Fix comments throughout files
-
+**This directory is not required, you can delete it if you don't want to use it.**
