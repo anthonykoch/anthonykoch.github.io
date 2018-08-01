@@ -3,10 +3,9 @@
     "content": "<p>After an hour of research, trial, and error, I finally figured out how to get Con Emu to remember directories for tabs using Git Bash. When I first started using Con Emu, I swear it used to do this by default, but I guess updates in Con Emu or the Git Bash shell broke this feature. Either way, I've found a solution that worked for me to get this feature back.</p>\n",
     "loc": {
       "start": 0,
-      "end": 364
+      "end": 369
     }
   },
-  "layout": "post",
   "author": "Anthony Koch",
   "title": "Remember directories in Con Emu",
   "tags": [
@@ -22,7 +21,6 @@
   "slug": "remember-directories-in-con-emu",
   "next": {
     "url": "/blog/why-you-shouldnt-loop-arrays-with-for-in",
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Why you shouldn't loop arrays with for-in",
     "tags": [
@@ -34,7 +32,6 @@
   },
   "previous": {
     "url": "/blog/the-tools-i-use",
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "The tools I use",
     "tags": [

@@ -3,10 +3,9 @@
     "content": "<p>I was on the <a href=\"https://medium.com/\">Medium</a> website and noticed a cool effect  they do when they lazy load their images. The image first appears blurry, and then slowly unblurs or fades out to reveal the actual image. I thought this was pretty cool, and wanted to see if I could achieve a similar effect.</p>\n",
     "loc": {
       "start": 0,
-      "end": 306
+      "end": 322
     }
   },
-  "layout": "post",
   "author": "Anthony Koch",
   "title": "Medium style image loading",
   "tags": [
@@ -23,7 +22,6 @@
   "slug": "medium-style-images",
   "next": {
     "url": "/blog/understanding-javascript-prototypes",
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Understanding JavaScript Prototypes",
     "tags": [
@@ -35,7 +33,6 @@
   },
   "previous": {
     "url": "/blog/why-you-shouldnt-loop-arrays-with-for-in",
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Why you shouldn't loop arrays with for-in",
     "tags": [

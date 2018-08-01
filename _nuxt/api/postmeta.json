@@ -1,13 +1,35 @@
 [
   {
     "excerpt": {
+      "content": "<p>I rewrote my website and blog using <a href=\"https://nuxtjs.org/\">nuxt.js</a>. The experience did not come without a bit of blood, sweat, and tears, but I'm happy with the end result. This is not so much a tutorial as it is a reflection on the experience and why I did what I did.</p>\n",
+      "loc": {
+        "start": 0,
+        "end": 288
+      }
+    },
+    "author": "Anthony Koch",
+    "title": "Just Nuxt Things",
+    "tags": [
+      "nuxt",
+      "vue",
+      "webpack"
+    ],
+    "id": 7,
+    "created_at": "2018-07-29T00:00:00.000Z",
+    "humanized": {
+      "created_at": "July, 28 2018"
+    },
+    "url": "/blog/just-nuxt-things",
+    "slug": "just-nuxt-things"
+  },
+  {
+    "excerpt": {
       "content": "<p>Several months ago, I set out to get a deeper understanding of JavaScript, specifically in the area of prototypes. Prototypes were a fuzzy concept for me. I sort of knew how to use them, but didn't fully understand them. After a lot of study, I've started to see the picture of how prototypes work, and that they are not as complicated as I first thought.</p>\n",
       "loc": {
         "start": 0,
-        "end": 358
+        "end": 363
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Understanding JavaScript Prototypes",
     "tags": [
@@ -27,10 +49,9 @@
       "content": "<p>I was on the <a href=\"https://medium.com/\">Medium</a> website and noticed a cool effect  they do when they lazy load their images. The image first appears blurry, and then slowly unblurs or fades out to reveal the actual image. I thought this was pretty cool, and wanted to see if I could achieve a similar effect.</p>\n",
       "loc": {
         "start": 0,
-        "end": 306
+        "end": 322
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Medium style image loading",
     "tags": [
@@ -51,10 +72,9 @@
       "content": "<p>I had a friend ask me why you shouldn't iterate over arrays with a for-in loop, since after all, when he tried it everything worked as expected. Well, the reasoning for why you shouldn't do this is not immediately apparent, especially if you do not understand how property lookup and prototypes work.</p>\n",
       "loc": {
         "start": 0,
-        "end": 306
+        "end": 308
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Why you shouldn't loop arrays with for-in",
     "tags": [
@@ -74,10 +94,9 @@
       "content": "<p>After an hour of research, trial, and error, I finally figured out how to get Con Emu to remember directories for tabs using Git Bash. When I first started using Con Emu, I swear it used to do this by default, but I guess updates in Con Emu or the Git Bash shell broke this feature. Either way, I've found a solution that worked for me to get this feature back.</p>\n",
       "loc": {
         "start": 0,
-        "end": 364
+        "end": 369
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "Remember directories in Con Emu",
     "tags": [
@@ -97,10 +116,9 @@
       "content": "<p>This is an overview of some of the development tools I've found useful, as well as some opinions and experiences I have had with them.</p>\n",
       "loc": {
         "start": 0,
-        "end": 139
+        "end": 142
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "The tools I use",
     "tags": [
@@ -120,10 +138,9 @@
       "content": "<p>ES2015, formerly called ES6, brings a lot of great features to JavaScript. A lot of the new features provide a much cleaner syntax for common tasks, and makes writing JavaScript so much better. After using these features for a while, I can't imagine going back to ES5. Here's an overview of my favorite features of ES2015.</p>\n",
       "loc": {
         "start": 0,
-        "end": 327
+        "end": 330
       }
     },
-    "layout": "post",
     "author": "Anthony Koch",
     "title": "My favorite features of ES2015",
     "tags": [
