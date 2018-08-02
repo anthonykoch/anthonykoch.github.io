@@ -20,7 +20,17 @@
   },
   "url": "/blog/just-nuxt-things",
   "slug": "just-nuxt-things",
-  "next": null,
+  "next": {
+    "url": "/blog/use-normalize-css",
+    "author": "Anthony Koch",
+    "title": "Use normalize css",
+    "tags": [
+      "css",
+      "normalize"
+    ],
+    "id": 8,
+    "created_at": "2018-08-03T00:00:00.000Z"
+  },
   "previous": {
     "url": "/blog/understanding-javascript-prototypes",
     "author": "Anthony Koch",

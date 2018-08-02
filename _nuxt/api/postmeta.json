@@ -1,6 +1,28 @@
 [
   {
     "excerpt": {
+      "content": "<p>To use <code>normalize.css</code> or to not use <code>normalize.css</code>. That is the question. I'll say that if you're supporting older browsers (especially IE), you should definitely be using it. However, before we get into why you should use it, let's go over what CSS resets are and how they differ from <code>normalize.css</code>.</p>\n",
+      "loc": {
+        "start": 0,
+        "end": 345
+      }
+    },
+    "author": "Anthony Koch",
+    "title": "Use normalize css",
+    "tags": [
+      "css",
+      "normalize"
+    ],
+    "id": 8,
+    "created_at": "2018-08-03T00:00:00.000Z",
+    "humanized": {
+      "created_at": "August, 2 2018"
+    },
+    "url": "/blog/use-normalize-css",
+    "slug": "use-normalize-css"
+  },
+  {
+    "excerpt": {
       "content": "<p>I rewrote my website and blog using <a href=\"https://nuxtjs.org/\">nuxt.js</a>. The experience did not come without a bit of blood, sweat, and tears, but I'm happy with the end result. This is not so much a tutorial as it is a reflection on the experience and why I did what I did.</p>\n",
       "loc": {
         "start": 0,
