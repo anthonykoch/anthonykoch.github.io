@@ -1,6 +1,28 @@
 [
   {
     "excerpt": {
+      "content": "<p>Server-Side Rendering (SSR) seems to be all the rage nowadays, so I'd thought I'd get in on the action by trying out <a href=\"https://nextjs.org\">NextJS</a>, which is a framework for writing SSR applications in React. Next allows rendering your React application pages to HTML on the server, meaning that users be able to see your application interface before React has even loaded into the browser.</p>\n",
+      "loc": {
+        "start": 0,
+        "end": 407
+      }
+    },
+    "author": "Anthony Koch",
+    "title": "NextJS Impressions",
+    "tags": [
+      "nextjs",
+      "review"
+    ],
+    "id": 10,
+    "created_at": "2018-10-09T00:00:00.000Z",
+    "humanized": {
+      "created_at": "October, 8 2018"
+    },
+    "url": "/blog/nextjs-impressions",
+    "slug": "nextjs-impressions"
+  },
+  {
+    "excerpt": {
       "content": "<p>It's become a common pattern in the JavaScript world to use the <code>||</code> (called the &quot;logical or&quot;) operator for the purpose of setting a default value for a function argument. While it works quite well in most cases, but there are two cases where troubles may arise.</p>\n",
       "loc": {
         "start": 0,
